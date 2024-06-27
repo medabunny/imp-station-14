@@ -54,8 +54,8 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 12
-        Piercing: 8
+        Slash: 10
+        Piercing: 7
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
@@ -144,11 +144,11 @@
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
     angle: 0
-    attackRate: 0.75
+    attackRate: 0.55
     animation: WeaponArcFist
     damage:
       types:
-        Blunt: 66 #oof ouch owie my bones
+        Blunt: 54 #oof ouch owie my bones (reduced)
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7
