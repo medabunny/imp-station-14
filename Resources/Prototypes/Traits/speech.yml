@@ -152,3 +152,12 @@
   cost: 2
   components:
   - type: SpanishAccent
+
+- type: trait
+  id: Snalien
+  name: trait-snalien-name
+  description: trait-snalien-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: SnalienAccent
