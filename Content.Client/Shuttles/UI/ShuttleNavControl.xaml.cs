@@ -225,10 +225,10 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
                 // The actual position in the UI. We offset the matrix position to render it off by half its width
                 // plus by the offset.
-                var uiPosition = ScalePosition(gridCentre)- new Vector2(labelDimensions.X / 2f, -yOffset);
+                var uiPosition = ScalePosition(gridCentre) - new Vector2(labelDimensions.X / 2f, -yOffset);
 
                 // Look this is uggo so feel free to cleanup. We just need to clamp the UI position to within the viewport.
-                uiPosition = new Vector2(Math.Clamp(uiPosition.X, 0f, PixelWidth - labelDimensions.X ),
+                uiPosition = new Vector2(Math.Clamp(uiPosition.X, 0f, PixelWidth - labelDimensions.X),
                     Math.Clamp(uiPosition.Y, 0f, PixelHeight - labelDimensions.Y));
 
                 handle.DrawString(Font, uiPosition, labelText, color);
