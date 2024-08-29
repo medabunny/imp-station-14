@@ -417,7 +417,7 @@
     sprite: Objects/Weapons/Grenades/beenade.rsi
   - type: SmokeOnTrigger
     duration: 15
-    spreadAmount: 20
+    spreadAmount: 15
     smokePrototype: Foam
     solution:
       reagents:
