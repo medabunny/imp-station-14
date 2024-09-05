@@ -95,7 +95,6 @@
   name: store-category-abilities
 
 # changeling
-
 - type: storeCategory
   id: ChangelingAbilityCombat
   name: store-ling-category-combat
@@ -110,3 +109,8 @@
   id: ChangelingAbilityUtility
   name: store-ling-category-utility
   priority: 2
+
+- type: storeCategory
+  id: DiscountedItems
+  name: store-discounted-items
+  priority: 200
