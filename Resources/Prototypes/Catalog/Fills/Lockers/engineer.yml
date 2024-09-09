@@ -39,6 +39,8 @@
         prob: 0.3
       - id: SprayPainter
         prob: 0.7
+      - id: HolofanProjector
+        prob: 0.1
 
 - type: entity
   id: LockerElectricalSuppliesFilled
@@ -126,6 +128,7 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
+      - id: HolofanProjector
 
 - type: entity
   id: LockerEngineerFilled
@@ -139,6 +142,7 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+      - id: HolofanProjector
 
 - type: entity
   id: ClosetRadiationSuitFilled
