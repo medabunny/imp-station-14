@@ -334,6 +334,13 @@
   - ChaplainNeck
 
 - type: loadoutGroup
+  id: ChaplainRitual
+  name: loadout-group-chaplain-bottle
+  minLimit: 0
+  loadouts:
+  - DrinkPoisonWinebottleFull
+
+- type: loadoutGroup
   id: JanitorHead
   name: loadout-group-janitor-head
   minLimit: 0
