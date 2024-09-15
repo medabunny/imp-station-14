@@ -52,7 +52,7 @@
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseRestrictedContraband]
   id: ClothingEyesHudSecurity
   name: security hud
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. Comes with flash-proof contact lenses.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/sec.rsi
@@ -61,6 +61,7 @@
   - type: Tag
     tags:
     - HudSecurity
+  - type: FlashImmunity
 
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
@@ -155,7 +156,7 @@
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityCommandContraband]
   id: ClothingEyesHudMedSec
   name: medsec hud
-  description: An eye display that looks like a mixture of medical and security huds.
+  description: An eye display that looks like a mixture of medical and security huds. Comes with flash-proof contact lenses.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/medsec.rsi
@@ -164,6 +165,7 @@
   - type: Construction
     graph: HudMedSec
     node: medsecHud
+  - type: FlashImmunity
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
@@ -251,12 +253,13 @@
   parent: [ClothingEyesHudSecurity, ClothingHeadEyeBaseFlippable]
   id: ClothingEyesEyepatchHudSecurity
   name: security hud eyepatch
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots. Comes with flash-proof contact lenses.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/secpatch.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/secpatch.rsi
+  - type: FlashImmunity
 
 - type: entity
   parent: [ClothingEyesEyepatchHudSecurity,  ClothingHeadEyeBaseFlipped]
