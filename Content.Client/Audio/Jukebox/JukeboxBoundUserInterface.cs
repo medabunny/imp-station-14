@@ -1,4 +1,5 @@
 using Content.Shared.Audio.Jukebox;
+using Content.Shared.Emag.Components;
 using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Components;
@@ -71,7 +72,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
     public void PopulateMusic()
     {
-        _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>());
+        _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>(), EntMan.HasComponent<EmaggedComponent>(Owner));
     }
 
     public void SelectSong(ProtoId<JukeboxPrototype> songid)

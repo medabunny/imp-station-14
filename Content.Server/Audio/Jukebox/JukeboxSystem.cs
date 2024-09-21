@@ -1,6 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Audio.Jukebox;
+using Content.Shared.Emag.Components;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -98,6 +99,12 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxSelected(EntityUid uid, JukeboxComponent component, JukeboxSelectedMessage args)
     {
+        if (!_protoManager.TryIndex(args.SongId, out var jukeboxProto))
+            return;
+
+        if (jukeboxProto.RequiresEmag && !HasComp<EmaggedComponent>(uid))
+            return;
+
         if (!Audio.IsPlaying(component.AudioStream))
         {
             component.SelectedSongId = args.SongId;

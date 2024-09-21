@@ -84,12 +84,15 @@ public sealed partial class JukeboxMenu : FancyWindow
     /// <summary>
     /// Re-populates the list of jukebox prototypes available.
     /// </summary>
-    public void Populate(IEnumerable<JukeboxPrototype> jukeboxProtos)
+    public void Populate(IEnumerable<JukeboxPrototype> jukeboxProtos, bool includeEmags)
     {
         MusicList.Clear();
 
         foreach (var entry in jukeboxProtos)
         {
+            if (entry.RequiresEmag && !includeEmags)
+                continue;
+
             MusicList.AddItem(entry.Name, metadata: entry.ID);
         }
     }

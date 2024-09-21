@@ -261,3 +261,10 @@
   name: KiloWatts - Two Days Off
   path:
     path: /Audio/Jukebox/twodaysoff.ogg
+
+- type: jukebox
+  id: Gondal
+  name: Gondal
+  path:
+    path: /Audio/Lobby/gondalbad.ogg
+  requiresEmag: true

@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -37,6 +38,9 @@ public sealed partial class JukeboxComponent : Component
 
     [ViewVariables]
     public float SelectAccumulator;
+
+    [ViewVariables]
+    public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 }
 
 [Serializable, NetSerializable]
