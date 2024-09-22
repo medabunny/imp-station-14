@@ -266,5 +266,5 @@
   id: Gondal
   name: Gondal
   path:
-    path: /Audio/Lobby/gondalbad.ogg
+    path: /Audio/Jukebox/gondalbad.ogg
   requiresEmag: true
