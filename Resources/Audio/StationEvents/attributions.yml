@@ -17,3 +17,13 @@
   license: "Custom"
   copyright: "Hurry Up! by Ryoji Yoshitomi"
   source: "https://youtube.com/watch?v=fihc2ONQ5v0"
+
+- files: ["umib_185.ogg"]
+  license: "Custom"
+  copyright: "the executioner by zts"
+  source: "うみねこのなく頃に散 ~真実と幻想の夜想曲~ [When The Seagulls Cry Scattering ~Nocturne of Truth and Illusions~]"
+
+- files: ["black_tar.ogg"]
+  license: "Custom"
+  copyright: "Black tar by Hiroyuki Sawano feat. mpi and David Whitaker"
+  source: "Xenoblade Chronicles X"
