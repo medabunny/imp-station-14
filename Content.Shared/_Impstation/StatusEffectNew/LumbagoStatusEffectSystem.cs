@@ -24,7 +24,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
 
     private readonly TimeSpan _lumbagoUpdateInterval= TimeSpan.FromSeconds(1);
     private TimeSpan _lumbagoUpdateTimer = TimeSpan.Zero;
-    private readonly EntProtoId _FlareUpStatusEffect = "LumbagoFlareUpSlowdownStatusEffect";
+    private readonly EntProtoId _flareUpStatusEffect = "LumbagoFlareUpSlowdownStatusEffect";
 
     public override void Initialize()
     {
@@ -58,7 +58,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
     }
 
     /// <summary>
-    /// Every second we roll to start a flair up and send a reminder.
+    /// Every second we check the flare up timers of each entity with the status effect.
     /// </summary>
     /// <param name="frameTime"></param>
     public override void Update(float frameTime)
@@ -80,19 +80,19 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, statusOwner.GetHashCode());
             var rand = new System.Random(seed);
 
-            //if we roll below or at the chance for a flair up, give the status owner LumbagoFlareUpSlowdownStatusEffect
+            //if we have reached the time for the next flare up, trigger it.
             if (_timing.CurTime >= lumbagoComp.LumbagFlareUpDelay)
             {
                 var duration = TimeSpan.FromSeconds(rand.NextFloat(lumbagoComp.FlareUpDurationMinMax.Min, lumbagoComp.FlareUpDurationMinMax.Max));
-                _movementMod.TryAddMovementSpeedModDuration(statusOwner, _FlareUpStatusEffect, duration,lumbagoComp.FlareUpMovementSpeedMod);
+                _movementMod.TryAddMovementSpeedModDuration(statusOwner, _flareUpStatusEffect, duration,lumbagoComp.FlareUpMovementSpeedMod);
                 lumbagoComp.LumbagFlareUpDelay=_timing.CurTime +
                                                duration +
                                                TimeSpan.FromSeconds(rand.NextInt64(lumbagoComp.LumbagoFlareUpDelayMinMax.Min, lumbagoComp.LumbagoFlareUpDelayMinMax.Max));
                 DirtyEntity(statusOwner);
             }
 
-            //Send a reminder to the player if we roll below or at reminder chance and there is a flair up occuring.
-            if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay && _statusEffects.HasStatusEffect(statusOwner, _FlareUpStatusEffect))
+            //Send a reminder to the player when the timer runs out and there is a flair up occuring.
+            if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay && _statusEffects.HasStatusEffect(statusOwner, _flareUpStatusEffect))
             {
                 var selected = rand.Next(lumbagoComp.BadPainReminders.Count);
                 if(!lumbagoComp.BadPainReminders.TryGetValue(selected, out var reminder))
@@ -105,7 +105,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
                 DirtyEntity(statusOwner);
 
             }
-            //Send a reminder to the player if we roll below or at reminder chance
+            //Send a reminder to the player when the timer runs out.
             else if (_timing.CurTime >= lumbagoComp.LumbagoReminderDelay)
             {
                 var selected = rand.Next(lumbagoComp.MildPainReminders.Count);
