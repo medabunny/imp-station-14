@@ -82,9 +82,10 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     targetCoordinates,
                     Angle.Zero,
                     hyperspaceTime: comp.TravelTime,
+                    destroyFloor: true,
+                    arrivalKnockRadius: comp.ArrivalKnockRadius,
                     travelSound: comp.TravelSound,
-                    globalArrivalSound: comp.ArrivalSound,
-                    destroyFloor: true);
+                    globalArrivalSound: comp.ArrivalSound);
 
                 if (!TryFindNukeOpsRule(out var nukeopsRule)
                     || nukeopsRule?.TargetStation is not { } targetStation)

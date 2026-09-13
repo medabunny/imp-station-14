@@ -32,6 +32,9 @@ public sealed partial class AssaultPodConsoleComponent : Component
     public float TravelTime = 11f;
 
     [DataField]
+    public float ArrivalKnockRadius = 15;
+
+    [DataField]
     public TimeSpan TimeTillLaunch = TimeSpan.FromSeconds(30);
 
     [DataField]

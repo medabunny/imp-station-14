@@ -266,15 +266,19 @@ public sealed partial class ShuttleSystem
         float? startupTime = null,
         float? hyperspaceTime = null,
         string? priorityTag = null,
-        SoundSpecifier? travelSound = null, // imp
-        SoundSpecifier? globalArrivalSound = null, // imp
-        bool destroyFloor = false) // imp
+        // imp start
+        bool destroyFloor = false,
+        float arrivalKnockRadius = 0,
+        SoundSpecifier? travelSound = null,
+        SoundSpecifier? globalArrivalSound = null
+        ) // imp end
     {
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
             return;
 
         startupTime ??= DefaultStartupTime;
         hyperspaceTime ??= DefaultTravelTime;
+        travelSound ??= hyperspace.TravelSound; // imp
 
         hyperspace.StartupTime = startupTime.Value;
         hyperspace.TravelTime = hyperspaceTime.Value;
@@ -284,10 +288,12 @@ public sealed partial class ShuttleSystem
         hyperspace.TargetCoordinates = coordinates;
         hyperspace.TargetAngle = angle;
         hyperspace.PriorityTag = priorityTag;
-        if (travelSound != null) // imp
-            hyperspace.TravelSound = travelSound; // imp
-        hyperspace.GlobalArrivalSound = globalArrivalSound; // imp
-        hyperspace.DestroyFloor = destroyFloor; // imp
+        // imp start
+        hyperspace.ArrivalKnockdownRadius = arrivalKnockRadius;
+        hyperspace.DestroyFloor = destroyFloor;
+        hyperspace.TravelSound = travelSound;
+        hyperspace.GlobalArrivalSound = globalArrivalSound;
+        // imp end
 
         _console.RefreshShuttleConsoles(shuttleUid);
 
@@ -470,7 +476,9 @@ public sealed partial class ShuttleSystem
         var xform = _xformQuery.GetComponent(uid);
         var body = _physicsQuery.GetComponent(uid);
         var comp = entity.Comp1;
+        /* imp move
         DoTheDinosaur(xform);
+        */
         _dockSystem.SetDockBolts(entity, false);
 
         _physics.SetLinearVelocity(uid, Vector2.Zero, body: body);
@@ -573,13 +581,15 @@ public sealed partial class ShuttleSystem
         // imp start
         if (comp.DestroyFloor)
         {
-            var entitiesBeforeLanding = new HashSet<EntityUid>();
+            var beforeArrivalEnts = new HashSet<EntityUid>();
             var enumerator = xform.ChildEnumerator;
             while (enumerator.MoveNext(out var child))
-                entitiesBeforeLanding.Add(child);
+                beforeArrivalEnts.Add(child);
 
-            RemoveTiles(entity, entitiesBeforeLanding, xform: xform);
+            RemoveTiles(entity, beforeArrivalEnts, xform: xform);
         }
+
+        DoTheDinosaur(xform, comp.ArrivalKnockdownRadius);
         // imp end
 
         _console.RefreshShuttleConsoles(uid);
@@ -644,10 +654,12 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Puts everyone unbuckled on the floor, paralyzed.
     /// </summary>
-    private void DoTheDinosaur(TransformComponent xform)
+    private void DoTheDinosaur(TransformComponent xform, float range = 0) // imp add float range = 0
     {
         // Get enumeration exceptions from people dropping things if we just paralyze as we go
         var toKnock = new ValueList<EntityUid>();
+        if (range > 0) // imp
+            toKnock.AddRange(_lookup.GetEntitiesInRange(xform.Coordinates, range, LookupFlags.Dynamic)); // imp
         KnockOverKids(xform, ref toKnock);
         TryComp<MapGridComponent>(xform.GridUid, out var grid);
 
@@ -696,9 +708,13 @@ public sealed partial class ShuttleSystem
         while (childEnumerator.MoveNext(out var child))
         {
             if (!_buckleQuery.TryGetComponent(child, out var buckle) || buckle.Buckled)
+            {
+                toKnock.Remove(child); // imp
                 continue;
+            }
 
-            toKnock.Add(child);
+            if (!toKnock.Contains(child)) // imp, add conditional
+                toKnock.Add(child);
         }
     }
 
@@ -1053,7 +1069,7 @@ public sealed partial class ShuttleSystem
     /// Imp.
     /// Removes all tiles that are under the grid upon FTL arrival and deletes entities that were not on the shuttle.
     /// </summary>
-    private void RemoveTiles(EntityUid uid, HashSet<EntityUid> entitiesBeforeLanding, FixturesComponent? manager = null, TransformComponent? xform = null)
+    private void RemoveTiles(EntityUid uid, HashSet<EntityUid> beforeArrivalEnts, FixturesComponent? manager = null, TransformComponent? xform = null)
     {
         if (!Resolve(uid, ref manager, ref xform) || xform.MapUid == null)
             return;
@@ -1084,14 +1100,14 @@ public sealed partial class ShuttleSystem
         }
 
         // handles deletion of entities here since tile change messes with smimsh logic
-        var children = new HashSet<EntityUid>();
+        var children = new ValueList<EntityUid>();
         var enumerator = xform.ChildEnumerator;
         while (enumerator.MoveNext(out var child))
             children.Add(child);
 
         foreach (var child in children)
         {
-            if (!entitiesBeforeLanding.Remove(child))
+            if (!beforeArrivalEnts.Remove(child))
             {
                 if (_immuneQuery.HasComponent(child))
                     continue;
