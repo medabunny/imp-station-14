@@ -135,3 +135,6 @@ trait-hemorrhage-desc = You lose more blood while bleeding.
 trait-hungry-name = Hungry
 trait-hungry-desc = You skipped breakfast and will get hungry 5x faster than the average humanoid.
                        Incompatible with Kodepiia.
+
+trait-lumbago-name = Lumbago
+trait-lumbago-desc = You have lower back pain that makes pulling slower. Occasionally flares up, causing you to slowdown.

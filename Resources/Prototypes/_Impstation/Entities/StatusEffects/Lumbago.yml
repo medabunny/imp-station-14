@@ -1,0 +1,13 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectLumbago
+  name: Lumbago
+  components:
+  - type: LumbagoStatusEffect
+    mildPainReminders: ["lumbago-reminder-mild-1", "lumbago-reminder-mild-2", "lumbago-reminder-mild-3", "lumbago-reminder-mild-4", "lumbago-reminder-mild-5"]
+    badPainReminders: ["lumbago-reminder-bad-1", "lumbago-reminder-bad-2", "lumbago-reminder-bad-3", "lumbago-reminder-bad-4", "lumbago-reminder-bad-5"]
+
+- type: entity
+  parent: StatusEffectSlowdown
+  id: LumbagoFlareUpSlowdownStatusEffect
+  name: Lumbago Flare Up

@@ -181,3 +181,14 @@
   components:
   - type: HungryTrait
   cost: -1
+
+- type: trait
+  id: Lumbago
+  name: trait-lumbago-name
+  description: trait-lumbago-desc
+  category: Traits
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectLumbago
+  cost: -4
