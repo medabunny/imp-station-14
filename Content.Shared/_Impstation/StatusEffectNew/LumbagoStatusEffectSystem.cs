@@ -69,7 +69,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             return;
 
         var query = EntityQueryEnumerator<LumbagoStatusEffectComponent,StatusEffectComponent>();
-        _lumbagoUpdateTimer = _timing.CurTime+_lumbagoUpdateInterval;
+        _lumbagoUpdateTimer += _lumbagoUpdateInterval;
 
         while (query.MoveNext(out _, out var lumbagoComp, out var statusComp))
         {
@@ -85,9 +85,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
             {
                 var duration = TimeSpan.FromSeconds(rand.NextFloat(lumbagoComp.FlareUpDurationMinMax.Min, lumbagoComp.FlareUpDurationMinMax.Max));
                 _movementMod.TryAddMovementSpeedModDuration(statusOwner, _flareUpStatusEffect, duration,lumbagoComp.FlareUpMovementSpeedMod);
-                lumbagoComp.LumbagFlareUpDelay=_timing.CurTime +
-                                               duration +
-                                               TimeSpan.FromSeconds(rand.NextInt64(lumbagoComp.LumbagoFlareUpDelayMinMax.Min, lumbagoComp.LumbagoFlareUpDelayMinMax.Max));
+                lumbagoComp.LumbagFlareUpDelay += duration + TimeSpan.FromSeconds(rand.NextInt64(lumbagoComp.LumbagoFlareUpDelayMinMax.Min, lumbagoComp.LumbagoFlareUpDelayMinMax.Max));
                 DirtyEntity(statusOwner);
             }
 
@@ -100,8 +98,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
 
                 _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner, PopupType.SmallCaution);
 
-                lumbagoComp.LumbagoReminderDelay=_timing.CurTime +
-                                                 TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Min,lumbagoComp.LumbagoReminderDelayMinMax.Max);
+                lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Min,lumbagoComp.LumbagoReminderDelayMinMax.Max);
                 DirtyEntity(statusOwner);
 
             }
@@ -114,8 +111,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
 
                 _popup.PopupClient(Loc.GetString(reminder), statusOwner, statusOwner);
 
-                lumbagoComp.LumbagoReminderDelay=_timing.CurTime +
-                                                 TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Min,lumbagoComp.LumbagoReminderDelayMinMax.Max);
+                lumbagoComp.LumbagoReminderDelay += TimeSpan.FromSeconds(lumbagoComp.LumbagoReminderDelayMinMax.Min,lumbagoComp.LumbagoReminderDelayMinMax.Max);
                 DirtyEntity(statusOwner);
             }
 
