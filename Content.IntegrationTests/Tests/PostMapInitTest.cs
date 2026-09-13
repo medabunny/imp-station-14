@@ -155,6 +155,7 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
+            "OmegaImp",
 
             // DEROTATED:
             //"RelicImp",

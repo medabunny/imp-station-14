@@ -591,6 +591,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  - !type:AddComponentSpecial # imp addition
+    components:
+    - type: PerfectThrower
 
 - type: startingGear
   parent: ERTJanitorGearEVA

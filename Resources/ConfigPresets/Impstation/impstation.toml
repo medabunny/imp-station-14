@@ -7,6 +7,7 @@ soft_max_players = 100
 round_restart_time = 150
 # default 150
 lobbyduration = 600
+maxcharacterslots = 50
 
 [server]
 # TODO

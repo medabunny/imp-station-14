@@ -6,6 +6,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Content.Shared._Impstation.Containers; // imp
 
 namespace Content.Server.Containers;
 
@@ -37,7 +38,7 @@ public sealed class ThrowInsertContainerSystem : EntitySystem
         if (beforeThrowArgs.Cancelled)
             return;
 
-        if (!_random.Prob(ent.Comp.Probability))
+        if (!_random.Prob(ent.Comp.Probability) && !HasComp<PerfectThrowerComponent>(args.Component.Thrower)) // imp edit, add "&& !HasComp<PerfectThrowerComponent>(args.Component.Thrower)"
         {
             _audio.PlayPvs(ent.Comp.MissSound, ent);
             _popup.PopupEntity(Loc.GetString(ent.Comp.MissLocString), ent);

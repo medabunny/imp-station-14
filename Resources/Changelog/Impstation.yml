@@ -1,139 +1,4 @@
 ﻿Entries:
-- author: Widgetbeck, Airfryerbuyonegetonefree
-  changes:
-  - message: Added a *shocking* new event.
-    type: Add
-  id: 2429
-  time: '2025-11-15T00:12:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3561
-- author: eviltori
-  changes:
-  - message: random character appearances have gotten less zany.
-    type: Tweak
-  id: 2430
-  time: '2025-11-16T19:44:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3728
-- author: starlighthowls
-  changes:
-  - message: Tippy trump card packs can now be ordered from cargo or selected in your
-      character loadout!
-    type: Add
-  id: 2431
-  time: '2025-11-17T00:55:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3712
-- author: starlighthowls
-  changes:
-  - message: TippyTrump rules suck less now.
-    type: Tweak
-  id: 2432
-  time: '2025-11-17T09:12:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3730
-- author: TuttlePants
-  changes:
-  - message: Tourists now take longer to line up their perfect shot
-    type: Tweak
-  - message: Tourist cameras are now made using plastic instead of cotton
-    type: Fix
-  id: 2433
-  time: '2025-11-17T11:22:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3729
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Some icon sprites are now corrected to use our sprites instead of the
-      upstream ones we have replaced.
-    type: Fix
-  id: 2434
-  time: '2025-11-18T20:36:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3713
-- author: msTheowo
-  changes:
-  - message: Utility knives are yellow now.
-    type: Tweak
-  id: 2435
-  time: '2025-11-18T21:22:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3734
-- author: msTheowo
-  changes:
-  - message: Departmental economy has been put down. The station only has one bank
-      account.
-    type: Remove
-  id: 2436
-  time: '2025-11-19T23:41:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3664
-- author: Jellvisk, sev7ves
-  changes:
-  - message: Made the flash visuals a lot less intense, also a version with no double
-      vision for reduced motion
-    type: Tweak
-  id: 2437
-  time: '2025-11-19T23:34:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3722
-- author: TheGrimbeeper
-  changes:
-  - message: toy rocket launcher fire slower
-    type: Tweak
-  id: 2438
-  time: '2025-11-20T10:20:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3741
-- author: Kandiyaki
-  changes:
-  - message: heretics will ACTUALLY roll in lowpop now. oops.
-    type: Fix
-  id: 2439
-  time: '2025-11-20T10:21:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3733
-- author: mousesweater
-  changes:
-  - message: cerberus no longer has stunning abilities
-    type: Fix
-  - message: cutbacks on the supernatural division of the syndicate have resulted
-      in weaker necronomicons at a steeper price.
-    type: Tweak
-  id: 2440
-  time: '2025-11-20T10:24:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3714
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Pacifists must not be allowed to shoot Cool Guns!
-    type: Fix
-  id: 2441
-  time: '2025-11-20T10:25:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3740
-- author: honeyed-lemons
-  changes:
-  - message: Heretics can access the store after being cloned.
-    type: Fix
-  id: 2442
-  time: '2025-11-20T10:38:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3742
-- author: TheGrimbeeper
-  changes:
-  - message: reduced toy RPG stun power by 50%. The nerfing will continue until morale
-      improves.
-    type: Tweak
-  id: 2443
-  time: '2025-11-21T06:51:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3749
-- author: kipdotnet
-  changes:
-  - message: Allulalo now recieve less speed benefits from Hyperzine, Desoxyephedrine,
-      and Ephedrine.
-    type: Tweak
-  - message: Allulalo now metabolise narcotics, medicine and poison 50% faster, as
-      well as getting hungry and thirsty 30% faster. You want to be fast? Sure. Everything
-      is faster.
-    type: Tweak
-  id: 2444
-  time: '2025-11-23T08:30:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3750
-- author: FlippenPage
-  changes:
-  - message: wow the black utility belt crafting recipe was broken for 9 months! hope
-      someone got FIRED for that blunder.
-    type: Fix
-  id: 2445
-  time: '2025-11-23T08:48:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3744
 - author: SixValentine
   changes:
   - message: reHash Update
@@ -4075,3 +3940,127 @@
   id: 2928
   time: '2026-09-03T21:43:49.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4566
+- author: msTheowo
+  changes:
+  - message: Janitors have Perfect Disposals Aim.
+    type: Add
+  id: 2929
+  time: '2026-09-07T19:52:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4500
+- author: hbuzzbee
+  changes:
+  - message: Removed reporter ID requirement to publish articles.
+    type: Tweak
+  id: 2930
+  time: '2026-09-07T19:56:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4520
+- author: lobsterpaw
+  changes:
+  - message: Players now have 20 more character slots!
+    type: Tweak
+  id: 2931
+  time: '2026-09-07T20:06:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4559
+- author: DVD Player
+  changes:
+  - message: The Hydra is now the appropriate size
+    type: Fix
+  id: 2932
+  time: '2026-09-07T20:15:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4586
+- author: DVD Player
+  changes:
+  - message: The Astro Ace now doesn't say you can't shoot it when you always could
+    type: Fix
+  id: 2933
+  time: '2026-09-07T20:16:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4591
+- author: msTheowo
+  changes:
+  - message: Wizard helms now count as magical clothes for spells.
+    type: Tweak
+  id: 2934
+  time: '2026-09-07T20:19:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4596
+- author: Raccoononi
+  changes:
+  - message: Steak Tartare! A divisive French dish made of raw meat, now approved
+      for many species' crew diet menu on imp NT stations.
+    type: Add
+  id: 2935
+  time: '2026-09-07T20:26:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4575
+- author: dubdubchan
+  changes:
+  - message: Adjusted and expanded magic book pool for Xenoarcheology effects.
+    type: Tweak
+  id: 2936
+  time: '2026-09-07T21:36:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4605
+- author: lobsterpaw
+  changes:
+  - message: Anomaly fireballs have quadrupled in speed.
+    type: Tweak
+  id: 2937
+  time: '2026-09-07T21:38:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4585
+- author: msTheowo, maelines
+  changes:
+  - message: Space snakes are ghost roles now.
+    type: Add
+  id: 2938
+  time: '2026-09-07T21:43:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4600
+- author: coyragon96
+  changes:
+  - message: Drains now have less capacity. Remember to call your local plumber for
+      any drain related issues!
+    type: Tweak
+  id: 2939
+  time: '2026-09-07T21:55:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4607
+- author: coyragon96
+  changes:
+  - message: Grays now gain nutritional benefit from uranium and can quench their
+      thirst with radium!
+    type: Tweak
+  id: 2940
+  time: '2026-09-10T11:07:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4620
+- author: coyragon96
+  changes:
+  - message: Removed two of the visiting chef shuttles.
+    type: Remove
+  - message: Updated an existing chef shuttle and added a new one!
+    type: Tweak
+  id: 2941
+  time: '2026-09-10T11:12:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4574
+- author: Yental
+  changes:
+  - message: Omega has been refurbished!
+    type: Add
+  id: 2942
+  time: '2026-09-10T19:35:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4582
+- author: meatsmall
+  changes:
+  - message: the artifact point light effect is less harsh now.
+    type: Tweak
+  id: 2943
+  time: '2026-09-11T08:09:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4625
+- author: crocodilecarousel
+  changes:
+  - message: Big Log bench, available in construction menu
+    type: Add
+  id: 2944
+  time: '2026-09-12T04:52:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4628
+- author: crocodilecarousel
+  changes:
+  - message: Turtle spawner
+    type: Add
+  id: 2945
+  time: '2026-09-12T08:26:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4630
