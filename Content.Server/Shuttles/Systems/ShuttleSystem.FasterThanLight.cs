@@ -267,7 +267,7 @@ public sealed partial class ShuttleSystem
         float? hyperspaceTime = null,
         string? priorityTag = null,
         SoundSpecifier? travelSound = null, // imp
-        SoundSpecifier? arrivalSound = null, // imp
+        SoundSpecifier? globalArrivalSound = null, // imp
         bool destroyFloor = false) // imp
     {
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
@@ -286,7 +286,7 @@ public sealed partial class ShuttleSystem
         hyperspace.PriorityTag = priorityTag;
         if (travelSound != null) // imp
             hyperspace.TravelSound = travelSound; // imp
-        hyperspace.ArrivalSound = arrivalSound; // imp
+        hyperspace.GlobalArrivalSound = globalArrivalSound; // imp
         hyperspace.DestroyFloor = destroyFloor; // imp
 
         _console.RefreshShuttleConsoles(shuttleUid);
@@ -548,9 +548,16 @@ public sealed partial class ShuttleSystem
 
         comp.TravelStream = _audio.Stop(comp.TravelStream);
 
-        var soundToPlay = comp.ArrivalSound == null ? _arrivalSound : comp.ArrivalSound; // imp
-        var audio = _audio.PlayPvs(soundToPlay, uid); // imp, switched from _arrivalSound to soundToPlay
-        _audio.SetGridAudio(audio);
+        if (comp.GlobalArrivalSound != null) // imp start
+        {
+            var audio = _audio.PlayPvs(comp.GlobalArrivalSound, uid);
+            _audio.SetMapAudio(audio);
+        }
+        else // imp end, only play regular arrival audio when not playing a global one
+        {
+            var audio = _audio.PlayPvs(_arrivalSound, uid);
+            _audio.SetGridAudio(audio);
+        }
 
         if (TryComp<FTLDestinationComponent>(uid, out var dest))
         {
@@ -566,11 +573,12 @@ public sealed partial class ShuttleSystem
         // imp start
         if (comp.DestroyFloor)
         {
+            var entitiesBeforeLanding = new HashSet<EntityUid>();
             var enumerator = xform.ChildEnumerator;
             while (enumerator.MoveNext(out var child))
-                comp.FTLTravellingEntities.Add(child);
+                entitiesBeforeLanding.Add(child);
 
-            RemoveTiles(entity);
+            RemoveTiles(entity, entitiesBeforeLanding, xform: xform);
         }
         // imp end
 
@@ -972,9 +980,9 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Flattens / deletes everything under the grid upon FTL.
     /// </summary>
-    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null, FTLComponent? ftl = null) // imp add FTLComponent? ftl = null
+    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null)
     {
-        if (!Resolve(uid, ref manager, ref grid, ref xform, ref ftl) || xform.MapUid == null) // imp add ref ftl
+        if (!Resolve(uid, ref manager, ref grid, ref xform) || xform.MapUid == null)
             return;
 
         if (!TryComp(xform.MapUid, out BroadphaseComponent? lookup))
@@ -1037,43 +1045,15 @@ public sealed partial class ShuttleSystem
             }
         }
 
-        // imp start
-        if (ftl.DestroyFloor)
-        {
-            var children = new List<EntityUid>();
-            var enumerator = xform.ChildEnumerator;
-            while (enumerator.MoveNext(out var child))
-                children.Add(child);
-
-            foreach (var child in children)
-            {
-                if (!ftl.FTLTravellingEntities.Remove(child))
-                {
-                    if (_immuneQuery.HasComponent(child))
-                        continue;
-
-                    if (_bodyQuery.HasComponent(child))
-                    {
-                        _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(child):player} got gibbed by the shuttle" +
-                                                                    $" {ToPrettyString(uid)} arriving from FTL at {xform.Coordinates:coordinates}");
-                        _gibbing.Gib(child);
-                    }
-
-                    QueueDel(child);
-                }
-            }
-        }
-        // imp end
-
         var ev = new ShuttleFlattenEvent(xform.MapUid.Value, aabbs);
         RaiseLocalEvent(ref ev);
     }
 
     /// <summary>
     /// Imp.
-    /// Removes all tiles that are under the grid upon FTL arrival.
+    /// Removes all tiles that are under the grid upon FTL arrival and deletes entities that were not on the shuttle.
     /// </summary>
-    private void RemoveTiles(EntityUid uid, FixturesComponent? manager = null, TransformComponent? xform = null)
+    private void RemoveTiles(EntityUid uid, HashSet<EntityUid> entitiesBeforeLanding, FixturesComponent? manager = null, TransformComponent? xform = null)
     {
         if (!Resolve(uid, ref manager, ref xform) || xform.MapUid == null)
             return;
@@ -1101,6 +1081,30 @@ public sealed partial class ShuttleSystem
                     _mapSystem.SetTile(tile.GridUid, intersectingGrid.Comp, tile.GridIndices, Tile.Empty);
             }
             grids.Clear();
+        }
+
+        // handles deletion of entities here since tile change messes with smimsh logic
+        var children = new HashSet<EntityUid>();
+        var enumerator = xform.ChildEnumerator;
+        while (enumerator.MoveNext(out var child))
+            children.Add(child);
+
+        foreach (var child in children)
+        {
+            if (!entitiesBeforeLanding.Remove(child))
+            {
+                if (_immuneQuery.HasComponent(child))
+                    continue;
+
+                if (_bodyQuery.HasComponent(child))
+                {
+                    _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(child):player} got gibbed by the shuttle" +
+                                                                $" {ToPrettyString(uid)} arriving from FTL at {xform.Coordinates:coordinates}");
+                    _gibbing.Gib(child);
+                }
+
+                QueueDel(child);
+            }
         }
     }
 }

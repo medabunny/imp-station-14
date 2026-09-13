@@ -64,11 +64,11 @@ public sealed partial class FTLComponent : Component
 
     /// <summary>
     /// Imp.
-    /// Arrival sound that plays when you arrive.
+    /// If a specific global arrival sound should play when you arrive instead of normal FTL arrival sound.
     /// Implement in the other public FTL methods if you want to modify FTL sounds from a non-position FTL.
     /// </summary>
     [ViewVariables]
-    public SoundSpecifier? ArrivalSound;
+    public SoundSpecifier? GlobalArrivalSound;
 
     /// <summary>
     /// Imp.
@@ -76,11 +76,4 @@ public sealed partial class FTLComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public bool DestroyFloor;
-
-    /// <summary>
-    /// Imp.
-    /// Entities on the FTL shuttle when arriving, only populated when DestroyFloor is true but if needed in the future could easily be moved out of the conditional
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public HashSet<EntityUid> FTLTravellingEntities = new();
 }

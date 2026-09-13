@@ -81,7 +81,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     Angle.Zero,
                     hyperspaceTime: comp.TravelTime,
                     travelSound: comp.TravelSound,
-                    arrivalSound: comp.ArrivalSound,
+                    globalArrivalSound: comp.ArrivalSound,
                     destroyFloor: true);
 
                 if (!TryFindNukeOpsRule(out var nukeopsRule)
