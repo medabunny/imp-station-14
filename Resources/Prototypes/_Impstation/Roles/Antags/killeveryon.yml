@@ -1,6 +1,6 @@
 - type: antag
   id: KillEveryon
-  name: Kill Everyon
+  name: roles-antag-kill-everyon-name
   antagonist: true
   playTimeTracker: AntagKillEveryon
-  objective: Kill Everyon
+  objective: roles-antag-kill-everyon-objective

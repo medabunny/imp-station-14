@@ -48,3 +48,31 @@
         steps:
         - tool: Slicing
           doAfter: 1
+
+- type: constructionGraph
+  id: chairBigLog
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: chairbiglog
+          steps:
+            - tag: Log
+              name: construction-graph-tag-log
+              icon:
+                sprite: Objects/Specific/Hydroponics/towercap.rsi
+                state: produce
+              doAfter: 2
+    - node: chairbiglog
+      entity: ChairBigLog
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: Log
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 5 # its a heavy log

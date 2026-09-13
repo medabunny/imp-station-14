@@ -77,8 +77,6 @@
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Item
     size: Large
-    shape:
-    - 0,0,4,0
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
     quickEquip: false

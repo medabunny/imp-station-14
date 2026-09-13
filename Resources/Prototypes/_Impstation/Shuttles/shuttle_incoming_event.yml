@@ -7,3 +7,8 @@
   id: CBURNMedium
   path: /Maps/_Impstation/Shuttles/Admin/CBURNMedium.yml
   copies: 1
+
+- type: preloadedGrid
+  id: Food4you
+  path: /Maps/_Impstation/Shuttles/ShuttleEvent/Food4you.yml
+  copies: 1
