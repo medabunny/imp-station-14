@@ -40,22 +40,19 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public LocId LockExamineText = "assault-pod-lock-examine";
     [DataField]
-    public LocId BeginDepartureAnouncement = "assault-pod-announcement-begin-departure";
+    public LocId BeginDepartureAnnouncement = "assault-pod-announcement-begin-departure";
     [DataField]
-    public LocId WarDeclaredFailedDepartureAnouncement = "assault-pod-announcement-war-declared-failed-departure";
+    public LocId WarDeclaredFailedDepartureAnnouncement = "assault-pod-announcement-war-declared-failed-departure";
     [DataField]
-    public LocId DepartureStationAnouncement = "station-announcement-departure";
+    public LocId DepartureStationAnnouncement = "station-announcement-departure";
     [DataField]
     public LocId NukieAnnouncementSender = "assault-pod-announcement-sender";
     [DataField]
-    public LocId StationAnouncementSender = "station-announcement-sender";
+    public LocId StationAnnouncementSender = "station-announcement-sender";
     [DataField]
-    public SoundSpecifier NukieAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
+    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
     [DataField]
     public SoundSpecifier TravelSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_orbital_travel.ogg");
     [DataField]
-    public SoundSpecifier ArrivalSound = new SoundCollectionSpecifier("RMCExplosionBig")
-    {
-        Params = AudioParams.Default.WithVolume(5f).WithMaxDistance(50),
-    };
+    public SoundSpecifier ArrivalSound = new SoundCollectionSpecifier("RMCExplosionBig");
 }
