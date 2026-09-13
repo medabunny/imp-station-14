@@ -41,7 +41,7 @@ public sealed class LumbagoStatusEffectSystem : EntitySystem
         //TODO: Replace with random predicted when we get that.
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, args.Target.GetHashCode());
         var rand = new System.Random(seed);
-        ent.Comp.LumbagFlareUpDelay=_timing.CurTime +
+        ent.Comp.LumbagFlareUpDelay=_timing.CurTime + // we're setting the timers here so doing it like this is okay
                                     TimeSpan.FromSeconds(rand.NextInt64(ent.Comp.LumbagoFlareUpDelayMinMax.Min, ent.Comp.LumbagoFlareUpDelayMinMax.Max));
         ent.Comp.LumbagoReminderDelay=_timing.CurTime +
                                       TimeSpan.FromSeconds(ent.Comp.LumbagoReminderDelayMinMax.Min,ent.Comp.LumbagoReminderDelayMinMax.Max);
