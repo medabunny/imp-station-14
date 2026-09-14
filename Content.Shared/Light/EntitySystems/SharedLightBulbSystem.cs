@@ -114,5 +114,6 @@ public abstract class SharedLightBulbSystem : EntitySystem
         if (!TryComp<TagComponent>(uid, out var tags))
             return;
         _tags.RemoveTags(uid, _tagsToRemove);
+        _tags.AddTag(uid, _brokenTag);
     }
 }
