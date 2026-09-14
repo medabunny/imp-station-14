@@ -97,8 +97,10 @@ namespace Content.Server._Impstation.Shuttles.Systems
 
                 var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(comp.TravelCoordinates), true);
                 _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, false, true, true);
-                _chat.DispatchGlobalAnnouncement(
+                _chat.DispatchFilteredAnnouncement(
+                    Filter.BroadcastGrid(stationGrid.Value),
                     Loc.GetString(comp.DepartureStationAnnouncement, ("beacon", beacon)),
+                    uid,
                     Loc.GetString(comp.StationAnnouncementSender),
                     announcementSound: comp.DepartureAnnouncementSound,
                     colorOverride: Color.Cyan
