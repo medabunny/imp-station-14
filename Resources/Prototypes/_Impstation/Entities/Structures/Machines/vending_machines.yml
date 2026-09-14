@@ -649,10 +649,6 @@
   id: VendingMachineCourierDrobeBroken
 
 - type: entity
-  parent: [ BaseBrokenVendingMachine, VendingMachinePride ]
-  id: VendingMachinePrideBroken
-
-- type: entity
   parent: [ BaseBrokenVendingMachine, VendingMachineChemicalsInterdyne ]
   id: VendingMachineChemicalsInterdyneBroken
 
