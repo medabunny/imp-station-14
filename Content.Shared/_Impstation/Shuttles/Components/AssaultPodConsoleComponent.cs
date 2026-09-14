@@ -58,7 +58,7 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public SoundSpecifier BeginDepartureTimerAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
     [DataField]
-    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/ARES/dropship_emergency.ogg");
+    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Announcements/ARES/dropship_emergency.ogg");
     [DataField]
     public SoundSpecifier TravelSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_orbital_travel.ogg");
     [DataField]
