@@ -91,14 +91,11 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     || nukeopsRule?.TargetStation is not { } targetStation)
                     continue;
 
-                var stationGrid = _station.GetLargestGrid(targetStation);
-                if (stationGrid == null)
-                    continue;
-
-                var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(comp.TravelCoordinates), true);
+                var destinationMapCoords = _transform.ToMapCoordinates(comp.TravelCoordinates);
+                var beacon = _navMap.GetNearestBeaconString(destinationMapCoords, true);
                 _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, false, true, true);
                 _chat.DispatchFilteredAnnouncement(
-                    Filter.BroadcastGrid(stationGrid.Value),
+                    Filter.BroadcastMap(destinationMapCoords.MapId),
                     Loc.GetString(comp.DepartureStationAnnouncement, ("beacon", beacon)),
                     uid,
                     Loc.GetString(comp.StationAnnouncementSender),
