@@ -6,7 +6,10 @@ using Content.Shared.Input;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
+using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.State;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
@@ -16,10 +19,14 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.Systems.Emotes;
 
 [UsedImplicitly]
-public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class EmotesUIController : UIController, IOnStateChanged<GameplayState>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private readonly IStateManager _stateManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private SimpleRadialMenu? _menu;
@@ -33,14 +40,15 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
                 new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/hand.png"))), // imp resprite
             [EmoteCategory.Vocal] = ("emote-menu-category-vocal",
                 new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/vocal.png"))), // imp resprite
+            [EmoteCategory.Targeted] = ("emote-menu-category-targeted",
+                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Misc/pointing.rsi/crosshair.png"))), // imp add for targeted emotes
         };
 
     public void OnStateEntered(GameplayState state)
     {
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenEmotesMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleEmotesMenu(false)))
-            .Register<EmotesUIController>();
+                .Bind(ContentKeyFunctions.OpenEmotesMenu, new PointerInputCmdHandler(HandleEmote, outsidePrediction: true))
+                .Register<EmotesUIController>();
     }
 
     public void OnStateExited(GameplayState state)
@@ -48,13 +56,16 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         CommandBinds.Unregister<EmotesUIController>();
     }
 
-    private void ToggleEmotesMenu(bool centered)
+    private void ToggleEmotesMenu(bool centered, EntityUid? emoteTarget = null)
     {
+        var currentState = _stateManager.CurrentState;
+        if (currentState is not GameplayStateBase screen) return;
+
         if (_menu == null)
         {
             // setup window
             var prototypes = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
-            var models = ConvertToButtons(prototypes);
+            var models = ConvertToButtons(prototypes, emoteTarget); //imp edit - pass in target
 
             _menu = new SimpleRadialMenu();
             _menu.SetButtons(models);
@@ -132,7 +143,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         _menu = null;
     }
 
-    private IEnumerable<RadialMenuOptionBase> ConvertToButtons(IEnumerable<EmotePrototype> emotePrototypes)
+    private IEnumerable<RadialMenuOptionBase> ConvertToButtons(IEnumerable<EmotePrototype> emotePrototypes, EntityUid? target = null) //imp edit - add optional target parameter for targeted emotes
     {
         var whitelistSystem = EntitySystemManager.GetEntitySystem<EntityWhitelistSystem>();
         var player = _playerManager.LocalSession?.AttachedEntity;
@@ -161,7 +172,13 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
                 emotesByCategory.Add(emote.Category, list);
             }
 
-            var actionOption = new RadialMenuActionOption<EmotePrototype>(HandleRadialButtonClick, emote)
+            var emoteInfo = new EmoteInfo() //imp edit - ActionOptions can only have a single thing passed in, so prototype and target must be stored in a struct
+            {
+                prototype = emote,
+                emoteTarget = _entityManager.GetNetEntity(target)
+            };
+
+            var actionOption = new RadialMenuActionOption<EmoteInfo>(HandleRadialButtonClick, emoteInfo) //imp edit - ActionOptions can only have a single thing passed in, so prototype and target must be stored in a struct
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(emote.Icon),
                 ToolTip = Loc.GetString(emote.Name)
@@ -186,8 +203,9 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         return models;
     }
 
-    private void HandleRadialButtonClick(EmotePrototype prototype)
+    private void HandleRadialButtonClick(EmoteInfo info) //imp edit - use EmoteInfo struct instead of just emote prototype
     {
-        EntityManager.RaisePredictiveEvent(new PlayEmoteMessage(prototype.ID));
+
+        EntityManager.RaisePredictiveEvent(new PlayEmoteMessage(info.prototype, info.emoteTarget)); //imp edit - add target parameter
     }
 }

@@ -115,6 +115,10 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             _handsSystem.UIInventoryExamine(hand.SlotName);
             args.Handle();
         }
+        else if (args.Function == ContentKeyFunctions.OpenEmotesMenu) //imp edit start
+        {
+            _handsSystem.UIInventoryEmote(hand.SlotName);
+        } //imp edit end
     }
 
     private void UnloadPlayerHands()

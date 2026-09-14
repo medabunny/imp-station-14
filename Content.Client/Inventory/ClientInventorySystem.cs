@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Client.Clothing;
 using Content.Client.Examine;
 using Content.Client.Verbs.UI;
@@ -12,12 +11,12 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Client.Inventory
 {
     [UsedImplicitly]
-    public sealed class ClientInventorySystem : InventorySystem
+    public sealed partial class ClientInventorySystem : InventorySystem
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;

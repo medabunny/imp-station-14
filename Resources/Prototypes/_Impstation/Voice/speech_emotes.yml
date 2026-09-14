@@ -79,6 +79,36 @@
     - blinked
 
 - type: emote
+  id: WaveTargeted
+  name: chat-emote-name-wave
+  category: Targeted
+  icon: _Impstation/Interface/Emotes/wave.png
+  chatMessages: ["chat-emote-msg-wave"]
+  targeted: true
+  chatTriggers: #idk why but it breaks when i remove this
+    - waves at
+
+- type: emote
+  id: LookTargeted
+  name: chat-emote-name-look
+  category: Targeted
+  icon: _Impstation/Interface/Emotes/look.png
+  chatMessages: ["chat-emote-msg-look"]
+  targeted: true
+  chatTriggers: #idk why but it breaks when i remove this
+    - looks at
+
+- type: emote
+  id: WinkTargeted
+  name: chat-emote-name-wink
+  category: Targeted
+  icon: _Impstation/Interface/Emotes/wink.png
+  chatMessages: ["chat-emote-msg-wink"]
+  targeted: true
+  chatTriggers: #idk why but it breaks when i remove this
+    - winks at
+
+- type: emote
   id: Jumps
   name: chat-emote-name-jumps
   category: General

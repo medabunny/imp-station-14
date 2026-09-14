@@ -303,6 +303,10 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
         {
             _inventorySystem.UIInventoryAltActivateItem(slot, _playerUid.Value);
         }
+        else if (args.Function == ContentKeyFunctions.OpenEmotesMenu) //imp edit start
+        {
+            _inventorySystem.UIInventoryEmote(slot, _playerUid.Value);
+        } //imp edit end
         else
         {
             return;

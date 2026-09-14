@@ -72,6 +72,10 @@ public sealed partial class EmotePrototype : IPrototype
     // goob edit - animations
     [DataField]
     public object? Event = null;
+
+    //imp edit - for targeted emotes e.g. "x looks at y"
+    [DataField]
+    public bool Targeted = false;
 }
 
 /// <summary>
@@ -85,5 +89,6 @@ public enum EmoteCategory : byte
     Invalid = 0,
     Vocal = 1 << 0,
     Hands = 1 << 1,
+    Targeted = 1 << 2, //imp edit - for pointing, looking, waving, etc
     General = byte.MaxValue
 }

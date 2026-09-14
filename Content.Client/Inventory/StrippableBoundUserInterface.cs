@@ -1,14 +1,12 @@
-using System.Linq;
-using System.Numerics;
 using Content.Client.Examine;
 using Content.Client.Hands.Systems;
 using Content.Client.Strip;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Client.UserInterface.Systems.Emotes; //imp edit
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -23,6 +21,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
+using System.Linq; //imp edit
+using System.Numerics; //imp edit
 using static Content.Client.Inventory.ClientInventorySystem;
 using static Robust.Client.UserInterface.Control;
 
@@ -39,6 +39,7 @@ namespace Content.Client.Inventory
         private readonly InventorySystem _inv;
         private readonly SharedCuffableSystem _cuffable;
         private readonly StrippableSystem _strippable;
+        private readonly InventorySystem _inventorySystem; //imp edit - targeted emotes
 
         [ViewVariables]
         private const int ButtonSeparation = 4;
@@ -71,6 +72,7 @@ namespace Content.Client.Inventory
             _inv = EntMan.System<InventorySystem>();
             _cuffable = EntMan.System<SharedCuffableSystem>();
             _strippable = EntMan.System<StrippableSystem>();
+            _inventorySystem = EntMan.System<InventorySystem>(); //imp edit - targeted emotes
 
             _virtualHiddenEntity = EntMan.SpawnEntity(HiddenPocketEntityId, MapCoordinates.Nullspace);
         }
@@ -224,6 +226,11 @@ namespace Content.Client.Inventory
                 _ui.GetUIController<VerbMenuUIController>().OpenVerbMenu(slot.Entity.Value);
                 ev.Handle();
             }
+            else if (ev.Function == ContentKeyFunctions.OpenEmotesMenu) //imp edit start - targeted emotes
+            {
+                _ui.GetUIController<EmotesUIController>().OpenEmotesMenu(false, slot.Entity.Value);
+                ev.Handle();
+            } //imp edit end
         }
 
         private void AddInventoryButton(EntityUid invUid, string slotId, InventoryComponent inv)
