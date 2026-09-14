@@ -658,9 +658,18 @@ public sealed partial class ShuttleSystem
     {
         // Get enumeration exceptions from people dropping things if we just paralyze as we go
         var toKnock = new ValueList<EntityUid>();
-        if (range > 0) // imp
-            toKnock.AddRange(_lookup.GetEntitiesInRange(xform.Coordinates, range, LookupFlags.Dynamic)); // imp
-        KnockOverKids(xform, ref toKnock);
+        if (range > 0) // imp start
+        {
+            foreach (var ent in _lookup.GetEntitiesInRange(xform.Coordinates, range, LookupFlags.Dynamic))
+            {
+                if (!_buckleQuery.TryGetComponent(ent, out var buckle) || buckle.Buckled)
+                    continue;
+
+                toKnock.Add(ent);
+            }
+        }
+        else // imp end
+            KnockOverKids(xform, ref toKnock);
         TryComp<MapGridComponent>(xform.GridUid, out var grid);
 
         if (TryComp<PhysicsComponent>(xform.GridUid, out var shuttleBody))
@@ -708,13 +717,9 @@ public sealed partial class ShuttleSystem
         while (childEnumerator.MoveNext(out var child))
         {
             if (!_buckleQuery.TryGetComponent(child, out var buckle) || buckle.Buckled)
-            {
-                toKnock.Remove(child); // imp
                 continue;
-            }
 
-            if (!toKnock.Contains(child)) // imp, add conditional
-                toKnock.Add(child);
+            toKnock.Add(child);
         }
     }
 
