@@ -1,7 +1,10 @@
+// imp TODO: revert this shit the milisecond floorlights get refactored this sucks
 using Content.Shared.Destructible;
 using Content.Shared.Light.Components;
+using Content.Shared.Tag; // imp
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes; // imp
 
 namespace Content.Shared.Light.EntitySystems;
 
@@ -9,6 +12,27 @@ public abstract class SharedLightBulbSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly TagSystem _tags = default!; // imp
+    private ProtoId<TagPrototype> _brokenTag = "Broken"; // imp
+    private HashSet<ProtoId<TagPrototype>> _tagsToRemove = [ // imp - I fucjing hate this
+        "LightBlue",
+        "LightBlack",
+        "LightCyan",
+        "LightDim",
+        "LightExterior",
+        "LightGreen",
+        "LightLed",
+        "LightNormal",
+        "LightOld",
+        "LightOrange",
+        "LightPink",
+        "LightRed",
+        "LightService",
+        "LightSodium",
+        "LightUv",
+        "LightWarm",
+        "LightYellow"
+        ];
 
     public override void Initialize()
     {
@@ -29,11 +53,13 @@ public abstract class SharedLightBulbSystem : EntitySystem
     {
         PlayBreakSound(uid, bulb);
         SetState(uid, LightBulbState.Broken, bulb);
+        SetBrokenTags(uid); // imp
     }
 
     private void OnBreak(EntityUid uid, LightBulbComponent component, BreakageEventArgs args)
     {
         SetState(uid, LightBulbState.Broken, component);
+        SetBrokenTags(uid); // imp
     }
 
     /// <summary>
@@ -60,6 +86,8 @@ public abstract class SharedLightBulbSystem : EntitySystem
         bulb.State = state;
         Dirty(uid, bulb);
         UpdateAppearance(uid, bulb);
+        if (state != LightBulbState.Normal) // imp
+            SetBrokenTags(uid);
     }
 
     public void PlayBreakSound(EntityUid uid, LightBulbComponent? bulb = null, EntityUid? user = null)
@@ -79,5 +107,13 @@ public abstract class SharedLightBulbSystem : EntitySystem
         // try to update appearance and color
         _appearance.SetData(uid, LightBulbVisuals.State, bulb.State, appearance);
         _appearance.SetData(uid, LightBulbVisuals.Color, bulb.Color, appearance);
+    }
+
+    private void SetBrokenTags(EntityUid uid) // imp
+    {
+        if (!TryComp<TagComponent>(uid, out var tags))
+            return;
+        _tags.RemoveTags(uid, _tagsToRemove);
+        _tags.AddTag(uid, _brokenTag);
     }
 }

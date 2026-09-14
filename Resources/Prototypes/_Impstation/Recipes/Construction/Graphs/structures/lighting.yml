@@ -144,98 +144,98 @@
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightNormal
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightLed
     entity: PoweredFloorLightLed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightLed
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightExterior
     entity: PoweredFloorLightExterior
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightExterior
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightSodium
     entity: PoweredFloorLightSodium
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightSodium
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightOld
     entity: PoweredFloorLightOld
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightOld
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightUv
     entity: PoweredFloorLightUv
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightUv
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightCyan
     entity: PoweredFloorLightCyan
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightCyan
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightBlue
     entity: PoweredFloorLightBlue
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBlue
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightYellow
     entity: PoweredFloorLightYellow
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightYellow
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightPink
     entity: PoweredFloorLightPink
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightPink
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightOrange
     entity: PoweredFloorLightOrange
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightOrange
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightBlack
     entity: PoweredFloorLightBlack
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBlack
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightRed
     entity: PoweredFloorLightRed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightRed
+      - remove: LightTube
         name: construction-graph-tag-light-tube
   - node: floorLightGreen
     entity: PoweredFloorLightGreen
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightGreen
+      - remove: LightTube
         name: construction-graph-tag-light-tube
 #bulbs to hole
   - node: smallFloorLight
@@ -243,28 +243,28 @@
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightNormal
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightLed
     entity: PoweredSmallFloorLightLed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightLed
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightDim
     entity: PoweredSmallFloorLightDim
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightDim
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightWarm
     entity: PoweredSmallFloorLightWarm
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightWarm
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightCold
     entity: PoweredSmallFloorLightCold
@@ -278,56 +278,56 @@
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightCyan
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightBlue
     entity: PoweredSmallFloorLightBlue
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBlue
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightYellow
     entity: PoweredSmallFloorLightYellow
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightYellow
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightPink
     entity: PoweredSmallFloorLightPink
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightPink
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightOrange
     entity: PoweredSmallFloorLightOrange
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightOrange
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightBlack
     entity: PoweredSmallFloorLightBlack
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightBlack
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightRed
     entity: PoweredSmallFloorLightRed
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightRed
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightGreen
     entity: PoweredSmallFloorLightGreen
     edges:
     - to: metamorphicLightHole
       steps:
-      - remove: LightGreen
+      - remove: LightBulb
         name: construction-graph-tag-light-bulb
 #admemes
   - node: floorLightSun
