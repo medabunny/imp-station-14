@@ -587,6 +587,8 @@ public sealed partial class ShuttleSystem
             RemoveTiles(entity, beforeArrivalEnts, xform: xform);
         }
 
+        // does not replace the earlier call to keep the effect of pushing someone into
+        // ftl space even though it would iterate through some of the same entities
         DoTheDinosaur(xform, comp.ArrivalKnockdownRadius);
         // imp end
 
