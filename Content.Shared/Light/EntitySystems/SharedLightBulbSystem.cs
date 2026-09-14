@@ -13,6 +13,7 @@ public abstract class SharedLightBulbSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TagSystem _tags = default!; // imp
+    private ProtoId<TagPrototype> _brokenTag = "Broken"; // imp
     private HashSet<ProtoId<TagPrototype>> _tagsToRemove = [ // imp - I fucjing hate this
         "LightBlue",
         "LightBlack",
