@@ -19,7 +19,7 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.Systems.Emotes;
 
 [UsedImplicitly]
-public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayState>
+public sealed partial class EmotesUIController : UIController, IOnStateChanged<GameplayState>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -31,19 +31,6 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private SimpleRadialMenu? _menu;
 
-    struct EmoteInfo //imp edit start - pass targets into emote events for targeted emotes
-    {
-        public EmotePrototype prototype;
-        public NetEntity? emoteTarget;
-    } //imp edit end
-
-    public override void Initialize() //imp edit start: subscribe to clientside emote events, for stuff in bags, pockets, etc
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<EmoteInventorySlotEvent>(HandleClientsideEmote);
-    } //end imp edit
-
     private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo =
         new()
         {
@@ -54,7 +41,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
             [EmoteCategory.Vocal] = ("emote-menu-category-vocal",
                 new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Emotes/vocal.png"))), // imp resprite
             [EmoteCategory.Targeted] = ("emote-menu-category-targeted",
-                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Misc/pointing.rsi/crosshair.png"))), // imp resprite
+                new SpriteSpecifier.Texture(new ResPath("/Textures/_Impstation/Interface/Misc/pointing.rsi/crosshair.png"))), // imp add for targeted emotes
         };
 
     public void OnStateEntered(GameplayState state)
@@ -68,21 +55,6 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     {
         CommandBinds.Unregister<EmotesUIController>();
     }
-
-    private bool HandleEmote(in PointerInputCmdHandler.PointerInputCmdArgs args){ //imp edit start - handles emote events for clientside entities
-        ToggleEmotesMenu(false, args.EntityUid);
-        return true;
-    }//imp edit end
-
-    private void HandleClientsideEmote(EmoteInventorySlotEvent args) //imp edit start - for emoting at clientside items, e.g. in an inventory slot
-    {
-        ToggleEmotesMenu(false, args.TargetUid);
-    }//imp edit end
-
-    public void OpenEmotesMenu(bool centered, EntityUid? emoteTarget = null) //for emoting at clientside items inside other UIs, e.g. rightclick dropdown
-    {
-        ToggleEmotesMenu(centered, emoteTarget);
-    }//imp edit end
 
     private void ToggleEmotesMenu(bool centered, EntityUid? emoteTarget = null)
     {

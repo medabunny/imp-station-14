@@ -2,7 +2,6 @@ using Content.Client.DisplacementMap;
 using Content.Client.Examine;
 using Content.Client.Strip;
 using Content.Client.Verbs.UI;
-using Content.Shared.Chat;//imp edit
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -22,7 +21,7 @@ using System.Linq;//imp edit
 namespace Content.Client.Hands.Systems
 {
     [UsedImplicitly]
-    public sealed class HandsSystem : SharedHandsSystem
+    public sealed partial class HandsSystem : SharedHandsSystem
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
@@ -180,17 +179,6 @@ namespace Content.Client.Hands.Systems
 
             _examine.DoExamine(heldEntity.Value);
         }
-
-        public void UIInventoryEmote(string handName) //start imp edit - targeted emotes
-        {
-            if (!TryGetPlayerHands(out var hands) ||
-                !TryGetHeldItem(hands.Value.AsNullable(), handName, out var heldEntity))
-            {
-                return;
-            }
-
-            RaiseLocalEvent(new EmoteInventorySlotEvent(heldEntity.Value));
-        } //end imp edit
 
         /// <summary>
         ///     Called when a user clicks on the little "activation" icon in the hands GUI. This is currently only used

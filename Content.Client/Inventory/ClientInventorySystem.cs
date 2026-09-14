@@ -1,7 +1,6 @@
 using Content.Client.Clothing;
 using Content.Client.Examine;
 using Content.Client.Verbs.UI;
-using Content.Shared.Chat;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -17,7 +16,7 @@ using System.Linq;
 namespace Content.Client.Inventory
 {
     [UsedImplicitly]
-    public sealed class ClientInventorySystem : InventorySystem
+    public sealed partial class ClientInventorySystem : InventorySystem
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
@@ -211,14 +210,6 @@ namespace Content.Client.Inventory
 
             _examine.DoExamine(item.Value);
         }
-
-        public void UIInventoryEmote(string slot, EntityUid uid) //imp edit start
-        {
-            if (!TryGetSlotEntity(uid, slot, out var item))
-                return;
-
-            RaiseLocalEvent(new EmoteInventorySlotEvent(item.Value));
-        } //imp edit end
 
         public void UIInventoryOpenContextMenu(string slot, EntityUid uid)
         {
