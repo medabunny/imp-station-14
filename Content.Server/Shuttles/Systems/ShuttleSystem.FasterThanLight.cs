@@ -267,6 +267,7 @@ public sealed partial class ShuttleSystem
         float? hyperspaceTime = null,
         string? priorityTag = null,
         // imp start
+        bool globalTravelSound = false,
         bool destroyFloor = false,
         float arrivalKnockRadius = 0,
         SoundSpecifier? travelSound = null,
@@ -289,8 +290,9 @@ public sealed partial class ShuttleSystem
         hyperspace.TargetAngle = angle;
         hyperspace.PriorityTag = priorityTag;
         // imp start
-        hyperspace.ArrivalKnockdownRadius = arrivalKnockRadius;
+        hyperspace.GlobalTravelSound = globalTravelSound;
         hyperspace.DestroyFloor = destroyFloor;
+        hyperspace.ArrivalKnockdownRadius = arrivalKnockRadius;
         hyperspace.TravelSound = travelSound;
         hyperspace.GlobalArrivalSound = globalArrivalSound;
         // imp end
@@ -435,9 +437,18 @@ public sealed partial class ShuttleSystem
         RaiseLocalEvent(uid, ref ev, true);
 
         // Audio
-        var wowdio = _audio.PlayPvs(comp.TravelSound, uid);
-        comp.TravelStream = wowdio?.Entity;
-        _audio.SetGridAudio(wowdio);
+        // imp start
+        if (comp.GlobalTravelSound)
+        {
+            var travelAudio = _audio.PlayGlobal(comp.TravelSound, Filter.Broadcast(), true);
+            comp.TravelStream = travelAudio?.Entity;
+        }
+        else // imp end
+        {
+            var wowdio = _audio.PlayPvs(comp.TravelSound, uid);
+            comp.TravelStream = wowdio?.Entity;
+            _audio.SetGridAudio(wowdio);
+        }
     }
 
     /// <summary>

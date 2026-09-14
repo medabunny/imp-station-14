@@ -17,7 +17,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Content.Shared.Pinpointer;
 using Content.Shared.Stacks;
-using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -30,7 +29,6 @@ namespace Content.Server._Impstation.Shuttles.Systems
     public sealed class AssaultPodConsoleSystem : EntitySystem
     {
         [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-        [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly LockSystem _lockSystem = default!;
@@ -83,6 +81,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     comp.TravelCoordinates,
                     Angle.Zero,
                     hyperspaceTime: comp.TravelTime,
+                    globalTravelSound: true,
                     destroyFloor: true,
                     arrivalKnockRadius: comp.ArrivalKnockRadius,
                     travelSound: comp.TravelSound,
@@ -95,9 +94,6 @@ namespace Content.Server._Impstation.Shuttles.Systems
                 var stationGrid = _station.GetLargestGrid(targetStation);
                 if (stationGrid == null)
                     continue;
-
-                var audio = _audio.PlayPvs(comp.TravelSound, stationGrid.Value);
-                _audio.SetMapAudio(audio);
 
                 var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(comp.TravelCoordinates), true);
                 _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, true, true, true);
@@ -184,7 +180,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
                 Filter.BroadcastMap(Transform(ent).MapID),
                 Loc.GetString(ent.Comp.BeginDepartureAnnouncement, ("beacon", beacon)),
                 sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
-                announcementSound: ent.Comp.DepartureAnnouncementSound,
+                announcementSound: ent.Comp.BeginDepartureAnnouncementSound,
                 colorOverride: Color.DarkRed
             );
         }
