@@ -29,7 +29,7 @@ public sealed partial class AssaultPodConsoleComponent : Component
     public int Cost = 40;
 
     [DataField]
-    public int LandingVariationRange = 5;
+    public int LandingVariationRange = 15;
 
     [DataField]
     public float TravelTime = 11f;
