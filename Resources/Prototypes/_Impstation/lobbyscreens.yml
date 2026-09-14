@@ -159,3 +159,9 @@
   background: /Textures/_Impstation/LobbyScreens/foe.webp
   title: lobby-state-background-foe-title
   artist: lobby-state-background-foe-artist
+  
+- type: lobbyBackground
+  id: deadgirl
+  background: /Textures/_Impstation/LobbyScreens/dead_girl.webp
+  title: lobby-state-background-deadgirl-title
+  artist: lobby-state-background-deadgirl-artist

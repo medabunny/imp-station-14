@@ -16,6 +16,13 @@ public sealed partial class UnborgableComponent : Component
     public LocId FailPopup = "borg-mmi-fail-popup";
 
     /// <summary>
+    ///     Alternative popup to display if the brain is a diona nymph,
+    ///     which fails but is not deleted.
+    /// </summary>
+    [DataField]
+    public LocId NymphFailPopup = "borg-mmi-fail-popup-nymph";
+
+    /// <summary>
     ///     Sound that plays when the brain is deleted.
     /// </summary>
     [DataField]

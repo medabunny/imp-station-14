@@ -12,5 +12,7 @@ public sealed partial class FactionChange : EntityEffectBase<FactionChange>
     public ProtoId<NpcFactionPrototype> Faction;
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-factionchange", ("chance", Probability));
+        => Loc.GetString("reagent-effect-guidebook-faction-change",
+            ("faction", Faction),
+            ("chance", Probability));
 }

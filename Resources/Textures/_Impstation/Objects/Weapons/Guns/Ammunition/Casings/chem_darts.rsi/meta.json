@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Tranq and irwizine by Emmett. Modifications and shock by coyragon96",
+    "copyright": "Tranq and irwizine by Emmett. Modifications and batozine by coyragon96",
     "states": [
         {
             "name": "tranqdart"
@@ -14,7 +14,7 @@
             "name": "irwizinedart"
         },
         {
-            "name": "shockdart"
+            "name": "batozinedart"
         },
         {
             "name": "dart1"

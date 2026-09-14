@@ -25,7 +25,7 @@
     icon:
       sprite: _Impstation/Interface/Actions/kodepiia.rsi
       state: kodepiia_eat
-    useDelay: 60
+    useDelay: 15
   - type: TargetAction
   - type: EntityTargetAction
     event: !type:ConsumeEvent

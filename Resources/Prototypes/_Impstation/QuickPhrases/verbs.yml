@@ -8,209 +8,359 @@
 - type: quickPhrase
   id: HavePhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-have
+  text: imp-phrase-have
 
 - type: quickPhrase
   id: GivePhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-give
+  text: imp-phrase-give
 
 - type: quickPhrase
   id: TakePhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-take
+  text: imp-phrase-take
 
 - type: quickPhrase
   id: AttackPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-attack
+  text: imp-phrase-attack
 
 - type: quickPhrase
   id: ShootPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-shoot
+  text: imp-phrase-shoot
+
+- type: quickPhrase
+  id: SlicePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-slice
 
 - type: quickPhrase
   id: ShowPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-show
+  text: imp-phrase-show
 
 - type: quickPhrase
   id: WaitPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-wait
+  text: imp-phrase-wait
 
 - type: quickPhrase
   id: KnowPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-know
+  text: imp-phrase-know
 
 - type: quickPhrase
   id: ThinkPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-think
+  text: imp-phrase-think
 
 - type: quickPhrase
   id: GoPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-go
+  text: imp-phrase-go
 
 - type: quickPhrase
   id: StayPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-stay
+  text: imp-phrase-stay
 
 - type: quickPhrase
   id: FindPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-find
+  text: imp-phrase-find
+
+- type: quickPhrase
+  id: GetPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-get
 
 - type: quickPhrase
   id: OpenPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-open
+  text: imp-phrase-open
 
 - type: quickPhrase
   id: ClosePhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-close
+  text: imp-phrase-close
 
 - type: quickPhrase
   id: EatPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-eat
+  text: imp-phrase-eat
 
 - type: quickPhrase
   id: DrinkPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-drink
+  text: imp-phrase-drink
 
 - type: quickPhrase
   id: WantPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-want
+  text: imp-phrase-want
 
 - type: quickPhrase
   id: TalkPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-talk
+  text: imp-phrase-talk
 
 - type: quickPhrase
   id: WritePhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-write
+  text: imp-phrase-write
 
 - type: quickPhrase
   id: BreakPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-break
+  text: imp-phrase-break
 
 - type: quickPhrase
   id: BuildPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-build
+  text: imp-phrase-build
 
 - type: quickPhrase
   id: MakePhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-make
+  text: imp-phrase-make
 
 - type: quickPhrase
   id: FixPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-fix
+  text: imp-phrase-fix
 
 - type: quickPhrase
   id: HealPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-heal
+  text: imp-phrase-heal
 
 - type: quickPhrase
   id: TeachPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-teach
+  text: imp-phrase-teach
 
 - type: quickPhrase
   id: LearnPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-learn
+  text: imp-phrase-learn
 
 - type: quickPhrase
   id: RunPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-run
+  text: imp-phrase-run
 
 - type: quickPhrase
   id: WeldPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-weld
+  text: imp-phrase-weld
 
 - type: quickPhrase
   id: BoltPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-bolt
+  text: imp-phrase-bolt
 
 - type: quickPhrase
   id: OrderPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-order
+  text: imp-phrase-order
 
 - type: quickPhrase
   id: PullPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-pull
+  text: imp-phrase-pull
 
 - type: quickPhrase
   id: PushPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-push
+  text: imp-phrase-push
 
 - type: quickPhrase
   id: SearchPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-search
+  text: imp-phrase-search
 
 - type: quickPhrase
   id: CleanPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-clean
+  text: imp-phrase-clean
 
 - type: quickPhrase
   id: HonkPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-honk
+  text: imp-phrase-honk
 
 - type: quickPhrase
   id: GrowPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-grow
+  text: imp-phrase-grow
 
 - type: quickPhrase
   id: CookPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-cook
+  text: imp-phrase-cook
 
 - type: quickPhrase
   id: MixPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-mix
+  text: imp-phrase-mix
 
 - type: quickPhrase
   id: ClearPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-clear
+  text: imp-phrase-clear
 
 - type: quickPhrase
   id: InjectPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-inject
+  text: imp-phrase-inject
+
+- type: quickPhrase
+  id: DrawPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-draw
 
 - type: quickPhrase
   id: MiningPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-mining
+  text: imp-phrase-mining
 
 - type: quickPhrase
   id: ArrestPhraseImp
   parent: BaseVerbs
-  text: imp-phrase-verb-arrest
+  text: imp-phrase-arrest
+
+- type: quickPhrase
+  id: ScanPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-scan
+
+- type: quickPhrase
+  id: AnalyzePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-analyze
+
+- type: quickPhrase
+  id: ConfigurePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-configure
+
+- type: quickPhrase
+  id: SpillPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-spill
+
+- type: quickPhrase
+  id: ThrowPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-throw
+
+- type: quickPhrase
+  id: ExplorePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-explore
+
+- type: quickPhrase
+  id: CalibratePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-calibrate
+
+- type: quickPhrase
+  id: ProcessPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-process
+
+- type: quickPhrase
+  id: RequestPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-request
+
+- type: quickPhrase
+  id: RestockPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-restock
+
+- type: quickPhrase
+  id: CrushPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-crush
+
+- type: quickPhrase
+  id: DrillPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-drill
+
+- type: quickPhrase
+  id: CurePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-cure
+
+- type: quickPhrase
+  id: StunPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-stun
+
+- type: quickPhrase
+  id: FlashPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-flash
+
+- type: quickPhrase
+  id: MutatePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-mutate
+
+- type: quickPhrase
+  id: HarvestPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-harvest
+
+- type: quickPhrase
+  id: WitnessPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-witness
+
+- type: quickPhrase
+  id: DefendPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-defend
+
+- type: quickPhrase
+  id: PointPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-point
+
+- type: quickPhrase
+  id: UpgradePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-upgrade
+
+- type: quickPhrase
+  id: TurnPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-turn
+
+- type: quickPhrase
+  id: TrustPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-trust
+
+- type: quickPhrase
+  id: LeavePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-leave
+
+- type: quickPhrase
+  id: RescuePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-rescue
+
+- type: quickPhrase
+  id: EscapePhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-escape
+
+- type: quickPhrase
+  id: BlastPhraseImp
+  parent: BaseVerbs
+  text: imp-phrase-blast

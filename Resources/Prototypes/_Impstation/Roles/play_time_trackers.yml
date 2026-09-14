@@ -160,3 +160,6 @@
 
 - type: playTimeTracker
   id: AntagConspirator
+
+- type: playTimeTracker
+  id: AntagKillEveryon

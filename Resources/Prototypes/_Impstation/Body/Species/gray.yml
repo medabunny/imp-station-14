@@ -1,0 +1,346 @@
+﻿# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGray
+  categories: [ HideSpawnMenu ] #imp
+  name: gray appearance
+  components:
+  - type: Inventory
+    templateId: gray
+    speciesId: gray
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hand
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganGrayTorso
+        - id: OrganGrayHead
+        - id: OrganGrayArmLeft
+        - id: OrganGrayArmRight
+        - id: OrganGrayHandRight
+        - id: OrganGrayHandLeft
+        - id: OrganGrayLegLeft
+        - id: OrganGrayLegRight
+        - id: OrganGrayFootLeft
+        - id: OrganGrayFootRight
+        - id: OrganGrayBrain
+        - id: OrganGrayEyes
+        - id: OrganGrayTongue
+        - id: OrganGrayAppendix
+        - id: OrganGrayEars
+        - id: OrganGrayLungs
+        - id: OrganGrayHeart
+        - id: OrganGrayStomach
+        - id: OrganGrayLiver
+        - id: OrganGrayKidneys
+  - type: HumanoidAppearance
+  # IMP EDIT END
+    species: Gray
+
+- type: entity
+  parent:
+  - AppearanceGray
+  - BaseSpeciesMobOrganic
+  id: MobGray
+  name: Urist McGray
+  components:
+  - type: GrayAccent
+  - type: TypingIndicator
+    proto: gray
+  - type: Vocal
+    sounds:
+      Male: UnisexGray
+      Female: UnisexGray
+      Unsexed: UnisexGray
+  - type: Speech
+    speechSounds: PVC
+  - type: Damageable
+    damageModifierSet: Gray
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 300
+  # imp edit start #TODO: upstream fixing this to macro, grays should have one entity instead of two
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller #they r smaller (2)
+        density: 100
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#00ff04"
+  # actual imp additions start here
+  - type: HomunculusType
+    homunculusType: HomunculusGray
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
+  - type: IrradiatedDamage
+    #8% of rads is converted to healing per type
+    #1 full stack of uranium sheets in your inventory is just under .3 rads, resulting in 1.44 healing per type per minute, .04 more healing than from PassiveDamage component
+    damageCoefficients:
+      Blunt: -0.08
+      Slash: -0.08
+      Piercing: -0.08
+    #capped at 10.2 healing per minute per type, which is reached at 2 rads per second
+    #essentially a full duffel bag of uranium sheets, being near a couple uranium crabs, or being near the supermatter without protection
+    damageLimits:
+      Blunt: -0.17
+      Slash: -0.17
+      Piercing: -0.17
+    allowedTypesByState: #does not allow for healing when dead. a little messy looking, but allows for the most flexibility
+      Alive:
+      - Blunt
+      - Slash
+      - Piercing
+      Critical:
+      - Blunt
+      - Slash
+      - Piercing
+    # imp edit end
+
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganGray
+  abstract: true
+  suffix: Gray
+
+- type: entity
+  id: OrganGrayMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Gray ] #imp edit, gray metabolism not ported to macro yet, primarily used for immunity to rad damage from chems
+
+- type: entity
+  parent: OrganGray
+  id: OrganGrayInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Gray/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+
+- type: entity
+  parent: OrganGray
+  id: OrganGrayExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  data:
+  #    sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  #- type: VisualOrganMarkings
+  #  markingData:
+  #    group: Gray
+  # IMP EDIT END
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganGrayVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Gray/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Gray
+# IMP EDIT END
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGrayExternal ]
+  id: OrganGrayTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGrayExternal ]
+  id: OrganGrayHead
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #components:
+  #- type: VisualOrganMarkings
+  #  hideableLayers:
+  #  - enum.HumanoidVisualLayers.Hair
+  #  - enum.HumanoidVisualLayers.Snout
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGrayExternal ]
+  id: OrganGrayArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGrayExternal ]
+  id: OrganGrayArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGrayExternal ]
+  id: OrganGrayHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGrayExternal ]
+  id: OrganGrayHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganGrayExternal ]
+  id: OrganGrayLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganGrayExternal ]
+  id: OrganGrayLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGrayExternal ]
+  id: OrganGrayFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganGrayExternal ]
+  id: OrganGrayFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGrayInternal ]
+  id: OrganGrayBrain
+  name: moluuma
+  description: "Jazee thinking pib talking."
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganGrayInternal ] #imp edit, OrganGrayVisual parent removed until visual nubody
+  id: OrganGrayEyes
+  name: shuui
+  description: "Soulful."
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganGrayInternal ]
+  id: OrganGrayTongue
+  name: jorp
+  description: "It's still wriggling..."
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganGrayInternal ]
+  id: OrganGrayAppendix
+  name: weird squishy part
+  description: "Seben?"
+
+- type: entity
+  parent: [ OrganBaseEars, OrganGrayInternal ]
+  id: OrganGrayEars
+  name: tubules
+  description: "You think maybe this is like, their ears."
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganGrayInternal, OrganGrayMetabolizer, BaseHandheldInstrument ]
+  id: OrganGrayLungs
+  name: cupod
+  description: "Eugh..."
+  components:
+  - type: Instrument
+    program: 109
+  - type: Tag
+    tags:
+    - Meat
+    - WoodwindInstrument
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganGrayInternal, OrganGrayMetabolizer ]
+  id: OrganGrayHeart
+  name: tumpii
+  description: "You honestly have no idea what this does."
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGrayInternal, OrganGrayMetabolizer ]
+  id: OrganGrayStomach
+  name: fuubu
+  description: "Looks kind of appetizing."
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganGrayInternal, OrganGrayMetabolizer ]
+  id: OrganGrayLiver
+  name: beobu
+  description: "Jazee sipsun alcohol."
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganGrayInternal, OrganGrayMetabolizer ]
+  id: OrganGrayKidneys
+  name: cube
+  description: "A small, hard cube of an unidentifiable metal. It's warm to the touch, and pulsates faintly."
+  components:
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: Sprite
+    layers:
+      - state: kidney-r

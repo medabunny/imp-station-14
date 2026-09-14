@@ -320,7 +320,7 @@
   materials:
     Steel: 200
     Glass: 200
-    Plasma: 200
+    Plasma: 400
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -329,7 +329,7 @@
   materials:
     Steel: 200
     Glass: 200
-    Plasma: 250
+    Plasma: 200
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong

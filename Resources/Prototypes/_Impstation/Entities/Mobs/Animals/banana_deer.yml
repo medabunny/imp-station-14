@@ -1,6 +1,6 @@
 - type: entity
   name: banana deer
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ BaseMobRuminant, SimpleMobBase, MobCombat ]
   id: MobBananaDeer
   description: It has a flexible body, like a composition out of a snake and a doe. It wanders elegant around the Lemo Valley. #please let me keep it #i love the finfin site descriptions too much
   components:
@@ -95,8 +95,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 4.5
-  - type: Body
-    prototype: AnimalRuminant
   - type: GoobAbsorbable
     biomassRestored: 0.7 #cow amount. yummy animal lots of banana on it.
   #part where it gets silly

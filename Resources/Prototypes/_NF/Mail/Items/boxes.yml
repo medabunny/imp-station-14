@@ -61,22 +61,22 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: HeadHuman
-        - id: TorsoHuman
-        - id: LeftArmHuman
-        - id: RightArmHuman
-        - id: LeftHandHuman
-        - id: RightHandHuman
-        - id: LeftLegHuman
-        - id: RightLegHuman
-        - id: LeftFootHuman
-        - id: RightFootHuman
+        - id: OrganHumanHead
+        - id: OrganHumanTorso
+        - id: OrganHumanArmLeft
+        - id: OrganHumanArmRight
+        - id: OrganHumanHandLeft
+        - id: OrganHumanHandRight
+        - id: OrganHumanLegLeft
+        - id: OrganHumanLegRight
+        - id: OrganHumanFootLeft
+        - id: OrganHumanFootRight
   - type: Storage
     grid:
     - 0,0,4,3
     whitelist:
       components:
-        - BodyPart
+        - Organ
 
 
 - type: entity
@@ -90,16 +90,16 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: HeadGoblin
-        - id: TorsoGoblin
-        - id: LeftArmGoblin
-        - id: RightArmGoblin
-        - id: LeftHandGoblin
-        - id: RightHandGoblin
-        - id: LeftLegGoblin
-        - id: RightLegGoblin
-        - id: LeftFootGoblin
-        - id: RightFootGoblin
+        - id: OrganGoblinHead
+        - id: OrganGoblinTorso
+        - id: OrganGoblinArmLeft
+        - id: OrganGoblinArmRight
+        - id: OrganGoblinHandLeft
+        - id: OrganGoblinHandRight
+        - id: OrganGoblinLegLeft
+        - id: OrganGoblinLegRight
+        - id: OrganGoblinFootLeft
+        - id: OrganGoblinFootRight
 
 - type: entity
   name: Build-a-Buddy kit
@@ -112,16 +112,16 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: HeadReptilian
-        - id: TorsoReptilian
-        - id: LeftArmReptilian
-        - id: RightArmReptilian
-        - id: LeftHandReptilian
-        - id: RightHandReptilian
-        - id: LeftLegReptilian
-        - id: RightLegReptilian
-        - id: LeftFootReptilian
-        - id: RightFootReptilian
+        - id: OrganReptilianHead
+        - id: OrganReptilianTorso
+        - id: OrganReptilianArmLeft
+        - id: OrganReptilianArmRight
+        - id: OrganReptilianHandLeft
+        - id: OrganReptilianHandRight
+        - id: OrganReptilianLegLeft
+        - id: OrganReptilianLegRight
+        - id: OrganReptilianFootLeft
+        - id: OrganReptilianFootRight
 
 - type: entity
   name: Build-a-Buddy kit
@@ -134,13 +134,13 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: HeadSlime
-        - id: TorsoSlime
-        - id: LeftArmSlime
-        - id: RightArmSlime
-        - id: LeftHandSlime
-        - id: RightHandSlime
-        - id: LeftLegSlime
-        - id: RightLegSlime
-        - id: LeftFootSlime
-        - id: RightFootSlime
+        - id: OrganSlimePersonHead
+        - id: OrganSlimePersonTorso
+        - id: OrganSlimePersonArmLeft
+        - id: OrganSlimePersonArmRight
+        - id: OrganSlimePersonHandLeft
+        - id: OrganSlimePersonHandRight
+        - id: OrganSlimePersonLegLeft
+        - id: OrganSlimePersonLegRight
+        - id: OrganSlimePersonFootLeft
+        - id: OrganSlimePersonFootRight

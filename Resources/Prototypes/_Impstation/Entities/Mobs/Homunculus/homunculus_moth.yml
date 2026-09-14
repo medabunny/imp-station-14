@@ -1,0 +1,139 @@
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceHomunculusMoth
+  categories: [ HideSpawnMenu ]
+  name: moth homunculus appearance
+  components:
+  - type: Inventory
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: mask
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: glasses
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: suitstorage
+  - type: EntityTableContainerFill #VISUAL NUBODY TODO: REWORK THESE
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganMothBrain
+        - id: OrganMothEyes
+        - id: OrganMothTongue
+        - id: OrganMothAppendix
+        - id: OrganMothEars
+        - id: OrganMothLungs
+        - id: OrganMothHeart
+        - id: OrganMothStomach
+        - id: OrganMothLiver
+        - id: OrganMothKidneys
+  - type: HumanoidAppearance
+    species: HomunculusMoth
+    markingsDisplacement:
+      Head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+      Eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+      Snout:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+      HeadSide:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+      HeadTop:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Moth/displacement.rsi/
+            state: head
+
+- type: entity
+  id: HomunculusMoth
+  suffix: Moth
+  parent: [ BaseHomunculus, AppearanceHomunculusMoth]
+  description: It's... Fluffy? I think?
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 150
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: MothAccent
+  - type: ZombieAccentOverride
+    accent: zombieMoth
+  - type: Speech
+    speechVerb: Moth
+    allowedEmotes: [ 'Chitter', 'Squeak' ]
+  - type: TypingIndicator
+    proto: moth
+  - type: Vocal
+    sounds:
+      Male: MaleMoth
+      Female: FemaleMoth
+      Unsexed: UnisexMoth
+  - type: Flammable
+    damage:
+      types:
+        Heat: 4.5 # moths burn more easily
+  - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    coldDamage:
+      types:
+        Cold: 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 3 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 46
+  - type: TemperatureSpeed
+    thresholds:
+      289: 0.8
+      275: 0.6
+      250: 0.4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: -6
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0.4
+    baseSprintSpeed : 0.6
+  - type: Tag
+    tags:
+    - FootstepSound
+    - VimPilot
+    - DoorBumpOpener

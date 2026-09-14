@@ -57,6 +57,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Shared._Goobstation.Changeling;
+using Content.Shared.Body;
 using Content.Shared.Zombies;
 
 namespace Content.Server._Goobstation.Changeling;

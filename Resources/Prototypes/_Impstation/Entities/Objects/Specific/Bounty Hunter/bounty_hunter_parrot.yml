@@ -31,6 +31,10 @@
     - DoorBumpOpener
   - type: Hands
     showInHands: false
+    activeHandId: Hand
+    hands:
+      Hand:
+        location: Left
   - type: Strippable
   - type: Stripping
   - type: UserInterface
@@ -47,8 +51,6 @@
     - Freelance
   - type: Puller
     needsHands: false
-  - type: Body
-    prototype: BountyHunterParrot
   - type: BountyHunterParrot
   - type: Pacified
   - type: Inventory
@@ -59,33 +61,6 @@
     stealthy: true
   - type: RandomMetadata
     nameSegments: [ NamesBountyHunterParrot ]
-
-
-# BH parrot body. They get a hand!
-- type: body
-  id: BountyHunterParrot
-  name: "parrot"
-  root: torso
-  slots:
-    torso:
-      part: TorsoAnimal
-      connections:
-      - legs
-      - hands
-      organs:
-        lungs: OrganAnimalLungs
-        stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
-        kidneys: OrganAnimalKidneys
-    hands:
-      part: HandsAnimal
-    legs:
-      part: LegsAnimal
-      connections:
-      - feet
-    feet:
-      part: FeetAnimal
 
 #BH parrot inventory. Literally just a pocket
 - type: inventoryTemplate

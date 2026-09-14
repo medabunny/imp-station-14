@@ -707,6 +707,98 @@
     GamersDelight: 3
 
 - type: reaction
+  id: RamosGinFizz
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    GinFizz:
+      amount: 3
+    JuiceLemon:
+      amount: 1
+    Cream:
+      amount: 3
+    Egg:
+      amount: 2
+  products:
+    RamosGinFizz: 9
+
+- type: reaction
+  id: AtmosGinFizz
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    GinFizz:
+      amount: 3
+    JuiceLemon:
+      amount: 1
+    Egg:
+      amount: 2
+    Oxygen:
+      amount: 1
+    Nitrogen:
+      amount: 3
+  products:
+    AtmosGinFizz: 10
+
+- type: reaction
+  id: BetweenTheSheets
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Rum:
+      amount: 1
+    Cognac:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+  products:
+    BetweenTheSheets: 4
+
+- type: reaction
+  id: Sidecar
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Cognac:
+      amount: 2
+    JuiceOrange:
+      amount: 1
+    JuiceLemon:
+      amount: 1
+  products:
+    Sidecar: 4
+
+- type: reaction
+  id: Sazerac
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Cognac:
+      amount: 4
+    Absinthe:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Sazerac: 6
+
+- type: reaction
+  id: OldFashioned
+  requiredMixerCategories:
+  reactants:
+    Whiskey:
+      amount: 4
+    Sugar:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    OldFashioned: 6
+
+
+- type: reaction
   id: CreamSoda
   requiredMixerCategories:
   - Stir

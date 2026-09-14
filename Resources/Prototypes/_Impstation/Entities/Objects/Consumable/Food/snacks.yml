@@ -427,6 +427,11 @@
     items:
       - id: FoodPacketDanShrimpsnaxRegretTrash
       - id: MobWeirdShrimp
+        prob: 0.99
+        orGroup: Shrimp
+      - id: MobWeirdShrimpKillEveryon
+        prob: 0.1
+        orGroup: Shrimp
     sound:
       path: /Audio/Effects/unwrap.ogg
 

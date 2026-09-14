@@ -7,7 +7,7 @@
   sprites: MobAllulaloSprites
   defaultSkinTone: "#385878"
   markingLimits: MobAllulaloMarkingLimits
-  dollPrototype: MobAllulaloDummy
+  dollPrototype: AppearanceAllulalo
   skinColoration: Hues
   maleFirstNames: AllulaloFirstNames
   femaleFirstNames: AllulaloFirstNames
@@ -130,7 +130,7 @@
   id: MobAllulaloLHand
   baseSprite:
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
-    state: hands
+    state: l_hand
 
 - type: humanoidBaseSprite
   id: MobAllulaloLArm

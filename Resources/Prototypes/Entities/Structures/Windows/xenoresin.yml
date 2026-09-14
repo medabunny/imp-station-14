@@ -6,9 +6,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/xeno_resin.rsi
+    sprite: _Impstation/Structures/Windows/xeno_resin.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/xeno_resin.rsi
+    sprite: _Impstation/Structures/Windows/xeno_resin.rsi # Impstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -35,6 +35,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
+    key: walls
     base: xwindow
   - type: DamageVisuals
     thresholds: [5, 10, 20]

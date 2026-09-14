@@ -92,7 +92,7 @@
     tags:
     - ClothMade
     - ClothFood
-    
+
 
 # pompom foods
 
@@ -134,12 +134,12 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   name: puff-puff
   parent: FoodMealBase
   id: FoodMealPuffPuff
-  description: A popular street food for moths, known by many names across the galaxy. 
+  description: A popular street food for moths, known by many names across the galaxy.
   components:
   - type: FlavorProfile
     flavors:
@@ -155,7 +155,7 @@
     requiresSpecialDigestion: true
     trash:
     - FoodPacketFoodBoatTrash
-  - type: SolutionContainerManager 
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 35
@@ -172,7 +172,7 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   name: pomgo
   parent: FoodMealBase
@@ -194,7 +194,7 @@
     requiresSpecialDigestion: true
     trash:
     - FoodKebabSkewer
-  - type: SolutionContainerManager 
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 35
@@ -209,7 +209,7 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   name: pompette
   parent: FoodMealBase
@@ -231,7 +231,7 @@
     heldPrefix: pompette
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager 
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 50
@@ -248,7 +248,7 @@
     tags:
     - ClothFood
     - ClothMade
-    
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
@@ -262,3 +262,31 @@
   - type: Tag
     tags:
     - Trash
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealSteakTartare
+  name: steak tartare
+  description: A raw, minced steak topped with an egg yolk. Not for the weak-stomached.
+  components:
+  - type: Item
+    storedOffset: 0,-3
+  - type: FlavorProfile
+    flavors:
+    - raw-egg
+    - meaty
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Steaktartare.rsi
+    state: steaktartare
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+        - ReagentId: Egg
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat

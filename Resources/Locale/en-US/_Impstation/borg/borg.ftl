@@ -9,3 +9,4 @@ station-ai-transponder = station ai
 toggle-borg-pda = View PDA
 
 borg-mmi-fail-popup = The brain suddenly dissolves on contact with the interface!
+borg-mmi-fail-popup-nymph = The nymph fails to connect with the interface.

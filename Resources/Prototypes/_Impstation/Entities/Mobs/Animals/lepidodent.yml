@@ -1,11 +1,9 @@
 - type: entity
   name: lepidodent
-  parent: MobMouse
+  parent: [ BaseMobLepidodentBody, MobMouse ]
   id: MobLepidodent
   description: An unstoppable eating machine.
   components:
-  - type: Body
-    prototype: Lepidodent
   - type: Speech
     allowedEmotes: ['Chitter', 'Squeak']
   - type: Sprite

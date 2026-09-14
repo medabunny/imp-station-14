@@ -67,7 +67,6 @@
     showInHands: false
   - type: ComplexInteraction
   - type: Body
-    prototype: Drone
     thermalVisibility: false # imp edit. mostly for drones, but i think this is cool and interesting
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -167,3 +166,21 @@
           collection: OnestarDeath
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Middle
+      hand2:
+        location: Middle
+      hand3:
+        location: Middle
+      hand4:
+        location: Middle
+    sortedHands:
+    - hand1
+    - hand2
+    - hand3
+    - hand4

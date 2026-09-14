@@ -2,50 +2,69 @@
   id: BasicPhrasesImp
   prototypes:
 # Common
-    - IPhraseImp
-    - YouPhraseImp
-    - MePhraseImp
-    - WePhraseImp
-    - AndPhraseImp
-    - OrPhraseImp
-    - DoPhraseImp
-    - NotPhraseImp
-    - IfPhraseImp
     - HelloPhraseImp
     - ByePhraseImp
     - YesPhraseImp
     - NoPhraseImp
     - MaybePhraseImp
+    - AndPhraseImp
+    - OrPhraseImp
+    - DoPhraseImp
+    - NotPhraseImp
+    - IfPhraseImp
     - SomewhatPhraseImp
     - PleasePhraseImp
-    - ThanksPhraseImp
+    - ThankYouPhraseImp
     - SorryPhraseImp
     - HelpPhraseImp
+    - TooMuchPhraseImp
+    - NotEnoughPhraseImp
+    - QuestionPhraseImp
+    - ExplainPhraseImp
+    - StatementPhraseImp
   # common group
     - HowAreYouPhraseImp
     - IAmPhraseImp
     - IWantPhraseImp
+    - INeedPhraseImp
+    - ICantPhraseImp
+    - CanIPhraseImp
+    - DoYouPhraseImp
     - HereToHelpPhraseImp
+    - HowToHelpPhraseImp
     - IDontUnderstandPhraseImp
     - ICantSayPhraseImp
     - WaitForMePhraseImp
-    - SignPhraseImp
+    - CanYouSignPhraseImp
     - FollowMePhraseImp
     - ComeHerePhraseImp
     - GoAwayPhraseImp
     - IDontKnowPhraseImp
     - SeeYouLaterPhraseImp
     - NoProblemPhraseImp
+    - YourePhraseImp
     - YoureWelcomePhraseImp
     - DontWorryPhraseImp
     - GoodLuckPhraseImp
     - BeCarefulPhraseImp
-    - ConcernPhraseImp
+    - ConcerningPhraseImp
   # pronouns
+    - IPhraseImp
+    - YouPhraseImp
+    - MePhraseImp
+    - WePhraseImp
+    - UsPhraseImp
     - HePhraseImp
     - ShePhraseImp
     - ItPhraseImp
     - TheyPhraseImp
+    - MyPhraseImp
+    - MinePhraseImp
+    - OursPhraseImp
+    - YoursPhraseImp
+    - EveryonePhraseImp
+    - NoOnePhraseImp
+    - AnyonePhraseImp
   # identity
     - GayPhraseImp
     - LesbianPhraseImp
@@ -55,6 +74,7 @@
     - PanPhraseImp
     - TransPhraseImp
     - QueerPhraseImp
+    - NonbinaryPhraseImp
     - ManPhraseImp
     - WomanPhraseImp
     - PersonPhraseImp
@@ -65,23 +85,45 @@
     - WherePhraseImp
     - WhyPhraseImp
     - HowPhraseImp
-    - QuestionPhraseImp
-    - ExplainPhraseImp
+  # quantity
+    - 1PhraseImp
+    - 2PhraseImp
+    - 3PhraseImp
+    - 4PhraseImp
+    - 5PhraseImp
+    - 6PhraseImp
+    - 7PhraseImp
+    - 8PhraseImp
+    - 9PhraseImp
+    - 10PhraseImp
+    - 100PhraseImp
+    - 1000PhraseImp
+    - MilPhraseImp
+    - BilPhraseImp
+    - SinglePhraseImp
+    - MultiplePhraseImp
+    - AllPhraseImp
+    - NothingPhraseImp
+    - SomethingPhraseImp
+    - MorePhraseImp
+    - LessPhraseImp
   # adjectives
     - SlowPhraseImp
     - FastPhraseImp
     - StrongPhraseImp
+    - WeakPhraseImp
     - LoudPhraseImp
     - QuietPhraseImp
     - RoundPhraseImp
     - SquarePhraseImp
     - TrianglePhraseImp
+    - CirclePhraseImp
     - OldPhraseImp
     - NewPhraseImp
     - WeirdPhraseImp
     - NormalPhraseImp
     - BrightPhraseImp
-    - DarkPhraseImp
+    - DullPhraseImp
     - OkPhraseImp
     - GoodPhraseImp
     - BadPhraseImp
@@ -95,7 +137,8 @@
     - TrappedPhraseImp
     - BigPhraseImp
     - SmallPhraseImp
-    - BrokenPhraseImp
+    - LongPhraseImp
+    - ShortPhraseImp
     - InnocentPhraseImp
     - GuiltyPhraseImp
     - LethalPhraseImp
@@ -108,8 +151,17 @@
     - PainfulPhraseImp
     - BeautifulPhraseImp
     - HandsomePhraseImp
+    - GrossPhraseImp
     - KindPhraseImp
     - CruelPhraseImp
+    - InsulatedPhraseImp
+    - ScannedPhraseImp
+    - ContainedPhraseImp
+    - CompressedPhraseImp
+    - WoodenPhraseImp
+    - MetalPhraseImp
+    - HotPhraseImp
+    - ColdPhraseImp
   # colours
     - RedPhraseImp
     - OrangePhraseImp
@@ -118,15 +170,21 @@
     - BluePhraseImp
     - IndigoPhraseImp
     - VioletPhraseImp
+    - PurplePhraseImp
+    - PinkPhraseImp
+    - BrownPhraseImp
     - RainbowPhraseImp
     - BlackPhraseImp
     - WhitePhraseImp
-  # feelings
+    - DarkPhraseImp
+    - LightPhraseImp
+  # emotion
     - LikePhraseImp
     - HatePhraseImp
     - LovePhraseImp
     - HappyPhraseImp
     - SadPhraseImp
+    - AngryPhraseImp
     - ScaredPhraseImp
   # health
     - InjuredPhraseImp
@@ -137,12 +195,20 @@
     - FullHPPhraseImp
     - CritPhraseImp
     - SSDPhraseImp
+  #taste
+    - SweetPhraseImp
+    - SourPhraseImp
+    - SavouryPhraseImp
+    - SaltyPhraseImp
+    - BitterPhraseImp
+    - SpicyPhraseImp
   # verbs
     - HavePhraseImp
     - GivePhraseImp
     - TakePhraseImp
     - AttackPhraseImp
     - ShootPhraseImp
+    - SlicePhraseImp
     - ShowPhraseImp
     - WaitPhraseImp
     - KnowPhraseImp
@@ -150,11 +216,11 @@
     - GoPhraseImp
     - StayPhraseImp
     - FindPhraseImp
+    - GetPhraseImp
     - OpenPhraseImp
     - ClosePhraseImp
     - EatPhraseImp
     - DrinkPhraseImp
-    - WantPhraseImp
     - WantPhraseImp
     - TalkPhraseImp
     - WritePhraseImp
@@ -179,71 +245,140 @@
     - MixPhraseImp
     - ClearPhraseImp
     - InjectPhraseImp
+    - DrawPhraseImp
+    - MiningPhraseImp
     - ArrestPhraseImp
-  # determiners
-    - MyPhraseImp
-    - MinePhraseImp
-    - OursPhraseImp
-    - YoursPhraseImp
-  # amounts
-    - AllPhraseImp
-    - NothingPhraseImp
-    - MorePhraseImp
-    - LessPhraseImp
-  # numbers
-    - 1PhraseImp
-    - 2PhraseImp
-    - 3PhraseImp
-    - 4PhraseImp
-    - 5PhraseImp
-    - 6PhraseImp
-    - 7PhraseImp
-    - 8PhraseImp
-    - 9PhraseImp
-    - 10PhraseImp
-    - 100PhraseImp
-    - 1000PhraseImp
-    - MilPhraseImp
-    - BilPhraseImp
+    - ScanPhraseImp
+    - AnalyzePhraseImp
+    - ConfigurePhraseImp
+    - SpillPhraseImp
+    - ThrowPhraseImp
+    - ExplorePhraseImp
+    - CalibratePhraseImp
+    - ProcessPhraseImp
+    - RequestPhraseImp
+    - RestockPhraseImp
+    - CrushPhraseImp
+    - DrillPhraseImp
+    - CurePhraseImp
+    - StunPhraseImp
+    - FlashPhraseImp
+    - MutatePhraseImp
+    - HarvestPhraseImp
+    - WitnessPhraseImp
+    - DefendPhraseImp
+    - PointPhraseImp
+    - UpgradePhraseImp
+    - TurnPhraseImp
+    - TrustPhraseImp
+    - LeavePhraseImp
+    - RescuePhraseImp
+    - EscapePhraseImp
+    - BlastPhraseImp
   # nouns
     - PenPhraseImp
     - PaperPhraseImp
-    - AirlockPhraseImp
     - PDAPhraseImp
+    - AccessPhraseImp
+    - IDPhraseImp
+    - UniformPhraseImp
+    - StampPhraseImp
+    - SignaturePhraseImp
+    - KeyPhraseImp
     - BountyPhraseImp
+    - GiftPhraseImp
+    - MailPhraseImp
+    - ExpedPhraseImp
+    - CratePhraseImp
+    - PackPhraseImp
+    - SpesosPhraseImp
+    - MoneyPhraseImp
     - FoodPhraseImp
-    - DrinkPhraseImp
+    - FruitPhraseImp
+    - VegPhraseImp
+    - MeatPhraseImp
+    - SaltPhraseImp
+    - PlantPhraseImp
+    - FlourPhraseImp
+    - DoughPhraseImp
+    - BeakerPhraseImp
+    - EggPhraseImp
+    - BoozePhraseImp
+    - NoboozePhraseImp
+    - JuicePhraseImp
+    - SeedPhraseImp
+    - OvenPhraseImp
+    - MicrowavePhraseImp
+    - AirlockPhraseImp
+    - PowerPhraseImp
+    - EnginePhraseImp
+    - PressurePhraseImp
+    - TempPhraseImp
+    - ElectricPhraseImp
+    - CablePhraseImp
+    - PipePhraseImp
+    - GravPhraseImp
+    - GenPhraseImp
+    - FuelPhraseImp
+    - APCPhraseImp
+    - SMESPhraseImp
+    - SubstationPhraseImp
+    - RCDPhraseImp
+    - VentPhraseImp
+    - ScrubberPhraseImp
+    - CanisterPhraseImp
+    - TankPhraseImp
+    - AlarmPhraseImp
+    - AMEPhraseImp
+    - TEGPhraseImp
+    - SinguloPhraseImp
+    - TeslaPhraseImp
+    - SMPhraseImp
+    - NetworkPhraseImp
+    - TrayPhraseImp
+    - MagbootsPhraseImp
+    - HolofanPhraseImp
     - WeaponPhraseImp
     - GunPhraseImp
     - KnifePhraseImp
+    - DisablerPhraseImp
+    - DNAPhraseImp
+    - FingerprintPhraseImp
     - MedsPhraseImp
+    - NeedlePhraseImp
+    - PillPhraseImp
+    - DefibPhraseImp
+    - StatisPhraseImp
+    - SensorsPhraseImp
+    - InternalsPhraseImp
+    - MedkitPhraseImp
+    - FirstAidPhraseImp
+    - TopicalPhraseImp
+    - ChemicalPhraseImp
+    - GauzePhraseImp
+    - BloodPhraseImp
+    - CryopodPhraseImp
+    - ClonePhraseImp
     - FirePhraseImp
     - WaterPhraseImp
     - EarthPhraseImp
     - AirPhraseImp
+    - LiquidPhraseImp
+    - SolidPhraseImp
+    - MatterPhraseImp
+    - GasPhraseImp
     - ShuttlePhraseImp
-    - NeedlePhraseImp
-    - GiftPhraseImp
     - LathePhraseImp
     - ComputerPhraseImp
     - ToolPhraseImp
-    - FruitPhraseImp
-    - VegPhraseImp
-    - MeatPhraseImp
-    - AccessPhraseImp
-    - IDPhraseImp
-    - CablePhraseImp
-    - GravPhraseImp
+    - ToolboxPhraseImp
     - SpaceSuitPhraseImp
     - MachinePhraseImp
     - TrashPhraseImp
     - BoxPhraseImp
     - DoorPhraseImp
-    - BloodPhraseImp
-    - AIPhraseImp
     - StatusPhraseImp
-    - GenPhraseImp
-    - FuelPhraseImp
+    - CellPhraseImp
     - MistakePhraseImp
     - CigPhraseImp
     - GamePhraseImp
@@ -251,30 +386,22 @@
     - HatPhraseImp
     - ShoesPhraseImp
     - GlovesPhraseImp
+    - ClothesPhraseImp
     - MaskPhraseImp
-    - GasPhraseImp
-    - PowerPhraseImp
-    - EnginePhraseImp
-    - PressurePhraseImp
-    - TempPhraseImp
-    - ElectricPhraseImp
+    - BeltPhraseImp
     - AnomPhraseImp
     - ArtiPhraseImp
-    - CyborgPhraseImp
-    - PlantPhraseImp
-    - FlourPhraseImp
-    - DoughPhraseImp
-    - EggPhraseImp
-    - BeakerPhraseImp
-    - BoozePhraseImp
-    - SeedPhraseImp
-    - OvenPhraseImp
+    - ScannerPhraseImp
+    - VesselPhraseImp
+    - CircuitPhraseImp
+    - BoardPhraseImp
+    - APEPhraseImp
+    - DeltaPhraseImp
+    - ZetaPhraseImp
+    - EpsilonPhraseImp
+    - SigmaPhraseImp
     - ArtPhraseImp
     - MusicPhraseImp
-    - DefibPhraseImp
-    - StasisBedPhraseImp
-    - MailPhraseImp
-    - ExpedPhraseImp
     - CrimePhraseImp
     - CuffsPhraseImp
     - WarrentPhraseImp
@@ -282,21 +409,27 @@
     - NukePhraseImp
     - NukeDiskPhraseImp
     - ExplosionPhraseImp
-    - BombPhraseImp
     - O2PhraseImp
     - N2PhraseImp
+    - TritPhraseImp
+    - FrezonPhraseImp
+    - WatervaporPhraseImp
+    - CO2PhraseImp
+    - AmmoniaPhraseImp
   # damage
     - BrutePhraseImp
     - BurnPhraseImp
     - ToxicPhraseImp
     - RadsPhraseImp
     - PoisonPhraseImp
+    - CellularPhraseImp
+    - AsphyxPhraseImp
   # species
     - DionaPhraseImp
     - SlimePhraseImp
     - MothPhraseImp
-    - LizardPhraseImp
-    - SpiderPhraseImp
+    - ReptilianPhraseImp
+    - ArachnidPhraseImp
     - HumanPhraseImp
     - DwarfPhraseImp
     - VoxPhraseImp
@@ -309,14 +442,28 @@
     - ShrimpPhraseImp
     - KodiPhraseImp
     - UnguPhraseImp
-    - XenoPhraseImp
+  # animals
     - BirdPhraseImp
     - CatPhraseImp
     - DogPhraseImp
     - FishPhraseImp
+    - MousePhraseImp
+    - LizardPhraseImp
     - BugPhraseImp
     - PestPhraseImp
     - PetPhraseImp
+    - CreaturePhraseImp
+    - EntityPhraseImp
+    - AnimalPhraseImp
+    - MonsterPhraseImp
+    - XenoPhraseImp
+    - SpiderPhraseImp
+    - SnakePhraseImp
+    - TickPhraseImp
+    - BearPhraseImp
+    - RooPhraseImp
+    - BoarPhraseImp
+    - RatPhraseImp
   # time
     - SecondPhraseImp
     - HourPhraseImp
@@ -326,6 +473,7 @@
     - LaterPhraseImp
     - SoonPhraseImp
     - NextPhraseImp
+    - AgainPhraseImp
   # relationships
     - FriendPhraseImp
     - PartnerPhraseImp
@@ -334,6 +482,7 @@
     - ChildPhraseImp
     - SiblingPhraseImp
     - StrangerPhraseImp
+    - CoworkerPhraseImp
     - BossPhraseImp
   # mats
     - SteelPhraseImp
@@ -342,25 +491,32 @@
     - ClothPhraseImp
     - PlasticPhraseImp
     - UraniumPhraseImp
+    - BananiumPhraseImp
     - PlasmaPhraseImp
     - GoldPhraseImp
     - SilverPhraseImp
-    - QuartzPhraseImp
+    - OrePhraseImp
     - WoodPhraseImp
     - CardPhraseImp
+    - StackPhraseImp
   # tools
     - WrenchPhraseImp
     - CrowbarPhraseImp
     - MultitoolPhraseImp
     - ScrewdriverPhraseImp
+    - WirecutterPhraseImp
     - WeldingPhraseImp
-  # locations
+    - WeldingMaskPhraseImp
+  # directional
     - UpPhraseImp
     - DownPhraseImp
     - LeftPhraseImp
     - RightPhraseImp
+    - MiddlePhraseImp
     - InsidePhraseImp
     - OutsidePhraseImp
+    - FarPhraseImp
+    - NearPhraseImp
   # cardinal
     - NorthPhraseImp
     - SouthPhraseImp
@@ -381,24 +537,31 @@
     - ATSPhraseImp
     - EngiPhraseImp
     - MedPhraseImp
+    - MorguePhraseImp
+    - ChemPhraseImp
     - SecPhraseImp
     - ServicePhraseImp
     - SciPhraseImp
     - CargoPhraseImp
     - LibraryPhraseImp
+    - ChapelPhraseImp
+    - CourtPhraseImp
     - KitchenPhraseImp
     - BarPhraseImp
     - CryoPhraseImp
     - BrigPhraseImp
     - DisposalsPhraseImp
+    - BridgePhraseImp
     - VaultPhraseImp
     - TelecomsPhraseImp
+    - OutpostPhraseImp
     - CentcommPhraseImp
     - NanotrasenPhraseImp
     - BotanyPhraseImp
     - StagePhraseImp
-    - ChemPhraseImp
     - ArmouryPhraseImp
+    - RoboticsPhraseImp
+    - ZooPhraseImp
   # jobs
     - AtmosPhraseImp
     - EngiePhraseImp
@@ -412,7 +575,12 @@
     - MimePhraseImp
     - HDPhraseImp
     - BotanistPhraseImp
-    - MedicPhraseImp
+    - ZookeeperPhraseImp
+    - BoxerPhraseImp
+    - ReporterPhraseImp
+    - LibrarianPhraseImp
+    - ChaplainPhraseImp
+    - DoctorPhraseImp
     - ChemistPhraseImp
     - CMOPhraseImp
     - ParamedPhraseImp
@@ -424,70 +592,105 @@
     - WardenPhraseImp
     - SecOfPhraseImp
     - DetPhraseImp
+    - BrigMedPhraseImp
+    - InternPhraseImp
+    - PassengerPhraseImp
+    - LawyerPhraseImp
+    - CyborgPhraseImp
+    - AIPhraseImp
     - HOPPhraseImp
     - CapPhraseImp
-    - PassengerPhraseImp
-    - ReporterPhraseImp
-    - LawyerPhraseImp
-    - ZookeeperPhraseImp
-    - BoxerPhraseImp
   # danger
+    - SpacedPhraseImp
+    - MeteorPhraseImp
+    - DebrisPhraseImp
+    - InfectionPhraseImp
     - ViralPhraseImp
     - LifeformPhraseImp
-    - BrokenPhraseImp
+    - BokenEqPhraseImp
     - ChemSpillPhraseImp
     - ShockPhraseImp
     - PowerOutPhraseImp
     - GasLeakPhraseImp
     - UnionNTPhraseImp
+    - EvacuatePhraseImp
+    - OverheatPhraseImp
+    - FreezePhraseImp
+  # danger status
+    - DangerPhraseImp
+    - CautionPhraseImp
+    - HazardPhraseImp
+    - BrokenPhraseImp
+    - SusPhraseImp
+    - StolenPhraseImp
 
 - type: quickPhraseGroup
   id: HackedPhrasesImp # THERE HAS TO BE A BETTER WAY
   prototypes:
-    - IPhraseImp
-    - YouPhraseImp
-    - MePhraseImp
-    - WePhraseImp
-    - AndPhraseImp
-    - OrPhraseImp
-    - DoPhraseImp
-    - NotPhraseImp
-    - IfPhraseImp
+# Common
     - HelloPhraseImp
     - ByePhraseImp
     - YesPhraseImp
     - NoPhraseImp
     - MaybePhraseImp
+    - AndPhraseImp
+    - OrPhraseImp
+    - DoPhraseImp
+    - NotPhraseImp
+    - IfPhraseImp
     - SomewhatPhraseImp
     - PleasePhraseImp
-    - ThanksPhraseImp
+    - ThankYouPhraseImp
     - SorryPhraseImp
     - HelpPhraseImp
+    - TooMuchPhraseImp
+    - NotEnoughPhraseImp
+    - QuestionPhraseImp
+    - ExplainPhraseImp
+    - StatementPhraseImp
   # common group
     - HowAreYouPhraseImp
     - IAmPhraseImp
     - IWantPhraseImp
+    - INeedPhraseImp
+    - ICantPhraseImp
+    - CanIPhraseImp
+    - DoYouPhraseImp
     - HereToHelpPhraseImp
+    - HowToHelpPhraseImp
     - IDontUnderstandPhraseImp
     - ICantSayPhraseImp
     - WaitForMePhraseImp
-    - SignPhraseImp
+    - CanYouSignPhraseImp
     - FollowMePhraseImp
     - ComeHerePhraseImp
     - GoAwayPhraseImp
     - IDontKnowPhraseImp
     - SeeYouLaterPhraseImp
     - NoProblemPhraseImp
+    - YourePhraseImp
     - YoureWelcomePhraseImp
     - DontWorryPhraseImp
     - GoodLuckPhraseImp
     - BeCarefulPhraseImp
-    - ConcernPhraseImp
+    - ConcerningPhraseImp
   # pronouns
+    - IPhraseImp
+    - YouPhraseImp
+    - MePhraseImp
+    - WePhraseImp
+    - UsPhraseImp
     - HePhraseImp
     - ShePhraseImp
     - ItPhraseImp
     - TheyPhraseImp
+    - MyPhraseImp
+    - MinePhraseImp
+    - OursPhraseImp
+    - YoursPhraseImp
+    - EveryonePhraseImp
+    - NoOnePhraseImp
+    - AnyonePhraseImp
   # identity
     - GayPhraseImp
     - LesbianPhraseImp
@@ -497,6 +700,7 @@
     - PanPhraseImp
     - TransPhraseImp
     - QueerPhraseImp
+    - NonbinaryPhraseImp
     - ManPhraseImp
     - WomanPhraseImp
     - PersonPhraseImp
@@ -507,23 +711,45 @@
     - WherePhraseImp
     - WhyPhraseImp
     - HowPhraseImp
-    - QuestionPhraseImp
-    - ExplainPhraseImp
+  # quantity
+    - 1PhraseImp
+    - 2PhraseImp
+    - 3PhraseImp
+    - 4PhraseImp
+    - 5PhraseImp
+    - 6PhraseImp
+    - 7PhraseImp
+    - 8PhraseImp
+    - 9PhraseImp
+    - 10PhraseImp
+    - 100PhraseImp
+    - 1000PhraseImp
+    - MilPhraseImp
+    - BilPhraseImp
+    - SinglePhraseImp
+    - MultiplePhraseImp
+    - AllPhraseImp
+    - NothingPhraseImp
+    - SomethingPhraseImp
+    - MorePhraseImp
+    - LessPhraseImp
   # adjectives
     - SlowPhraseImp
     - FastPhraseImp
     - StrongPhraseImp
+    - WeakPhraseImp
     - LoudPhraseImp
     - QuietPhraseImp
     - RoundPhraseImp
     - SquarePhraseImp
     - TrianglePhraseImp
+    - CirclePhraseImp
     - OldPhraseImp
     - NewPhraseImp
     - WeirdPhraseImp
     - NormalPhraseImp
     - BrightPhraseImp
-    - DarkPhraseImp
+    - DullPhraseImp
     - OkPhraseImp
     - GoodPhraseImp
     - BadPhraseImp
@@ -537,7 +763,8 @@
     - TrappedPhraseImp
     - BigPhraseImp
     - SmallPhraseImp
-    - BrokenPhraseImp
+    - LongPhraseImp
+    - ShortPhraseImp
     - InnocentPhraseImp
     - GuiltyPhraseImp
     - LethalPhraseImp
@@ -550,8 +777,17 @@
     - PainfulPhraseImp
     - BeautifulPhraseImp
     - HandsomePhraseImp
+    - GrossPhraseImp
     - KindPhraseImp
     - CruelPhraseImp
+    - InsulatedPhraseImp
+    - ScannedPhraseImp
+    - ContainedPhraseImp
+    - CompressedPhraseImp
+    - WoodenPhraseImp
+    - MetalPhraseImp
+    - HotPhraseImp
+    - ColdPhraseImp
   # colours
     - RedPhraseImp
     - OrangePhraseImp
@@ -560,15 +796,21 @@
     - BluePhraseImp
     - IndigoPhraseImp
     - VioletPhraseImp
+    - PurplePhraseImp
+    - PinkPhraseImp
+    - BrownPhraseImp
     - RainbowPhraseImp
     - BlackPhraseImp
     - WhitePhraseImp
-  # feelings
+    - DarkPhraseImp
+    - LightPhraseImp
+  # emotion
     - LikePhraseImp
     - HatePhraseImp
     - LovePhraseImp
     - HappyPhraseImp
     - SadPhraseImp
+    - AngryPhraseImp
     - ScaredPhraseImp
   # health
     - InjuredPhraseImp
@@ -579,12 +821,20 @@
     - FullHPPhraseImp
     - CritPhraseImp
     - SSDPhraseImp
+  #taste
+    - SweetPhraseImp
+    - SourPhraseImp
+    - SavouryPhraseImp
+    - SaltyPhraseImp
+    - BitterPhraseImp
+    - SpicyPhraseImp
   # verbs
     - HavePhraseImp
     - GivePhraseImp
     - TakePhraseImp
     - AttackPhraseImp
     - ShootPhraseImp
+    - SlicePhraseImp
     - ShowPhraseImp
     - WaitPhraseImp
     - KnowPhraseImp
@@ -592,11 +842,11 @@
     - GoPhraseImp
     - StayPhraseImp
     - FindPhraseImp
+    - GetPhraseImp
     - OpenPhraseImp
     - ClosePhraseImp
     - EatPhraseImp
     - DrinkPhraseImp
-    - WantPhraseImp
     - WantPhraseImp
     - TalkPhraseImp
     - WritePhraseImp
@@ -621,71 +871,140 @@
     - MixPhraseImp
     - ClearPhraseImp
     - InjectPhraseImp
+    - DrawPhraseImp
+    - MiningPhraseImp
     - ArrestPhraseImp
-  # determiners
-    - MyPhraseImp
-    - MinePhraseImp
-    - OursPhraseImp
-    - YoursPhraseImp
-  # amounts
-    - AllPhraseImp
-    - NothingPhraseImp
-    - MorePhraseImp
-    - LessPhraseImp
-  # numbers
-    - 1PhraseImp
-    - 2PhraseImp
-    - 3PhraseImp
-    - 4PhraseImp
-    - 5PhraseImp
-    - 6PhraseImp
-    - 7PhraseImp
-    - 8PhraseImp
-    - 9PhraseImp
-    - 10PhraseImp
-    - 100PhraseImp
-    - 1000PhraseImp
-    - MilPhraseImp
-    - BilPhraseImp
+    - ScanPhraseImp
+    - AnalyzePhraseImp
+    - ConfigurePhraseImp
+    - SpillPhraseImp
+    - ThrowPhraseImp
+    - ExplorePhraseImp
+    - CalibratePhraseImp
+    - ProcessPhraseImp
+    - RequestPhraseImp
+    - RestockPhraseImp
+    - CrushPhraseImp
+    - DrillPhraseImp
+    - CurePhraseImp
+    - StunPhraseImp
+    - FlashPhraseImp
+    - MutatePhraseImp
+    - HarvestPhraseImp
+    - WitnessPhraseImp
+    - DefendPhraseImp
+    - PointPhraseImp
+    - UpgradePhraseImp
+    - TurnPhraseImp
+    - TrustPhraseImp
+    - LeavePhraseImp
+    - RescuePhraseImp
+    - EscapePhraseImp
+    - BlastPhraseImp
   # nouns
     - PenPhraseImp
     - PaperPhraseImp
-    - AirlockPhraseImp
     - PDAPhraseImp
+    - AccessPhraseImp
+    - IDPhraseImp
+    - UniformPhraseImp
+    - StampPhraseImp
+    - SignaturePhraseImp
+    - KeyPhraseImp
     - BountyPhraseImp
+    - GiftPhraseImp
+    - MailPhraseImp
+    - ExpedPhraseImp
+    - CratePhraseImp
+    - PackPhraseImp
+    - SpesosPhraseImp
+    - MoneyPhraseImp
     - FoodPhraseImp
-    - DrinkPhraseImp
+    - FruitPhraseImp
+    - VegPhraseImp
+    - MeatPhraseImp
+    - SaltPhraseImp
+    - PlantPhraseImp
+    - FlourPhraseImp
+    - DoughPhraseImp
+    - BeakerPhraseImp
+    - EggPhraseImp
+    - BoozePhraseImp
+    - NoboozePhraseImp
+    - JuicePhraseImp
+    - SeedPhraseImp
+    - OvenPhraseImp
+    - MicrowavePhraseImp
+    - AirlockPhraseImp
+    - PowerPhraseImp
+    - EnginePhraseImp
+    - PressurePhraseImp
+    - TempPhraseImp
+    - ElectricPhraseImp
+    - CablePhraseImp
+    - PipePhraseImp
+    - GravPhraseImp
+    - GenPhraseImp
+    - FuelPhraseImp
+    - APCPhraseImp
+    - SMESPhraseImp
+    - SubstationPhraseImp
+    - RCDPhraseImp
+    - VentPhraseImp
+    - ScrubberPhraseImp
+    - CanisterPhraseImp
+    - TankPhraseImp
+    - AlarmPhraseImp
+    - AMEPhraseImp
+    - TEGPhraseImp
+    - SinguloPhraseImp
+    - TeslaPhraseImp
+    - SMPhraseImp
+    - NetworkPhraseImp
+    - TrayPhraseImp
+    - MagbootsPhraseImp
+    - HolofanPhraseImp
     - WeaponPhraseImp
     - GunPhraseImp
     - KnifePhraseImp
+    - DisablerPhraseImp
+    - DNAPhraseImp
+    - FingerprintPhraseImp
     - MedsPhraseImp
+    - NeedlePhraseImp
+    - PillPhraseImp
+    - DefibPhraseImp
+    - StatisPhraseImp
+    - SensorsPhraseImp
+    - InternalsPhraseImp
+    - MedkitPhraseImp
+    - FirstAidPhraseImp
+    - TopicalPhraseImp
+    - ChemicalPhraseImp
+    - GauzePhraseImp
+    - BloodPhraseImp
+    - CryopodPhraseImp
+    - ClonePhraseImp
     - FirePhraseImp
     - WaterPhraseImp
     - EarthPhraseImp
     - AirPhraseImp
+    - LiquidPhraseImp
+    - SolidPhraseImp
+    - MatterPhraseImp
+    - GasPhraseImp
     - ShuttlePhraseImp
-    - NeedlePhraseImp
-    - GiftPhraseImp
     - LathePhraseImp
     - ComputerPhraseImp
     - ToolPhraseImp
-    - FruitPhraseImp
-    - VegPhraseImp
-    - MeatPhraseImp
-    - AccessPhraseImp
-    - IDPhraseImp
-    - CablePhraseImp
-    - GravPhraseImp
+    - ToolboxPhraseImp
     - SpaceSuitPhraseImp
     - MachinePhraseImp
     - TrashPhraseImp
     - BoxPhraseImp
     - DoorPhraseImp
-    - BloodPhraseImp
-    - AIPhraseImp
     - StatusPhraseImp
-    - GenPhraseImp
-    - FuelPhraseImp
+    - CellPhraseImp
     - MistakePhraseImp
     - CigPhraseImp
     - GamePhraseImp
@@ -693,30 +1012,22 @@
     - HatPhraseImp
     - ShoesPhraseImp
     - GlovesPhraseImp
+    - ClothesPhraseImp
     - MaskPhraseImp
-    - GasPhraseImp
-    - PowerPhraseImp
-    - EnginePhraseImp
-    - PressurePhraseImp
-    - TempPhraseImp
-    - ElectricPhraseImp
+    - BeltPhraseImp
     - AnomPhraseImp
     - ArtiPhraseImp
-    - CyborgPhraseImp
-    - PlantPhraseImp
-    - FlourPhraseImp
-    - DoughPhraseImp
-    - EggPhraseImp
-    - BeakerPhraseImp
-    - BoozePhraseImp
-    - SeedPhraseImp
-    - OvenPhraseImp
+    - ScannerPhraseImp
+    - VesselPhraseImp
+    - CircuitPhraseImp
+    - BoardPhraseImp
+    - APEPhraseImp
+    - DeltaPhraseImp
+    - ZetaPhraseImp
+    - EpsilonPhraseImp
+    - SigmaPhraseImp
     - ArtPhraseImp
     - MusicPhraseImp
-    - DefibPhraseImp
-    - StasisBedPhraseImp
-    - MailPhraseImp
-    - ExpedPhraseImp
     - CrimePhraseImp
     - CuffsPhraseImp
     - WarrentPhraseImp
@@ -724,21 +1035,27 @@
     - NukePhraseImp
     - NukeDiskPhraseImp
     - ExplosionPhraseImp
-    - BombPhraseImp
     - O2PhraseImp
     - N2PhraseImp
+    - TritPhraseImp
+    - FrezonPhraseImp
+    - WatervaporPhraseImp
+    - CO2PhraseImp
+    - AmmoniaPhraseImp
   # damage
     - BrutePhraseImp
     - BurnPhraseImp
     - ToxicPhraseImp
     - RadsPhraseImp
     - PoisonPhraseImp
+    - CellularPhraseImp
+    - AsphyxPhraseImp
   # species
     - DionaPhraseImp
     - SlimePhraseImp
     - MothPhraseImp
-    - LizardPhraseImp
-    - SpiderPhraseImp
+    - ReptilianPhraseImp
+    - ArachnidPhraseImp
     - HumanPhraseImp
     - DwarfPhraseImp
     - VoxPhraseImp
@@ -751,14 +1068,28 @@
     - ShrimpPhraseImp
     - KodiPhraseImp
     - UnguPhraseImp
-    - XenoPhraseImp
+  # animals
     - BirdPhraseImp
     - CatPhraseImp
     - DogPhraseImp
     - FishPhraseImp
+    - MousePhraseImp
+    - LizardPhraseImp
     - BugPhraseImp
     - PestPhraseImp
     - PetPhraseImp
+    - CreaturePhraseImp
+    - EntityPhraseImp
+    - AnimalPhraseImp
+    - MonsterPhraseImp
+    - XenoPhraseImp
+    - SpiderPhraseImp
+    - SnakePhraseImp
+    - TickPhraseImp
+    - BearPhraseImp
+    - RooPhraseImp
+    - BoarPhraseImp
+    - RatPhraseImp
   # time
     - SecondPhraseImp
     - HourPhraseImp
@@ -768,6 +1099,7 @@
     - LaterPhraseImp
     - SoonPhraseImp
     - NextPhraseImp
+    - AgainPhraseImp
   # relationships
     - FriendPhraseImp
     - PartnerPhraseImp
@@ -776,6 +1108,7 @@
     - ChildPhraseImp
     - SiblingPhraseImp
     - StrangerPhraseImp
+    - CoworkerPhraseImp
     - BossPhraseImp
   # mats
     - SteelPhraseImp
@@ -784,25 +1117,32 @@
     - ClothPhraseImp
     - PlasticPhraseImp
     - UraniumPhraseImp
+    - BananiumPhraseImp
     - PlasmaPhraseImp
     - GoldPhraseImp
     - SilverPhraseImp
-    - QuartzPhraseImp
+    - OrePhraseImp
     - WoodPhraseImp
     - CardPhraseImp
+    - StackPhraseImp
   # tools
     - WrenchPhraseImp
     - CrowbarPhraseImp
     - MultitoolPhraseImp
     - ScrewdriverPhraseImp
+    - WirecutterPhraseImp
     - WeldingPhraseImp
-  # locations
+    - WeldingMaskPhraseImp
+  # directional
     - UpPhraseImp
     - DownPhraseImp
     - LeftPhraseImp
     - RightPhraseImp
+    - MiddlePhraseImp
     - InsidePhraseImp
     - OutsidePhraseImp
+    - FarPhraseImp
+    - NearPhraseImp
   # cardinal
     - NorthPhraseImp
     - SouthPhraseImp
@@ -823,24 +1163,31 @@
     - ATSPhraseImp
     - EngiPhraseImp
     - MedPhraseImp
+    - MorguePhraseImp
+    - ChemPhraseImp
     - SecPhraseImp
     - ServicePhraseImp
     - SciPhraseImp
     - CargoPhraseImp
     - LibraryPhraseImp
+    - ChapelPhraseImp
+    - CourtPhraseImp
     - KitchenPhraseImp
     - BarPhraseImp
     - CryoPhraseImp
     - BrigPhraseImp
     - DisposalsPhraseImp
+    - BridgePhraseImp
     - VaultPhraseImp
     - TelecomsPhraseImp
+    - OutpostPhraseImp
     - CentcommPhraseImp
     - NanotrasenPhraseImp
     - BotanyPhraseImp
     - StagePhraseImp
-    - ChemPhraseImp
     - ArmouryPhraseImp
+    - RoboticsPhraseImp
+    - ZooPhraseImp
   # jobs
     - AtmosPhraseImp
     - EngiePhraseImp
@@ -854,7 +1201,12 @@
     - MimePhraseImp
     - HDPhraseImp
     - BotanistPhraseImp
-    - MedicPhraseImp
+    - ZookeeperPhraseImp
+    - BoxerPhraseImp
+    - ReporterPhraseImp
+    - LibrarianPhraseImp
+    - ChaplainPhraseImp
+    - DoctorPhraseImp
     - ChemistPhraseImp
     - CMOPhraseImp
     - ParamedPhraseImp
@@ -866,22 +1218,38 @@
     - WardenPhraseImp
     - SecOfPhraseImp
     - DetPhraseImp
+    - BrigMedPhraseImp
+    - InternPhraseImp
+    - PassengerPhraseImp
+    - LawyerPhraseImp
+    - CyborgPhraseImp
+    - AIPhraseImp
     - HOPPhraseImp
     - CapPhraseImp
-    - PassengerPhraseImp
-    - ReporterPhraseImp
-    - LawyerPhraseImp
-    - ZookeeperPhraseImp
-    - BoxerPhraseImp
   # danger
+    - SpacedPhraseImp
+    - MeteorPhraseImp
+    - DebrisPhraseImp
+    - InfectionPhraseImp
     - ViralPhraseImp
     - LifeformPhraseImp
-    - BrokenPhraseImp
+    - BokenEqPhraseImp
     - ChemSpillPhraseImp
     - ShockPhraseImp
     - PowerOutPhraseImp
     - GasLeakPhraseImp
     - UnionNTPhraseImp
+    - EvacuatePhraseImp
+    - OverheatPhraseImp
+    - FreezePhraseImp
+  # danger status
+    - DangerPhraseImp
+    - CautionPhraseImp
+    - HazardPhraseImp
+    - BrokenPhraseImp
+    - SusPhraseImp
+    - StolenPhraseImp
+  # hacked 
     - FuckPhraseImp
     - FuckOffPhraseImp
     - CuntPhraseImp
@@ -902,3 +1270,6 @@
     - UnionPhraseImp
     - KillerPhraseImp
     - TiltPhraseImp
+    - PiskPhraseImp
+    - BombPhraseImp
+    - OmegaPhraseImp

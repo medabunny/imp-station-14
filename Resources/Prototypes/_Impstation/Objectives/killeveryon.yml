@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseObjective
+  id: KillEveryonObjective
+  name: Kill Everyon
+  description: Kill Everyon
+  components:
+  - type: Objective
+    difficulty: 1.25
+    issuer: objective-issuer-self
+    unique: true
+    icon:
+      sprite: Objects/Weapons/Melee/combat_knife.rsi
+      state: icon
+  - type: AutoCompleteCondition

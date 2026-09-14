@@ -7,7 +7,7 @@
   sprites: MobDecapoidSprites
   defaultSkinTone: "#385878"
   markingLimits: MobDecapoidMarkingLimits
-  dollPrototype: MobDecapoidDummy
+  dollPrototype: AppearanceDecapoid
   skinColoration: Hues
   maleFirstNames: NamesDecapoidFirst
   femaleFirstNames: NamesDecapoidFirst

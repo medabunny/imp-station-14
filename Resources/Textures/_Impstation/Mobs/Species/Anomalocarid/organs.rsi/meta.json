@@ -86,14 +86,14 @@
             "directions": 4
         },
         {
-            "name": "ticket"
+            "name": "tongue"
         },
         {
-            "name": "ticket-inhand-left",
+            "name": "tongue-inhand-left",
             "directions": 4
         },
         {
-            "name": "ticket-inhand-right",
+            "name": "tongue-inhand-right",
             "directions": 4
         },
         {

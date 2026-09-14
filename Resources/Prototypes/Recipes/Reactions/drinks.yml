@@ -489,6 +489,8 @@
 
 - type: reaction
   id: GinFizz
+  requiredMixerCategories: # Imp Edit - avoids conflict with Ramos
+  - Shake # Imp Edit - avoids conflict with Ramos
   reactants:
     Gin:
       amount: 1

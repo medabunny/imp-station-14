@@ -1,0 +1,374 @@
+﻿# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAnt
+  categories: [ HideSpawnMenu ] #imp
+  name: ant appearance
+  components:
+  - type: Inventory
+    speciesId: ant
+    templateId: ant
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: suitstorage
+      id:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: id
+  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganAntTorso
+        - id: OrganAntHead
+        - id: OrganAntArmLeft
+        - id: OrganAntArmRight
+        - id: OrganAntHandRight
+        - id: OrganAntHandLeft
+        - id: OrganAntLegLeft
+        - id: OrganAntLegRight
+        - id: OrganAntFootLeft
+        - id: OrganAntFootRight
+        - id: OrganAntBrain
+        - id: OrganAntEyes
+        - id: OrganAntTongue
+        - id: OrganAntAppendix
+        - id: OrganAntEars
+        - id: OrganAntLungs
+        - id: OrganAntHeart
+        - id: OrganAntStomach
+        - id: OrganAntLiver
+        - id: OrganAntKidneys
+  - type: HumanoidAppearance
+  # IMP EDIT END
+    species: Ant
+
+- type: entity
+  parent:
+  - AppearanceAnt
+  - BaseSpeciesMobOrganic
+  id: MobAnt
+  name: Urist McAnt
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+    state: full
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatMeatball #meatball until someone makes ant meat
+      amount: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.05
+        # they r smaller #they r smaller (2) #they r smaller (3)
+        density: 10
+        restitution: 0.0
+        mask:
+        - SmallMobMask
+        layer: #they can go under doors, in exchange for this they die in a single hit
+        - SmallMobLayer
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.1
+  - type: Vocal
+    sounds:
+      Male: UnisexAnt
+      Female: UnisexAnt
+      Unsexed: UnisexAnt
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Ant
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      9: Critical
+      10: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:GibBehavior { }
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.001 #only the most inattentive ant could fall for such a trick
+  - type: GibOnTrigger
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi #imp edit, waiting on proper macro merge to migrate files
+        color: "#808A51"
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 30
+  - type: Speech
+    speechBubbleOffset: -0.35
+    speechVerb: Arachnid
+    speechSounds: Arachnid
+    allowedEmotes: [ 'GoblinThroatSinging', 'Chitter' ] # had to remove GoblinThroatSinging for macrocosm #imp edit, readded GoblinThroatSinging
+  - type: TooShortForUI
+    blacklist:
+      components:
+      - TooShortForUIBlacklist
+    whitelist:
+      components:
+      - TooShortForUIWhitelist
+  - type: MeleeWeapon
+    attackRate: 1
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0.1 # they can carry heavy objects but can't throw a punch
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/ants_held.rsi #imp edit, waiting on proper macro merge to migrate files
+    inhandVisuals:
+      left:
+      - state: inhand_left
+      right:
+      - state: inhand_right
+  - type: FlavorProfile
+    flavors:
+    - ants
+  - type: Edible
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ants
+          Quantity: 5 #5 of ants = 1 of ant
+  - type: CanEscapeInventory
+    baseResistTime: 2
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+    - RecyclerGibbable
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_right
+  # imp edit start
+  - type: StrongAsFuckAnt
+  # imp edit end
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganAnt
+  abstract: true
+  suffix: Ant
+
+- type: entity
+  parent: OrganAnt
+  id: OrganAntInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    scale: 0.3, 0.3
+    color: "#221e1c"
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganAntVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Ant
+# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: OrganAnt
+  id: OrganAntExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  data:
+  #    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  #- type: VisualOrganMarkings
+  #  markingData:
+  #    group: Ant
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganAntExternal ]
+  id: OrganAntTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganAntExternal ]
+  id: OrganAntHead
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #components:
+  #- type: VisualOrganMarkings
+  #  hideableLayers:
+  #  - enum.HumanoidVisualLayers.Hair
+  #  - enum.HumanoidVisualLayers.Snout
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganAntExternal ]
+  id: OrganAntArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganAntExternal ]
+  id: OrganAntArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganAntExternal ]
+  id: OrganAntHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganAntExternal ]
+  id: OrganAntHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganAntExternal ]
+  id: OrganAntLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganAntExternal ]
+  id: OrganAntLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganAntExternal ]
+  id: OrganAntFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganAntExternal ]
+  id: OrganAntFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganAntInternal ]
+  id: OrganAntBrain
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganAntInternal ] #imp edit, OrganAntVisual parent removed until visual nubody
+  id: OrganAntEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganAntInternal ]
+  id: OrganAntTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganAntInternal ]
+  id: OrganAntAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganAntInternal ]
+  id: OrganAntEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganAntInternal, OrganHumanMetabolizer ]
+  id: OrganAntLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganAntInternal, OrganHumanMetabolizer ]
+  id: OrganAntHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganAntInternal, OrganHumanMetabolizer ]
+  id: OrganAntStomach
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganAntInternal, OrganHumanMetabolizer ]
+  id: OrganAntLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganAntInternal, OrganHumanMetabolizer ]
+  id: OrganAntKidneys

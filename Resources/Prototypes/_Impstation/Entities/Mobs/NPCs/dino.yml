@@ -2,7 +2,7 @@
 
 - type: entity
   save: false
-  parent: [ BaseMob, MobCombat, MobBloodstream ]
+  parent: [ BaseMob, MobCombat, MobBloodstream, BaseMobDinosaurBody ]
   id: BaseMobDinosaur
   suffix: AI
   description: A mesozoic soldier, ready to live or die for the Dino Wars.
@@ -60,8 +60,6 @@
     allowedStates:
     - Alive
     - Dead
-  - type: Body
-    prototype: Dinosaur
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur

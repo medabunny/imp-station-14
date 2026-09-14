@@ -3,44 +3,117 @@
   tab: Danger
   abstract: true
 
- # types
+- type: quickPhrase
+  id: BaseDangerImpStatus
+  parent: BaseDangerImp
+  group: Status
+  abstract: true
+
+# Common
+
+- type: quickPhrase
+  id: SpacedPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-spaced
+
+- type: quickPhrase
+  id: MeteorPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-meteor
+
+- type: quickPhrase
+  id: DebrisPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-debris
+
+- type: quickPhrase
+  id: InfectionPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-infection
 
 - type: quickPhrase
   id: ViralPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-viral
+  text: imp-phrase-viral
 
 - type: quickPhrase
   id: LifeformPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-lifeform
+  text: imp-phrase-lifeform
 
 - type: quickPhrase
   id: BokenEqPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-brokeneq
+  text: imp-phrase-brokeneq
 
 - type: quickPhrase
   id: ChemSpillPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-chemspill
+  text: imp-phrase-chemspill
 
 - type: quickPhrase
   id: ShockPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-shock
+  text: imp-phrase-shock
 
 - type: quickPhrase
   id: PowerOutPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-powerout
+  text: imp-phrase-powerout
 
 - type: quickPhrase
   id: GasLeakPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-gasleak
+  text: imp-phrase-gasleak
 
 - type: quickPhrase
   id: UnionNTPhraseImp
   parent: BaseDangerImp
-  text: imp-phrase-danger-unionnt
+  text: imp-phrase-unionnt
+
+- type: quickPhrase
+  id: EvacuatePhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-evacuate
+
+- type: quickPhrase
+  id: OverheatPhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-overheat
+
+- type: quickPhrase
+  id: FreezePhraseImp
+  parent: BaseDangerImp
+  text: imp-phrase-freeze
+
+# Status 
+
+- type: quickPhrase
+  id: DangerPhraseImp
+  parent: BaseDangerImpStatus
+  text: imp-phrase-danger
+
+- type: quickPhrase
+  id: CautionPhraseImp
+  parent: BaseDangerImpStatus
+  text: imp-phrase-caution
+
+- type: quickPhrase
+  id: HazardPhraseImp
+  parent: BaseDangerImpStatus
+  text: imp-phrase-hazard
+
+- type: quickPhrase
+  id: BrokenPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-broken
+
+- type: quickPhrase
+  id: SusPhraseImp
+  parent: BaseDangerImpStatus
+  text: imp-phrase-sus
+
+- type: quickPhrase
+  id: StolenPhraseImp
+  parent: BaseDangerImpStatus
+  text: imp-phrase-stolen

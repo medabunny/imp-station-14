@@ -1,0 +1,37 @@
+- type: vendingMachineInventory
+  id: BeachDrobeInventory
+  startingInventory:
+    ClothingSwimsuitRed: 3
+    ClothingSwimsuitOrange: 3
+    ClothingSwimsuitYellow: 3
+    ClothingSwimsuitGreen: 3
+    ClothingSwimsuitBlue: 3
+    ClothingSwimsuitPurple: 3
+    ClothingSwimsuitPink: 3
+    ClothingSwimsuitMagenta: 3
+    ClothingSwimsuitBlack: 3
+    ClothingSwimsuitTrans: 3
+    ClothingSwimsuitGay: 3
+    ClothingHeadHatStrawHat: 2
+    ClothingEyesGlassesCheapSunglasses: 2
+    ClothingShoesFlippers: 2
+    BeachBall: 2
+    TowelColorRed: 2 #here we fucking go
+    TowelColorOrange: 2
+    TowelColorYellow: 2
+    TowelColorGreen: 2
+    TowelColorLightBlue: 2
+    TowelColorPurple: 2
+    TowelColorPink: 2 
+    TowelColorMaroon: 2 
+    TowelColorBlack: 2
+    TowelColorWhite: 2
+  contrabandInventory: 
+    PlushieSharkBlue: 1
+    PlushieSharkGrey: 1
+    PlushieSharkPink: 1
+    WeaponWaterPistol: 3
+    WeaponWaterBlaster: 3
+  emaggedInventory:
+    ClothingEyesGlassesSunglasses: 1
+    TowelColorSyndicate: 2

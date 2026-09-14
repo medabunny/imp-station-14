@@ -1,0 +1,93 @@
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganPleebnarInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Gray/organs.rsi
+  - type: StaticPrice
+    price: 50
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - cigarettes
+
+- type: entity
+  parent: [ OrganPleebnarInternal, OrganAnimalLungs ]
+  id: OrganPleebnarLungs
+  name: yupp
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here. i dont know i dont know i dont know
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food: #imp edit, to match contents of OrganBaseOrganic, should be removed after solution refactor
+        maxVol: 20
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+
+- type: entity
+  parent: [ OrganPleebnarInternal, OrganAnimalStomach ]
+  id: OrganPleebnarStomach
+  name: sluumi
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganPleebnarInternal, OrganAnimalLiver ]
+  id: OrganPleebnarLiver
+  name: grubi
+  components:
+  - type: Metabolizer
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  parent: [ OrganPleebnarInternal, OrganAnimalHeart ]
+  id: OrganPleebnarHeart
+  name: clui
+
+- type: entity
+  parent: [ OrganPleebnarInternal, OrganAnimalKidneys ]
+  id: OrganPleebnarKidneys
+  name: spum
+  components:
+  - type: Sprite
+    layers:
+    - state: kidney-r
+
+- type: entity
+  parent: [ OrganPleebnarInternal, OrganBaseEyes ]
+  id: OrganPleebnarEyes
+  name: shuui
+  description: "Soulful."
+
+- type: entity
+  id: BaseMobPleebnarBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganPleebnarLungs
+        - id: OrganPleebnarStomach
+        - id: OrganPleebnarLiver
+        - id: OrganPleebnarHeart
+        - id: OrganPleebnarKidneys
+        - id: OrganPleebnarEyes

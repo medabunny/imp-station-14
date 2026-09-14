@@ -1,7 +1,7 @@
 - type: entity
   name: bombadilidiidae
   id: MobBombadillo
-  parent: [ MobCombat, SimpleMobBase ]
+  parent: [ BaseMobHemocyanin, MobCombat, SimpleMobBase ]
   description: Colloquially known as Rollie Explodies, Pill Bombs, or Smooth Blasties.
   components:
   - type: InputMover
@@ -68,8 +68,6 @@
       amount: 1
     - id: SheetUranium1
       amount: 1
-  - type: Body
-    prototype: AnimalHemocyanin
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

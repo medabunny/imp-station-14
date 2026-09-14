@@ -1,7 +1,7 @@
 - type: entity
   name: apid
   id: MobApidBaseGhostrole
-  parent: BaseMobApid
+  parent: MobApid
   description: Enthusiastic workers, these cute little balls of fuzz are distant relatives to moth people.
   components:
   - type: RandomMetadata

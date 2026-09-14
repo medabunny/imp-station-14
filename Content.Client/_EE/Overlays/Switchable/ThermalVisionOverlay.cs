@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
-using Content.Shared.Body.Components;
 using Content.Shared._EE.Overlays.Switchable;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -11,6 +10,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared._Impstation.Replicator;
+using Content.Shared.Body;
 
 namespace Content.Client._EE.Overlays.Switchable;
 

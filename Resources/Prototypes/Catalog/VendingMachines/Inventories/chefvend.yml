@@ -1,26 +1,26 @@
 - type: vendingMachineInventory
   id: ChefvendInventory
   startingInventory:
-    ReagentContainerFlour: 4
-    ReagentContainerCornmeal: 4
-    ReagentContainerSugar: 4
-    ReagentContainerRice: 4
-    FoodCondimentPacketSalt: 8
-    FoodCondimentBottleEnzyme: 4
-    FoodCondimentBottleHotsauce: 2
-    FoodCondimentBottleKetchup: 2
-    FoodCondimentBottleBBQ: 2
-    FoodCondimentBottleVinegar: 4
-    ReagentContainerOliveoil: 4
-    ReagentContainerMayo: 2
+    ReagentContainerFlour: 2
+    ReagentContainerCornmeal: 2
+    ReagentContainerSugar: 2
+    ReagentContainerRice: 2
+    FoodCondimentPacketSalt: 4
+    FoodCondimentBottleEnzyme: 2
+    FoodCondimentBottleHotsauce: 1
+    FoodCondimentBottleKetchup: 1
+    FoodCondimentBottleBBQ: 1
+    FoodCondimentBottleVinegar: 2
+    ReagentContainerOliveoil: 2
+    ReagentContainerMayo: 1
     ExtractBottleVanilla: 2 #imp
     ChefCubeBox: 1 #imp, previously was VariantCubeBox
-    FoodContainerEgg: 2
-    DrinkMilkCarton: 4
-    DrinkSoyMilkCarton: 2
-    FoodButter: 6
-    FoodCheese: 2
-    FoodMeat: 16 #imp, original - 12, upped slightly to account for mild monkey repossession
+    FoodContainerEgg: 1
+    DrinkMilkCarton: 2
+    DrinkSoyMilkCarton: 1
+    FoodButter: 3
+    FoodCheese: 1
+    FoodMeat: 8 #imp, original - 6, upped slightly to account for mild monkey repossession
     FoodSausageCasingRoll: 3 # DEN - Adds sausage casings
     FoodBoxWaffleCone: 1 # Frontier
     FoodCondimentBottleSoysauce: 1 #imp add from _NF

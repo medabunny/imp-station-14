@@ -8,3 +8,17 @@
     foldVerbText: roll-verb-clothing-jacket
   - type: FoldableClothing
     foldedEquippedPrefix: folded
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformBase
+  id: ClothingSwimsuitBase
+  components:
+  - type: HideLayerClothing #youre not allowed to wear your undies under swimsuits. its weeiiird
+    slots:
+    - UndergarmentBottom # for this to function, must add hidelayers undergarmentbottom and top to species
+    - UndergarmentTop # this isn't added yet while nubody is changing everything around # bc fuck merge conflicts
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+# i don't have the technology for it yet, but i really wish these didnt have an id slot or pockest

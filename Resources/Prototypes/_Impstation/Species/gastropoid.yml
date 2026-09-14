@@ -7,7 +7,7 @@
   sprites: MobGastropoidSprites
   defaultSkinTone: "#385878"
   markingLimits: MobGastropoidMarkingLimits
-  dollPrototype: MobGastropoidDummy
+  dollPrototype: AppearanceGastropoid
   skinColoration: Hues
   maleFirstNames: NamesGastropoidFirst
   femaleFirstNames: NamesGastropoidFirst

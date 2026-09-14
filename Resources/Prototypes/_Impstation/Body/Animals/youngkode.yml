@@ -1,0 +1,19 @@
+- type: entity
+  id: BaseMobKodeDescendant
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY. i dont knowwwww
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganKodepiiaBrain
+        - id: OrganKodepiiaEyes
+        - id: OrganKodepiiaTongue
+        - id: OrganKodepiiaAppendix
+        - id: OrganKodepiiaEars
+        - id: OrganKodepiiaLungs
+        - id: OrganKodepiiaHeart
+        - id: OrganKodepiiaStomach
+        - id: OrganKodepiiaLiver
+        - id: OrganKodepiiaKidneys

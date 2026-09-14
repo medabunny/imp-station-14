@@ -7,7 +7,7 @@
   sprites: MobAnomalocaridSprites
   defaultSkinTone: "#e5e5e5"
   markingLimits: MobAnomalocaridMarkingLimits
-  dollPrototype: MobAnomalocaridDummy
+  dollPrototype: AppearanceAnomalocarid
   skinColoration: AnomalocaridToned
   maleFirstNames: NamesAnomalocaridFirst
   femaleFirstNames: NamesAnomalocaridFirst

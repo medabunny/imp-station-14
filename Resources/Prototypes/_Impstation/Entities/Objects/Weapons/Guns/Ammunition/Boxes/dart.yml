@@ -65,13 +65,13 @@
     - state: irwizine
 
 - type: entity
-  parent: [ BaseMagazineBoxDart, Tier3Contraband ]
-  id: BoxShockDart
-  name: dart box (shock)
-  description: A box made for 4 muldoon darts, labeled as shock darts.
+  parent: [ BaseMagazineBoxDart, Tier2Contraband ]
+  id: BoxBatozineDart
+  name: dart box (batozine)
+  description: A box made for 4 muldoon darts, labeled as batozine darts.
   components:
   - type: BallisticAmmoProvider
-    proto: ShockDart
+    proto: BatozineDart
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -82,4 +82,4 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: shock
+    - state: batozine

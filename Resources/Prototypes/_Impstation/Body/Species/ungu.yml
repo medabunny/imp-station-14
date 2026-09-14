@@ -1,0 +1,406 @@
+# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceUngu
+  categories: [ HideSpawnMenu ]
+  name: ungu appearance
+  components:
+  - type: Inventory
+    templateId: ungu
+    speciesId: ungu
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: ears
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: shoes
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerwear
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Ungu/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: inhand_right
+  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganUnguTorso
+        - id: OrganUnguHead
+        - id: OrganUnguArmLeft
+        - id: OrganUnguArmRight
+        - id: OrganUnguHandRight
+        - id: OrganUnguHandLeft
+        - id: OrganUnguLegLeft
+        - id: OrganUnguLegRight
+        - id: OrganUnguFootLeft
+        - id: OrganUnguFootRight
+        - id: OrganUnguBrain
+        - id: OrganUnguEyes
+        - id: OrganUnguTongue
+        - id: OrganUnguAppendix
+        - id: OrganUnguEars
+        - id: OrganUnguLungs
+        - id: OrganUnguHeart
+        - id: OrganUnguStomach
+        - id: OrganUnguLiver
+        - id: OrganUnguKidneys
+  - type: HumanoidAppearance
+  # IMP EDIT END
+    species: Ungu
+    hideLayersOnEquip: #imp edit, to be reworked by visual nubody
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Snout
+    - SnoutCover
+    - LFoot
+    - RFoot
+
+- type: entity
+  parent:
+  - AppearanceUngu
+  - BaseSpeciesMobOrganic
+  id: MobUngu
+  name: Urist McHooves
+  components:
+  - type: CowToolProficiency
+  - type: Pullable
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.7
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2.9
+    baseWalkSpeed: 1.3
+  - type: CombatModeSprint
+    stunSeconds: 1
+    doImpactDamage: true
+    beginCombatMessage: "ungu-begin-combat-popup"
+  - type: CombatModeVisuals
+    sprite:
+      sprite: _Impstation/Mobs/Species/Ungu/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+      state: angry
+  - type: CombatMode
+  - type: MeleeWeapon
+    attackRate: 0.6
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 8
+        Structural: 12
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 12
+        Structural: 20
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      200: Dead
+  - type: StaminaDamageOnHit
+    damage: 18
+  - type: Hunger
+    thresholds:
+      Overfed: 150
+      Okay: 100
+      Peckish: 50
+      Starving: 25
+      Dead: 0
+    baseDecayRate: 0.0124 # 3/4 as fast as a human
+  - type: Thirst
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Ungu/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+    state: full
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 #STOP! BEING! 500!!!
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Male: UnisexUngu
+      Female: UnisexUngu
+      Unsexed: UnisexUngu
+  - type: BodyEmotes
+    soundsId: UnguBodyEmotes
+  - type: Damageable
+    damageModifierSet: Ungu
+  - type: TemperatureDamage
+    heatDamageThreshold: 320
+    coldDamageThreshold: 200
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 3.0 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300 #imp edit, will be raised to 600 with the solutions refactor pr
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/ungu_brute_damage.rsi #imp edit, waiting on proper macro merge to migrate files
+        color: "#ff624a"
+  - type: Speech
+    speechSounds: Ungu
+    allowedEmotes: ['Moo']
+  - type: TypingIndicator
+    proto: Ungu
+  - type: JumpAbility
+    action: ActionDash
+    jumpDistance: 4
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: .5
+        volume: -3
+        variation: 0.05
+  #imp edit, this will be used once a later PR is merged that changes how cream pie visuals work
+  #- type: CreamPied
+  #  sprite:
+  #    sprite: Effects/creampie.rsi
+  #    state: creampie_ungu
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganUngu
+  suffix: ungu
+  abstract: true
+
+- type: entity
+  id: OrganUnguMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer # just copying this shit wholesale from the stomach and hoping it works
+    maxReagents: 3
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Food
+    - id: Drink
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganUnguVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Ungu/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Ungu
+# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganUngu ] #imp edit, OrganUnguVisual parent removed until visual nubody
+  id: OrganUnguExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Ungu/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+
+- type: entity
+  parent: OrganUngu
+  id: OrganUnguInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganUnguExternal ]
+  id: OrganUnguTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganUnguExternal ]
+  id: OrganUnguHead
+  # imp edit, this hand shouldn't be here..?
+  #components:
+  #- type: HandOrgan
+  #  handID: left
+  #  data:
+  #    location: Left
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganUnguExternal ]
+  id: OrganUnguArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganUnguExternal ]
+  id: OrganUnguArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganUnguExternal ]
+  id: OrganUnguHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganUnguExternal ]
+  id: OrganUnguHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganUnguExternal ]
+  id: OrganUnguLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganUnguExternal ]
+  id: OrganUnguLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganUnguExternal ]
+  id: OrganUnguFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganUnguExternal ]
+  id: OrganUnguFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganUnguInternal ]
+  id: OrganUnguBrain
+
+- type: entity
+  parent: [ OrganUnguInternal, OrganBaseEyes ] #imp edit, OrganUnguExternal parent removed, should be OrganUnguVisual once visual nubody is merged
+  id: OrganUnguEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganUnguInternal ]
+  id: OrganUnguTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganUnguInternal ]
+  id: OrganUnguAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganUnguInternal ]
+  id: OrganUnguEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganUnguInternal, OrganUnguMetabolizer ]
+  id: OrganUnguStomach
+  description: A lot going on here.
+  components:
+  - type: SolutionContainerManager #imp edit, to become SolutionManager and use SolutionStomachUngu once solutions refactor is merged
+    solutions:
+      stomach:
+        maxVol: 200
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 12
+  - type: Stomach
+    isSpecialDigestibleExclusive: true
+    specialDigestible:
+      tags:
+      - Fruit
+      - Pill
+      - Crayon
+      - Paper
+      - BananaPeel
+      - Ruminant
+      - Wheat
+      - Vegetable
+      - UnguFood
+      - Flower
+      - Mushroom
+
+#IMP EDIT: TO BE ENABLED BY SOLUTIONS REFACTOR
+#- type: entity
+#  parent: SolutionStomach
+#  id: SolutionStomachUngu
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Solution
+#    solution:
+#      maxVol: 200
+#IMP EDIT END: TO BE ENABLED BY SOLUTIONS REFACTOR
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguKidneys

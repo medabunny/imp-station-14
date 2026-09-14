@@ -8,7 +8,7 @@
   sprites: MobAntSprites
   defaultSkinTone: "#FFFFFF"
   markingLimits: MobAntMarkingLimits
-  dollPrototype: MobAntDummy
+  dollPrototype: AppearanceAnt
   skinColoration: Hues
   maleFirstNames: NamesAntFirst
   femaleFirstNames: NamesAntFirst
@@ -75,6 +75,8 @@
       points: 2
       required: false
 
+# IMP 4 NUBODY: removed gender specific sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobAntEyes
   baseSprite:
@@ -103,19 +105,19 @@
   id: MobAntTorso
   baseSprite:
     sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobAntTorsoMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobAntTorsoFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobAntLLeg

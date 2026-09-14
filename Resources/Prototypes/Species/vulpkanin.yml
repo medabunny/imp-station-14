@@ -8,7 +8,7 @@
   sprites: MobVulpkaninSprites
   defaultSkinTone: "#5a3f2d"
   markingLimits: MobVulpkaninMarkingLimits
-  dollPrototype: MobVulpkaninDummy
+  dollPrototype: AppearanceVulpkanin
   skinColoration: VulpkaninColors
   maleFirstNames: names_vulpkanin_male
   femaleFirstNames: names_vulpkanin_female
@@ -79,6 +79,8 @@
       points: 6
       required: false
 
+# IMP 4 NUBODY: removed gender specific head sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobVulpkaninEyes
   baseSprite:
@@ -89,19 +91,19 @@
   id: MobVulpkaninHead
   baseSprite:
     sprite: Mobs/Species/Vulpkanin/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadMale
   baseSprite:
     sprite: Mobs/Species/Vulpkanin/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadFemale
   baseSprite:
     sprite: Mobs/Species/Vulpkanin/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorso

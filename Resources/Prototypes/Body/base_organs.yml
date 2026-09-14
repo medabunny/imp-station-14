@@ -1,0 +1,495 @@
+- type: entity
+  id: OrganBase
+  name: organ
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Organ
+
+#imp edit start, manually copied from https://github.com/space-wizards/space-station-14/pull/44197 to fix inedible organs
+#this PR partially relies on solutions refactor, so I have copied the relevant parts for now
+#this will be replaced fully with the upstream implementation once we reach the commit
+- type: entity
+  id: OrganBaseOrganic
+  name: organ
+  abstract: true
+  parent: [ OrganBase ]
+  components:
+  - type: FlavorProfile
+    flavors:
+    - chicken # INTRODUCING OUR NEW EVERY-MEAT BURRITO, IT'S GOT EVERY MEAT!
+  - type: Edible
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+  - type: Tag # I am nearing my limit of tolerance for TagComponent.
+    tags:
+    - Raw
+    - Meat
+#imp edit end
+
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseTorso
+  name: torso
+  abstract: true
+  components:
+  - type: Organ
+    category: Torso
+  - type: Sprite
+    state: torso #imp edit, removed '_m" sprite as part of upstream fix for sexed organs
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHead
+  name: head
+  abstract: true
+  components:
+  - type: Organ
+    category: Head
+  - type: Sprite
+    state: head #imp edit, removed '_m" sprite as part of upstream fix for sexed organs
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 5
+    staminaCost: 5
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseArmLeft
+  name: left arm
+  abstract: true
+  components:
+  - type: Organ
+    category: ArmLeft
+  - type: Sprite
+    state: l_arm
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 7
+    staminaCost: 7
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseArmRight
+  name: right arm
+  abstract: true
+  components:
+  - type: Organ
+    category: ArmRight
+  - type: Sprite
+    state: r_arm
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 7
+    staminaCost: 7
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHandLeft
+  name: left hand
+  abstract: true
+  components:
+  - type: Organ
+    category: HandLeft
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+  - type: Sprite
+    state: l_hand
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      collection: Punch
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHandRight
+  name: right hand
+  abstract: true
+  components:
+  - type: Organ
+    category: HandRight
+  - type: HandOrgan
+    handID: right
+    data:
+      location: Right
+  - type: Sprite
+    state: r_hand
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 3
+    soundHit:
+      collection: Punch
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseLegLeft
+  name: left leg
+  abstract: true
+  components:
+  - type: Organ
+    category: LegLeft
+  - type: Sprite
+    state: l_leg
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 8
+    staminaCost: 9
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseLegRight
+  name: right leg
+  abstract: true
+  components:
+  - type: Organ
+    category: LegRight
+  - type: Sprite
+    state: r_leg
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 8
+    staminaCost: 9
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseFootLeft
+  name: left foot
+  abstract: true
+  components:
+  - type: Organ
+    category: FootLeft
+  - type: Sprite
+    state: l_foot
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseFootRight
+  name: right foot
+  abstract: true
+  components:
+  - type: Organ
+    category: FootRight
+  - type: Sprite
+    state: r_foot
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      collection: GenericHit
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseBrain
+  name: brain
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Brain
+  - type: Sprite
+    layers:
+    - state: brain
+  - type: Item
+    heldPrefix: brain
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: BadFood
+  - type: SolutionContainerManager #imp edit, to be modified by solutions refactor
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+        - ReagentId: GreyMatter
+          Quantity: 10
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+      Hotdog: Brain #imp
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Brain
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseEyes
+  name: eyes
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Eyes
+  - type: Sprite
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Eyes
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseTongue
+  name: tongue
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Tongue
+  - type: Sprite
+    layers:
+    - state: tongue
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Tongue
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseAppendix
+  name: appendix
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Appendix
+  - type: Sprite
+    layers:
+    - state: appendix
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseEars
+  name: ears
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Ears
+  - type: Sprite
+    layers:
+    - state: ears
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseLungs
+  name: lungs
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food: #imp edit, to match contents of OrganBaseOrganic, should be removed after solution refactor
+        maxVol: 20
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+  - type: Sprite
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Item
+    heldPrefix: lungs
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Lungs
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHeart
+  name: heart
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Heart
+  - type: Sprite
+    layers:
+    - state: heart-on
+  - type: Metabolizer
+    maxReagents: 2
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Heart
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseStomach
+  name: stomach
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Stomach
+  - type: Stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+  - type: Metabolizer
+    maxReagents: 3
+    groups:
+    - id: Food
+    - id: Drink
+  - type: Sprite
+    layers:
+    - state: stomach
+  - type: Item
+    heldPrefix: stomach
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Stomach
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseLiver
+  name: liver
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Liver
+  - type: Sprite
+    layers:
+    - state: liver
+  - type: Item
+    heldPrefix: liver
+  - type: Metabolizer
+    maxReagents: 1
+    groups:
+    - id: Alcohol
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Liver
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseKidneys
+  name: kidneys
+  abstract: true
+  components:
+  - type: GibbableOrgan
+  - type: Organ
+    category: Kidneys
+  - type: Sprite
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+  - type: Item
+    heldPrefix: kidneys
+  - type: Metabolizer
+    maxReagents: 5
+    removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Raw
+    - Meat
+    - Organ
+    - Kidneys
+
+- type: entity
+  id: OrganSpriteHumanInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+#IMP EDIT START: these were manually pulled from https://github.com/space-wizards/space-station-14/pull/42554
+#since this PR relies partially on visual nubody which is not part of the initial nubody, the relevant parts are being
+#pulled now and will be properly replaced after the implementation of visual nubody
+- type: entity
+  id: OrganBaseHeadSexed
+  abstract: true
+  components:
+  - type: Sprite
+    state: head_m
+
+- type: entity
+  id: OrganBaseTorsoSexed
+  abstract: true
+  components:
+  - type: Sprite
+    state: torso_m
+#IMP EDIT END
+

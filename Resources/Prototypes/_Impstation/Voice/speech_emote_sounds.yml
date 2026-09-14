@@ -920,7 +920,7 @@
         variation: 0.1
 
 - type: emoteSounds
-  id: Allulalo
+  id: UnisexAllulalo
   params:
     variation: 0.125
   sounds:

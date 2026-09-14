@@ -5,10 +5,10 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/xenoborg.rsi
+    sprite: _Impstation/Structures/Windows/xenoborg.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/xenoborg.rsi
+    sprite: _Impstation/Structures/Windows/xenoborg.rsi # Impstation
     state: full
   - type: IconSmooth
-    key: windows
+    key: walls # Impstation
     base: xenoborg

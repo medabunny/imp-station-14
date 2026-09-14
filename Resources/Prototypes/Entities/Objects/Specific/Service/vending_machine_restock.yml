@@ -140,6 +140,7 @@
     - CuraDrobeInventory
     - CourierDrobeInventory # imp
     - PrideDrobeInventory # imp
+    - BeachDrobeInventory #imp
   - type: Sprite
     layers:
     - state: base

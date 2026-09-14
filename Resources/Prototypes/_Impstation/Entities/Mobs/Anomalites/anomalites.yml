@@ -9,7 +9,7 @@
 
 # Base Anomalite
 - type: entity
-  parent: [ BaseMob, MobDamageable, MobPolymorphable, MobAtmosExposed, MobCombat, MobBloodstream, MobFlammable ]
+  parent: [ BaseMobAnimal, BaseMob, MobDamageable, MobPolymorphable, MobAtmosExposed, MobCombat, MobBloodstream, MobFlammable ]
   id: BaseAnomalite
   name: anomalite
   abstract: true
@@ -29,8 +29,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: Anomalite

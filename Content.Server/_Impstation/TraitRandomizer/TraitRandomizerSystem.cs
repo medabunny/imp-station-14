@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Preferences.Managers;
-using Content.Shared.Body.Systems;
+using Content.Shared.Body;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind;
@@ -22,7 +22,6 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
@@ -82,13 +81,13 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
                 continue;
 
             // Add all components required by the prototype to the body or specified organ
-            if (traitId.Organ != null)
+            if (traitId.Organ != null && TryComp<BodyComponent>(ent, out var body))
             {
-                foreach (var organ in _bodySystem.GetBodyOrgans(ent))
+                foreach (var organ in body.Organs?.ContainedEntities ?? [])
                 {
-                    if (traitId.Organ is { } organTag && _tagSystem.HasTag(organ.Id, organTag))
+                    if (traitId.Organ is { } organTag && _tagSystem.HasTag(organ, organTag))
                     {
-                        EntityManager.AddComponents(organ.Id, traitId.Components);
+                        EntityManager.AddComponents(organ, traitId.Components);
                     }
                 }
             }

@@ -2,7 +2,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
 using Content.Shared.Administration.Systems;
-using Content.Shared.Body.Systems;
+using Content.Shared.Body;
 using Content.Shared.Examine;
 using Content.Shared.Gibbing;
 using Content.Shared._Impstation.Heretic; // imp edit

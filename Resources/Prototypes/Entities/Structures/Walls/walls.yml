@@ -106,9 +106,9 @@
   name: brick wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/brick.rsi
+    sprite: _Impstation/Structures/Walls/brick.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/brick.rsi
+    sprite: _Impstation/Structures/Walls/brick.rsi # Impstation
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -136,9 +136,9 @@
   name: clock wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/clock.rsi
+    sprite: _Impstation/Structures/Walls/clock.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/clock.rsi
+    sprite: _Impstation/Structures/Walls/clock.rsi # Impstation
   - type: Construction
     graph: ClockworkGirder
     node: clockworkWall
@@ -165,9 +165,9 @@
   name: bananium wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/clown.rsi
+    sprite: _Impstation/Structures/Walls/clown.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/clown.rsi
+    sprite: _Impstation/Structures/Walls/clown.rsi # Impstation
   - type: Construction
     graph: Girder
     node: bananiumWall
@@ -214,9 +214,9 @@
       - Wall
       - Structure
   - type: Sprite
-    sprite: Structures/Walls/meat.rsi
+    sprite: _Impstation/Structures/Walls/meat.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/meat.rsi
+    sprite: _Impstation/Structures/Walls/meat.rsi # Impstation
   - type: Construction
     graph: Girder
     node: meatWall
@@ -299,9 +299,9 @@
   name: diamond wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/diamond.rsi
+    sprite: _Impstation/Structures/Walls/diamond.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/diamond.rsi
+    sprite: _Impstation/Structures/Walls/diamond.rsi # Impstation
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -329,9 +329,9 @@
   name: gold wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/gold.rsi
+    sprite: _Impstation/Structures/Walls/gold.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/gold.rsi
+    sprite: _Impstation/Structures/Walls/gold.rsi # Impstation
   - type: Construction
     graph: Girder
     node: goldWall
@@ -382,9 +382,9 @@
   name: ice wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/ice.rsi
+    sprite: _Impstation/Structures/Walls/ice.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/ice.rsi
+    sprite: _Impstation/Structures/Walls/ice.rsi # Impstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -408,9 +408,9 @@
   name: plasma wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/plasma.rsi
+    sprite: _Impstation/Structures/Walls/plasma.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/plasma.rsi
+    sprite: _Impstation/Structures/Walls/plasma.rsi # Impstation
   - type: Construction
     graph: Girder
     node: plasmaWall
@@ -495,9 +495,9 @@
   suffix: indestructible
   components:
     - type: Sprite
-      sprite: Structures/Walls/plastitanium.rsi
+      sprite: _Impstation/Structures/Walls/plastitanium.rsi # Impstation
     - type: Icon
-      sprite: Structures/Walls/plastitanium.rsi
+      sprite: _Impstation/Structures/Walls/plastitanium.rsi # Impstation
     - type: IconSmooth
       key: walls
       base: plastitanium
@@ -546,10 +546,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/plastitanium_diagonal.rsi # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/plastitanium_diagonal.rsi # Impstation
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -565,10 +565,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/plastitanium_diagonal.rsi # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/plastitanium_diagonal.rsi # Impstation
     state: state0
   - type: Destructible
     thresholds:
@@ -593,9 +593,9 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/Structures/Walls/solid.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/Structures/Walls/solid.rsi # Impstation
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -663,9 +663,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -703,10 +703,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/reinforced_diagonal.rsi # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/reinforced_diagonal.rsi # Impstation
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -743,9 +743,9 @@
   name: riveted wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/riveted.rsi
+    sprite: _Impstation/Structures/Walls/riveted.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/riveted.rsi
+    sprite: _Impstation/Structures/Walls/riveted.rsi # Impstation
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
@@ -774,9 +774,9 @@
   name: sandstone wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/sandstone.rsi
+    sprite: _Impstation/Structures/Walls/sandstone.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/sandstone.rsi
+    sprite: _Impstation/Structures/Walls/sandstone.rsi # Impstation
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -804,9 +804,9 @@
   name: silver wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/silver.rsi
+    sprite: _Impstation/Structures/Walls/silver.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/silver.rsi
+    sprite: _Impstation/Structures/Walls/silver.rsi # Impstation
   - type: Construction
     graph: Girder
     node: silverWall
@@ -848,10 +848,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/shuttle_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/shuttle_diagonal.rsi  # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/shuttle_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/shuttle_diagonal.rsi # Impstation
     state: state0
   - type: Reflect
     reflectProb: 1
@@ -943,9 +943,9 @@
   - type: RadiationBlocker
     resistance: 5
   - type: Sprite
-    sprite: Structures/Walls/shuttle.rsi
+    sprite: _Impstation/Structures/Walls/shuttle.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/shuttle.rsi
+    sprite: _Impstation/Structures/Walls/shuttle.rsi # Impstation
     state: full
   - type: Construction
     graph: Girder
@@ -985,13 +985,13 @@
   name: solid wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/Structures/Walls/solid.rsi # Impstation
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Impstation/Structures/Walls/solid.rsi # Impstation
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1029,10 +1029,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/solid_diagonal.rsi # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/solid_diagonal.rsi # Impstation
     state: state0
   - type: Destructible
     thresholds:
@@ -1063,9 +1063,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/solid_rust.rsi
+    sprite: _Impstation/Structures/Walls/solid_rust.rsi # Impstation
     state: full
   - type: Construction
     graph: Girder
@@ -1127,9 +1127,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    sprite: Structures/Walls/xeno.rsi
+    sprite: _Impstation/Structures/Walls/xeno.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/xeno.rsi
+    sprite: _Impstation/Structures/Walls/xeno.rsi # Impstation
   - type: IconSmooth
     key: chitin
     base: solid
@@ -1147,9 +1147,9 @@
   name: reinforced chitin
   components:
   - type: Sprite
-    sprite: Structures/Walls/xeno.rsi
+    sprite: _Impstation/Structures/Walls/xeno.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/xeno.rsi
+    sprite: _Impstation/Structures/Walls/xeno.rsi # Impstation
     state: rgeneric
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -1205,9 +1205,13 @@
   name: xenoborg wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/xenoborg.rsi
+    sprite: _Impstation/Structures/Walls/xenoborg.rsi # Impstation
+    layers:
+      - state: xenounder
+        shader: unshaded
   - type: Icon
-    sprite: Structures/Walls/xenoborg.rsi
+    sprite: _Impstation/Structures/Walls/xenoborg.rsi # Impstation
+  - type: SyncSprite # Impstation
   - type: IconSmooth
     key: walls
     base: xenoborg
@@ -1220,10 +1224,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/xenoborg_diagonal.rsi # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/xenoborg_diagonal.rsi # Impstation
     state: state0
 
 - type: entity
@@ -1232,9 +1236,9 @@
   name: uranium wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/uranium.rsi
+    sprite: _Impstation/Structures/Walls/uranium.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/uranium.rsi
+    sprite: _Impstation/Structures/Walls/uranium.rsi # Impstation
   - type: Construction
     graph: Girder
     node: uraniumWall
@@ -1284,9 +1288,9 @@
   description: The traditional greytide defense.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Walls/wood.rsi # imp
+    sprite: _Impstation/Structures/Walls/wood.rsi # Impstation
   - type: Icon
-    sprite: _Impstation/Structures/Walls/wood.rsi # imp
+    sprite: _Impstation/Structures/Walls/wood.rsi # Impstation
   - type: Construction
     graph: Barricade
     node: woodWall
@@ -1380,9 +1384,9 @@
   name: stone wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/necropolis.rsi
+    sprite: _Impstation/Structures/Walls/necropolis.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/necropolis.rsi
+    sprite: _Impstation/Structures/Walls/necropolis.rsi # Impstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1404,9 +1408,9 @@
   - type: StaticPrice # imp
     price: 400
   - type: Sprite
-    sprite: Structures/Walls/mining.rsi
+    sprite: _Impstation/Structures/Walls/mining.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/mining.rsi
+    sprite: _Impstation/Structures/Walls/mining.rsi # Impstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1438,10 +1442,10 @@
     node: diagonalMiningWall
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/mining_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/mining_diagonal.rsi # Impstation
     state: state0
   - type: Icon
-    sprite: Structures/Walls/mining_diagonal.rsi
+    sprite: _Impstation/Structures/Walls/mining_diagonal.rsi # Impstation
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -1584,9 +1588,9 @@
   description: Stone by stone, perfectly fitted together to form a wall.
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick.rsi # Impstation
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1609,9 +1613,9 @@
   name: basalt brick wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick_basalt.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_basalt.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick_basalt.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_basalt.rsi # Impstation
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
@@ -1623,9 +1627,9 @@
   description: A cold, not-so-impenetrable wall.
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick_snow.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_snow.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick_snow.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_snow.rsi # Impstation
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
@@ -1636,9 +1640,9 @@
   name: asteroid stone brick wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick_asteroid.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_asteroid.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick_asteroid.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_asteroid.rsi # Impstation
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
@@ -1649,9 +1653,9 @@
   name: sandstone brick wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick_sand.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_sand.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick_sand.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_sand.rsi # Impstation
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
@@ -1662,9 +1666,9 @@
   name: chromite brick wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick_chromite.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_chromite.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick_chromite.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_chromite.rsi # Impstation
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
@@ -1675,9 +1679,9 @@
   name: andesite brick wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick_andesite.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_andesite.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/cobblebrick_andesite.rsi
+    sprite: _Impstation/Structures/Walls/cobblebrick_andesite.rsi # Impstation
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
@@ -1738,9 +1742,9 @@
     - Wall
   - type: Sprite
     #drawdepth: SmallObjects #so bullets pass 'through' # imp edit, make this more wall-like. ideally bullets would be able to both damage the wall and pass through them, but I don't think that's possible
-    sprite: Structures/Walls/card.rsi
+    sprite: _Impstation/Structures/Walls/card.rsi # Impstation
   - type: Icon
-    sprite: Structures/Walls/card.rsi
+    sprite: _Impstation/Structures/Walls/card.rsi # Impstation
     state: full
   - type: Construction
     graph: Cardwall
@@ -1785,7 +1789,7 @@
         sound:
           collection: WoodDestroy
   - type: IconSmooth
-    key: cards
+    key: walls # Impstation
     base: card
   - type: Occluder
   - type: BlockWeather

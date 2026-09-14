@@ -285,3 +285,17 @@
     - type: ConditionalSpawner
       prototypes:
         - DecapoidCore
+
+- type: entity
+  name: Turtle Spawner
+  id: SpawnMobTurtle
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - state: alive
+          sprite: _Impstation/Mobs/Animals/turtle.rsi
+    - type: ConditionalSpawner
+      prototypes:
+        - MobTurtle

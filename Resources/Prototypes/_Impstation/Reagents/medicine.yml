@@ -111,6 +111,39 @@
   - !type:ExtinguishTileReaction { }
 
 - type: reagent
+  id: Batozine
+  name: reagent-name-batozine
+  desc: reagent-desc-batozine
+  group: Medicine
+  physicalDesc: reagent-physical-desc-evil
+  flavor: bitter
+  color: "#FA4141"
+  contrabandSeverity: Tier2Contraband
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:FactionChange
+        faction: Syndicate
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Batozine
+          min: 10
+      - !type:ChangeNPCBehavior
+        rootTask: SimpleHostileCompound
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Batozine
+          min: 10
+      - !type:PreventSentience
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Batozine
+          min: 10
+
+- type: reagent
   id: Brutoxidone
   name: reagent-name-brutoxidone
   group: Medicine

@@ -1,0 +1,33 @@
+# for eating normal food and cloth
+- type: entity
+  id: OrganLepidodentStomach
+  parent: OrganAnimalStomach
+  name: stomach
+  suffix: Lepidodent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stomach
+    isSpecialDigestibleExclusive: false
+    specialDigestible:
+      tags:
+      - ClothMade
+      - Paper
+      - Pill
+  - type: Metabolizer
+    metabolizerTypes: [ Moth, Animal ]
+
+- type: entity
+  id: BaseMobLepidodentBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganAnimalLungs
+        - id: OrganAnimalHeart
+        - id: OrganLepidodentStomach
+        - id: OrganAnimalLiver
+        - id: OrganAnimalKidneys
+

@@ -1,0 +1,93 @@
+- type: entity
+  id: OrganCarpMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Animal, Thaven]
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganCarpInternal
+  abstract: true
+  suffix: Carp
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 2
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 2
+  - type: FlavorProfile
+    flavors:
+    - carpflesh
+
+- type: entity
+  id: OrganCarpLungs
+  parent: [ OrganBaseLungs, OrganCarpInternal, OrganCarpMetabolizer ]
+  name: astrofauna lungs
+  description: "Practically vestigial, now only used for vocalization."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 2
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 2
+      Lung:
+        canReact: False
+        maxVol: 100
+
+- type: entity
+  id: OrganCarpHeart
+  parent: [ OrganBaseHeart, OrganCarpInternal, OrganCarpMetabolizer ]
+  name: astrofauna heart
+  description: "A toxic heart torn from the void."
+
+- type: entity
+  id: OrganCarpStomach
+  parent: [ OrganBaseStomach, OrganCarpInternal, OrganCarpMetabolizer ]
+  name: astrofauna stomach
+  description: "Unfortunately capable of digesting metal, limited only by its owner's jaw strength."
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  id: OrganCarpLiver
+  parent: [ OrganBaseLiver, OrganCarpInternal, OrganCarpMetabolizer ]
+  name: astrofauna liver
+  description: "Dense, glossy, and toxic. A source of ichor, but only in vivo. Too late for that now."
+
+- type: entity
+  id: OrganCarpKidneys
+  parent: [ OrganBaseKidneys, OrganCarpInternal, OrganCarpMetabolizer]
+  name: astrofauna kidneys
+  description: "Like your kidneys, except mostly used to process blood from devoured prey."
+
+- type: entity
+  id: BaseMobCarpBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganCarpLungs
+        - id: OrganCarpHeart
+        - id: OrganCarpStomach
+        - id: OrganCarpLiver
+        - id: OrganCarpKidneys

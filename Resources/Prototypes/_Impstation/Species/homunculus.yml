@@ -1,0 +1,220 @@
+- type: species
+  id: HomunculusHuman
+  name: Human
+  roundStart: false
+  prototype: HomunculusHuman
+  sprites: MobHomunculusHumanSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: AppearanceHomunculusHuman
+  skinColoration: HumanToned
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobHomunculusHumanSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHomunculusHumanTorso
+    Eyes: MobHomunculusHumanEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobHomunculusHumanEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Human/body.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobHomunculusHumanTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Human/body.rsi
+    state: skin
+
+- type: species
+  id: HomunculusMoth
+  name: Moth
+  roundStart: false
+  prototype: HomunculusMoth
+  sprites: MobHomunculusMothSprites
+  markingLimits: MobHomunculusMothMarkingLimits
+  dollPrototype: AppearanceHomunculusMoth
+  skinColoration: Hues
+  sexes:
+  - Unsexed
+
+- type: markingPoints
+  id: MobHomunculusMothMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+    HeadSide:
+      points: 1
+      required: false
+    Head:
+      points: 4
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 4 # imp
+      required: false
+    Legs:
+      points: 4
+      required: false
+    Arms:
+      points: 4
+      required: false
+
+- type: speciesBaseSprites
+  id: MobHomunculusMothSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHomunculusMothTorso
+    Eyes: MobHomunculusMothEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobHomunculusMothEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Moth/body.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobHomunculusMothTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Moth/body.rsi
+    state: skin
+
+- type: species
+  id: HomunculusGray
+  name: Gray
+  roundStart: false
+  prototype: HomunculusGray
+  sprites: MobHomunculusGraySprites
+  markingLimits: MobGrayMarkingLimits
+  dollPrototype: AppearanceHomunculusGray
+  skinColoration: Hues
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobHomunculusGraySprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHomunculusGrayTorso
+    Eyes: MobHomunculusGrayEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobHomunculusGrayEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Gray/body.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobHomunculusGrayTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Gray/body.rsi
+    state: skin
+
+- type: species
+  id: HomunculusThaven
+  name: Thaven
+  roundStart: false
+  prototype: HomunculusThaven
+  sprites: MobHomunculusThavenSprites
+  markingLimits: MobHomunculusThavenMarkingLimits
+  dollPrototype: AppearanceHomunculusThaven
+  skinColoration: Hues
+  sexes:
+  - Unsexed
+
+- type: markingPoints
+  id: MobHomunculusThavenMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+      weight: 1
+    HeadTop:
+      points: 4
+      required: false
+    HeadSide:
+      points: 1
+      required: true
+    Head:
+      points: 4
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 4
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Tail:
+      points: 1
+      required: false
+    Overlay:
+      points: 6
+      required: false
+    Snout:
+      points: 1
+      required: false
+
+- type: speciesBaseSprites
+  id: MobHomunculusThavenSprites
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHomunculusThavenTorso
+    Eyes: MobHomunculusThavenEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobHomunculusThavenEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Thaven/body.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobHomunculusThavenTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Homunculi/Thaven/body.rsi
+    state: skin
+

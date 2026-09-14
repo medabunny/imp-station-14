@@ -1,0 +1,356 @@
+# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceKodepiia
+  categories: [ HideSpawnMenu ]
+  name: Kodepiia appearance
+  components:
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Kodepiia/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganKodepiiaTorso
+        - id: OrganKodepiiaHead
+        - id: OrganKodepiiaLegLeft
+        - id: OrganKodepiiaLegRight
+        - id: OrganKodepiiaFootRight
+        - id: OrganKodepiiaFootLeft
+        - id: OrganKodepiiaBrain
+        - id: OrganKodepiiaEyes
+        - id: OrganKodepiiaTongue
+        - id: OrganKodepiiaAppendix
+        - id: OrganKodepiiaEars
+        - id: OrganKodepiiaLungs
+        - id: OrganKodepiiaHeart
+        - id: OrganKodepiiaStomach
+        - id: OrganKodepiiaLiver
+        - id: OrganKodepiiaKidneys
+  - type: HumanoidAppearance
+    # IMP EDIT END
+    species: Kodepiia
+    hideLayersOnEquip: #imp edit, to be reworked by visual nubody
+    - HeadTop
+    - HeadSide
+    - Hair
+    - RArmExtension
+    - Tail
+
+- type: entity
+  parent:
+  - AppearanceKodepiia
+  - BaseSpeciesMobOrganic
+  id: MobKodepiia
+  name: Urist McSquid
+  components:
+  - type: KodepiiaScrambler
+  - type: ConsumeAction
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
+    consumeActionId: ActionKodepiiaConsume
+    damage:
+      types:
+        Cellular: 15
+        Piercing: 15
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
+  - type: TypingIndicator
+    proto: kodepiia
+  - type: Speech
+    speechSounds: Kodepiia
+    speechVerb: Kodepiia
+    allowedEmotes: ['Hiss', 'Snarl', 'KodeHonk', 'KodeRing', 'KodePew', 'KodeBang', 'KodeBeep', 'KodeRev', 'Caw', 'Squish', 'Chitter', 'Squeak', 'Click', 'Squish', 'Coo', 'Boom', 'Chirp', 'Bubble', 'Pop'] # imp edit, i'm not marking what's different between this and macro because jesus christ
+  - type: Vocal
+    sounds:
+      Male: Kodepiia
+      Female: Kodepiia
+      Unsexed: Kodepiia
+  - type: Damageable
+    damageModifierSet: Kodepiia
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#4f0000"
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodKodepiia
+        Quantity: 300 #imp edit, will need to be doubled by solutions refactor
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      collection: BoxingHit
+    damage:
+      types:
+        Blunt: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatKodepiia
+      amount: 5
+  - type: Thirst
+  - type: Hunger
+    baseDecayRate: 0.15 # 10x default. 6 minutes to hungry and 15.5 minutes to starving
+  - type: Respirator
+    breathVolume: 1 # Twice as much - makes kodes sensitive to waste gases
+    updateIntervalMultiplier: 0.5 # Twice as fast
+    gaspEmoteCooldown: 4 # Twice as frequent
+  # imp edit start
+  - type: HarpySinger
+  - type: SwappableInstrument
+    instrumentList:
+      "Voice": { 52: 0 }
+      "Trumpet": { 56: 0 }
+      "Electric": { 27: 0 }
+      "Bass": { 33: 0 }
+      "Rock": { 29: 0 }
+      "Acoustic": { 24: 0 }
+      "Flute": { 73: 0 }
+      "Sax": { 66: 0 }
+      "Piano": { 1: 0 }
+      "Church Organ": { 19: 0 }
+      "Harp": { 46: 0 }
+    onlySetBySelf: true
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: InstrumentVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.InstrumentVisuals.Playing:
+        enum.InstrumentVisuals.Layer:
+          False: { visible: false }
+          True: { visible: true }
+  - type: Instrument
+    allowPercussion: false
+    program: 52
+  # imp edit end
+
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganKodepiia
+  abstract: true
+  suffix: Kodepiia
+
+- type: entity
+  id: OrganKodepiiaMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Kodepiia ]
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganKodepiiaVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Kodepiia
+# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganKodepiia ] #imp edit, OrganKodepiiaVisual parent removed until visual nubody
+  id: OrganKodepiiaExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+
+- type: entity
+  parent: OrganKodepiia
+  id: OrganKodepiiaInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganKodepiiaExternal ]
+  id: OrganKodepiiaTorso
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #components:
+  #- type: VisualOrganMarkings
+  #  hideableLayers:
+  #  - enum.HumanoidVisualLayers.Tenta
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseHead, OrganKodepiiaExternal ]
+  id: OrganKodepiiaHead
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganKodepiiaExternal ]
+  id: OrganKodepiiaLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganKodepiiaExternal ]
+  id: OrganKodepiiaLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganBaseHandLeft, OrganKodepiiaExternal ] # dont worry about it
+  id: OrganKodepiiaFootLeft
+  components:
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganBaseHandRight, OrganKodepiiaExternal ]
+  id: OrganKodepiiaFootRight
+  components:
+  - type: HandOrgan
+    handID: Right
+    data:
+      location: Right
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganKodepiiaInternal ]
+  id: OrganKodepiiaBrain
+  name: bille áu sac
+  description: "Allegedly still functioning."
+  components:
+  - type: Sprite
+    layers:
+    - state: billeausac
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganKodepiiaInternal, OrganKodepiiaExternal ]
+  id: OrganKodepiiaEyes
+  name: opticullis
+  description: "The scavenger's kaleidoscope."
+  components:
+  - type: Sprite
+    layers:
+      - state: opticullis
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  layer: enum.HumanoidVisualLayers.Eyes
+  #  data:
+  #    sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  #    state: eyes
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganKodepiiaInternal ]
+  id: OrganKodepiiaTongue
+  name: slough
+  description: "Something that used to be skin." # concerning
+  components:
+  - type: Sprite
+    layers:
+    - state: slough
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganKodepiiaInternal ]
+  id: OrganKodepiiaAppendix
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseEars, OrganKodepiiaInternal ]
+  id: OrganKodepiiaEars
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganKodepiiaInternal, OrganHumanMetabolizer, BaseHandheldInstrument ] #imp edit, added BaseHandheldInstrument
+  id: OrganKodepiiaLungs
+  name: fine coil
+  description: "Like lungs, but stretchier...?"
+  components:
+  - type: Sprite
+    layers:
+    - state: finecoil
+    # imp edit start
+  - type: Instrument
+    program: 109
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+    - WoodwindInstrument
+  # imp edit end
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganKodepiiaInternal, OrganKodepiiaMetabolizer ]
+  id: OrganKodepiiaHeart
+  name: COAT
+  description: "Allegedly 'quirked up' with 'the sauce,' if rumors are to be believed."
+  components:
+  - type: Sprite
+    layers:
+    - state: compartmentofallthings
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganKodepiiaInternal, OrganKodepiiaMetabolizer ]
+  id: OrganKodepiiaStomach
+  name: primary gullet
+  description: "Leaky."
+  components:
+  - type: Sprite
+    layers:
+    - state: primarygullet
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+      - KodeEdible
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganKodepiiaInternal, OrganKodepiiaMetabolizer ]
+  id: OrganKodepiiaLiver
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganKodepiiaInternal, OrganHumanMetabolizer ]
+  id: OrganKodepiiaKidneys
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi

@@ -41,7 +41,7 @@
   id: Cardwall
   name: cardboard wall
   category: WallsAndFlooring
-  sprite: { sprite: Structures/Walls/card.rsi, state: full }
+  sprite: { sprite: _Impstation/Structures/Walls/card.rsi, state: full } # Impstation
   mode: ConstructObject
   prototype: Cardwall
   cost: 4

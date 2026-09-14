@@ -1,0 +1,14 @@
+﻿# for eating trash
+- type: entity
+  id: OrganRatStomach
+  parent: OrganAnimalStomach
+  suffix: Rat
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Trash
+    isSpecialDigestibleExclusive: false
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Animal, Rat ]

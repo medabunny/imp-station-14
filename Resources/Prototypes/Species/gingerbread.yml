@@ -7,7 +7,7 @@
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
   markingLimits: MobHumanMarkingLimits
-  dollPrototype: MobGingerbreadDummy
+  dollPrototype: AppearanceGingerbread
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
   maleFirstNames: NamesGingerbreadFirst
@@ -35,6 +35,8 @@
     LFoot: MobGingerbreadLFoot
     RFoot: MobGingerbreadRFoot
 
+# IMP 4 NUBODY: removed gender specific sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobGingerbreadEyes
   baseSprite:
@@ -45,37 +47,37 @@
   id: MobGingerbreadHead
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobGingerbreadHeadMale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobGingerbreadHeadFemale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobGingerbreadTorso
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobGingerbreadTorsoMale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobGingerbreadTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_f
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLLeg

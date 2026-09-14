@@ -255,6 +255,24 @@
   color: "#00ff04"
   meltingPoint: 700.0
   boilingPoint: 1737.0
+# imp edit start
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 2
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+      - !type:SatiateThirst
+        factor: 2
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ]
+#imp edit end
 
 - type: reagent
   id: Silicon
@@ -346,6 +364,11 @@
         - !type:MetabolizerTypeCondition
           type: [ Gray ] # gray radiation immunity
           inverted: true
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ]
         # imp edit end
 
 - type: reagent

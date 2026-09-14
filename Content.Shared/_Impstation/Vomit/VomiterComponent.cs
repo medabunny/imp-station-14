@@ -2,7 +2,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Impstation.Vomit;
+namespace Content.Shared.Medical;
 
 /// <summary>
 /// This component is used to denote which entities are able to vomit, and any unique properties their vomit may have.

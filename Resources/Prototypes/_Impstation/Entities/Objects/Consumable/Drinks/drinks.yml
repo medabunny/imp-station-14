@@ -719,3 +719,99 @@
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/gamersdelight.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkAtmosGinFizzGlass
+  suffix: atmos gin fizz
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AtmosGinFizz
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/atmosginfizz.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkRamosGinFizzGlass
+  suffix: ramos gin fizz
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: RamosGinFizz
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/ramosginfizz.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkBetweenTheSheetsGlass
+  suffix: between the sheets
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BetweenTheSheets
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/betweenthesheets.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSidecarGlass
+  suffix: sidecar
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sidecar
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/sidecar.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSazeracGlass
+  suffix: sazerac
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Sazerac
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/sazerac.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkOldFashionedGlass
+  suffix: old fashioned
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: OldFashioned
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/oldfashioned.rsi
+    state: icon

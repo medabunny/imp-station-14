@@ -1,0 +1,62 @@
+﻿- type: entity
+  id: FloorLiquidFrezonEntity
+  name: liquid frezon
+  description: A quick and frosty death.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TileEmission
+    color: "#4ae1ff"
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    blacklist:
+      tags:
+      - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:HealthChange
+      ignoreResistances: false
+      damage:
+        types:
+          Cold: 6
+    - !type:AdjustTemperature
+      amount: -60000
+  - type: SpeedModifierContacts # a gradient slow scaling with temp would be preferable but im not that smart
+    walkSpeedModifier: 0.7
+    sprintSpeedModifier: 0.7
+  - type: Transform
+    anchored: true
+  - type: SyncSprite
+  - type: Clickable
+  - type: Sprite
+    sprite: _Impstation/Tiles/Planet/liquid_frezon.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: frezon
+      shader: unshaded
+  - type: Icon
+    sprite: _Impstation/Tiles/Planet/liquid_frezon.rsi
+    state: full
+  - type: IconSmooth
+    key: floor
+    base: frezon
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+    - HideContextMenu

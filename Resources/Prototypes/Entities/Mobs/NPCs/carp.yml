@@ -1,7 +1,7 @@
 - type: entity
   name: space carp
   id: BaseMobCarp
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ BaseMobCarpBody, SimpleSpaceMobBase, FlyingMobBase, MobCombat ] #imp edit, added BaseMobCarpBody parent
   description: It's a space carp.
   abstract: true
   components:
@@ -95,8 +95,6 @@
       color: "#50595C"
       activateSound: null
       deactivateSound: null
-    - type: Body #imp
-      prototype: AnimalCarp
     - type: Bloodstream #imp
       bloodReferenceSolution:
         reagents:
@@ -225,7 +223,7 @@
 
 - type: entity
   name: sharkminnow
-  parent: BaseMobCarp
+  parent: [ BaseMobBloodsucker, BaseMobCarp ]
   id: MobShark
   description: A dangerous shark from the blackness of endless space, who loves to drink blood.
   components:
@@ -262,9 +260,6 @@
         Dead:
           Base: dead
           BaseUnshaded: dead_mouth
-    - type: Body
-      prototype: Bloodsucker
-      requiredLegs: 1
     - type: Butcherable
       spawned:
         - id: FoodMeatFish

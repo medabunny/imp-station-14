@@ -1,0 +1,518 @@
+# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity #imp edit, made into its own entity like decapoids to make the Appearance entity work properly
+  abstract: true
+  id: AnomalocaridSpeciesLayers
+  components:
+  - type: Sprite
+    layers:
+    # most of the below is from BaseSpeciesLayers. comments indicate where changes have been made to this order
+    #'Behind' sprites
+    - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
+    # Torso
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    # Head
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    # Limbs
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # Underwear & clothing
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: [ "jumpsuit" ]
+    # Extremities
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+    # More equipment
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    # - map [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
+    - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
+    - map: [ "ears" ] #above tail for over-ear headsets specifically. this means they layer over backpacks and outerclothing too, unsure about that right now.
+    - map: [ "neck" ]
+    - map: [ "suitstorage" ]
+    # Stuff that goes in front of equipment
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    # - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    # - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    # Stuff that goes in front of stuff that goes in front of equipment
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    # Extra stuff
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+
+
+- type: entity
+  parent: [ AnomalocaridSpeciesLayers, BaseSpeciesAppearance ] #imp edit, added AnomalocaridSpeciesLayers parent
+  id: AppearanceAnomalocarid
+  categories: [ HideSpawnMenu ]
+  name: anomalocarid appearance
+  components:
+  - type: Inventory
+    speciesId: anomalocarid
+    templateId: anomalocarid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hand
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: shoes
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganAnomalocaridTorso
+        - id: OrganAnomalocaridHead
+        - id: OrganAnomalocaridArmLeft
+        - id: OrganAnomalocaridArmRight
+        - id: OrganAnomalocaridHandRight
+        - id: OrganAnomalocaridHandLeft
+        - id: OrganAnomalocaridLegLeft
+        - id: OrganAnomalocaridLegRight
+        - id: OrganAnomalocaridFootLeft
+        - id: OrganAnomalocaridFootRight
+        - id: OrganAnomalocaridBrain
+        - id: OrganAnomalocaridEyes
+        - id: OrganAnomalocaridTongue
+        - id: OrganAnomalocaridAppendix
+        - id: OrganAnomalocaridLungs
+        - id: OrganAnomalocaridHeart
+        - id: OrganAnomalocaridStomach
+        - id: OrganAnomalocaridLiver
+        - id: OrganAnomalocaridKidneys
+  - type: HumanoidAppearance
+  # IMP EDIT END
+    species: Anomalocarid
+    hideLayersOnEquip: #imp edit, to be reworked by visual nubody
+    - Eyes
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent:
+  - AppearanceAnomalocarid
+  - BaseSpeciesMobOrganic
+  id: MobAnomalocarid
+  name: Urist McBlblbl
+  components:
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.4 # a little less barotrauma
+        Heat: 0.1
+  - type: Temperature
+    specificHeat: 42 # down from 50
+  - type: TemperatureDamage # anomalocarids are benthic hydrothermal vent dwellers, they love high pressure and high heat
+    heatDamageThreshold: 4000
+    coldDamageThreshold: 260
+    coldDamage:
+      types:
+        Cold : 1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
+  - type: Damageable
+    damageModifierSet: Anomalocarid
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_brute_damage.rsi #imp edit, waiting on proper macro merge to migrate files
+        color: "#18d6a7"
+      Burn:
+        sprite: _Impstation/Mobs/Effects/anomalocarid_burn_damage.rsi #imp edit, waiting on proper macro merge to migrate files
+  - type: Flammable
+    damage:
+      types:
+        Heat: 1.3 #takes just a little bit more to light them on fire
+  - type: FireVisuals
+    sprite: _Impstation/Mobs/Effects/anomalocarid_onfire.rsi #too big for normal onfire states, they need their own rsi #imp edit, waiting on proper macro merge to migrate files
+    normalState: Generic_mob_burning_anomalocarid #same as the regular sprite, just resized to fit anomalocarids
+    alternateState: Standing_anomalocarid
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AnomalocaridCopperBlood #similar to CopperBlood, just a different color.
+        Quantity: 300
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: FoodMeatCrab
+        amount: 5
+  - type: MeleeWeapon
+    attackRate: 0.6 #slower swing because they hit harder
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 8
+  - type: ActionGun
+    action: ActionAnomalocaridSpit
+    gunProto: AnomalocaridSpitGun
+  - type: HeatVent
+    tooHotPopups:
+      - anomalocarid-vent-toohot1
+      - anomalocarid-vent-toohot2
+      - anomalocarid-vent-toohot3
+  - type: AnomalocaridAccent
+  - type: ZombieAccentOverride
+    accent: zombieAnomalocarid
+  - type: Vomiter
+    vomitPrototype: ShrimpSoda
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,1.3
+  - type: TypingIndicator
+    proto: anomalocarid
+  - type: Speech
+    speechBubbleOffset: 0.35
+    speechVerb: Anomalocarid
+    speechSounds: Anomalocarid
+    allowedEmotes: ['Click', 'Chitter', 'Bubble', 'Pop']
+    suffixSpeechVerbs:
+      chat-speech-verb-suffix-exclamation-strong: AnomalocaridExclamationStrong
+      chat-speech-verb-suffix-exclamation: AnomalocaridExclamation
+      chat-speech-verb-suffix-stutter: AnomalocaridStutter
+  - type: Vocal
+    sounds:
+      Male: UnisexAnomalocarid
+      Female: UnisexAnomalocarid
+      Unsexed: UnisexAnomalocarid
+  - type: Tag
+    tags:
+    - AnomalocaridClaw #this exists so they can dig through rocks
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - AnomalyHost
+  # imp edit start
+  - type: LightningTarget # lightning is more likely to strike the tallest thing in a location. so.
+    priority: 4
+    lightningExplode: false
+  # imp edit end
+#imp edit, this will be used once a later PR is merged that changes how cream pie visuals work
+#  - type: CreamPied
+#    sprite:
+#      sprite: Effects/creampie.rsi
+#      state: creampie_anomalocarid
+#    offset: 0, 0.375
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 #big
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+#      fix2: #fixture for head, dunno how to do this right yet
+#        shape:
+#          !type:PhysShapeCircle
+#          radius: 0.2
+#          position: "0, -0.5"
+#        restitution: 0.0
+#        hard: false
+#        mask:
+#        - MobMask
+#        layer:
+#        - MobLayer
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganAnomalocarid
+  abstract: true
+  suffix: Anomalocarid
+
+- type: entity
+  id: OrganAnomalocaridMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Anomalocarid ]
+
+- type: entity
+  parent: OrganAnomalocarid
+  id: OrganAnomalocaridInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Anomalocarid/organs.rsi #imp edit, waiting on proper macro merge to migrate files
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganAnomalocaridVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Anomalocarid
+# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  id: OrganAnomalocaridExternal
+  parent: [OrganAnomalocarid] #imp edit, OrganAnomalocaridVisual parent removed until visual nubody
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+
+- type: entity
+  parent: [OrganBaseTorso, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridTorso
+
+- type: entity
+  parent: [OrganBaseHead, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridHead
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #components:
+  #- type: VisualOrganMarkings
+  #  hideableLayers:
+  #  - enum.HumanoidVisualLayers.Eyes
+  #  - enum.HumanoidVisualLayers.HeadTop
+  #  - enum.HumanoidVisualLayers.HeadSide
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [OrganBaseArmLeft, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridArmLeft
+
+- type: entity
+  parent: [OrganBaseArmRight, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridArmRight
+
+- type: entity
+  parent: [OrganBaseHandLeft, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridHandLeft
+
+- type: entity
+  parent: [OrganBaseHandRight, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridHandRight
+
+- type: entity
+  parent: [OrganBaseLegLeft, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridLegLeft
+
+- type: entity
+  parent: [OrganBaseLegRight, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridLegRight
+
+- type: entity
+  parent: [OrganBaseFootLeft, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridFootLeft
+
+- type: entity
+  parent: [OrganBaseFootRight, OrganAnomalocaridExternal]
+  id: OrganAnomalocaridFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganAnomalocaridInternal ]
+  id: OrganAnomalocaridBrain
+  description: "This is where cubes get rotated."
+  components:
+  - type: FlavorProfile
+    flavors:
+      - shrimp
+      - sweet
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganAnomalocaridInternal ] #imp edit, OrganAnomalocaridVisual parent removed until visual nubody
+  id: OrganAnomalocaridEyes
+  name: big wet eyes
+  description: "Oh my god there's someone trapped inside!! No wait, that's your reflection."
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganAnomalocaridInternal ]
+  id: OrganAnomalocaridTongue
+  name: golden ticket
+  description: "A coveted Discount Dan's Factory Tour edible ticket! Sadly, it seems like the offer expired years ago..."
+  components:
+  - type: FlavorProfile
+    flavors:
+      - salty
+      - shrimp
+      - paper
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganAnomalocaridInternal]
+  id: OrganAnomalocaridAppendix
+  name: bugbait
+  description: "Squeeze this for comfort."
+  components:
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Fluids/blood2.ogg
+  - type: UseDelay
+    delay: 2.0
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganAnomalocaridInternal, OrganAnomalocaridMetabolizer ]
+  id: OrganAnomalocaridLungs
+  name: book gills
+  description: "The librarian is gonna want to see this."
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sour
+  - type: Instrument
+    program: 109
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganAnomalocaridInternal, OrganAnimalMetabolizer ]
+  id: OrganAnomalocaridHeart
+  description: "Surely a single bite couldn't hurt..."
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sour
+      - sweet
+      - fizzy
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganAnomalocaridInternal, OrganAnomalocaridMetabolizer ]
+  id: OrganAnomalocaridStomach
+  description: "Yuck!"
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sour
+      - shrimp
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganAnomalocaridInternal, OrganAnimalMetabolizer ]
+  id: OrganAnomalocaridLiver
+  description: "You need this to live."
+  components:
+  - type: FlavorProfile
+    flavors:
+      - salty
+      - shrimp
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganAnomalocaridInternal, OrganAnomalocaridMetabolizer ]
+  id: OrganAnomalocaridKidneys
+  description: "Eww! They're sticky and stretchy!"
+  components:
+  - type: Clothing
+    quickEquip: false
+    equippedPrefix: kidney
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: kidney-equipped-HELMET
+  - type: FlavorProfile
+    flavors:
+      - sour
+      - sweet
+      - shrimp
+  - type: EmitSoundOnThrow
+    sound: /Audio/Weapons/bolathrow.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/Effects/gib3.ogg
+  - type: Damageable #for the ensnaring behavior
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: LandAtCursor
+  - type: Ensnaring #think fast chucklenuts!
+    freeTime: 2.0
+    breakoutTime: 1.5
+    walkSpeed: 0.8
+    sprintSpeed: 0.5
+    staminaDamage: 0
+    canThrowTrigger: true
+    canMoveBreakout: true
+    maxEnsnares: 1

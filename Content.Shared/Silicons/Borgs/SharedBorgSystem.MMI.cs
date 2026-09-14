@@ -8,6 +8,7 @@ using Content.Shared.Chemistry.EntitySystems; // imp unborgable
 using Content.Shared.Containers.ItemSlots; // imp unborgable
 using Content.Shared.Fluids; // imp unborgable
 using Content.Shared.Popups; // imp unborgable
+using Content.Shared.Tag; // imp unborgable
 using Content.Shared.Traits.Assorted; // imp unborgable
 using Robust.Shared.Audio.Systems; // imp unborgable
 using Robust.Shared.Enums; // imp; for Gender
@@ -20,8 +21,10 @@ public abstract partial class SharedBorgSystem
     [Dependency] private readonly GrammarSystem _grammar = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!; // imp
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // imp
+    [Dependency] private readonly TagSystem _tag = default!; // imp for unborgable
 
     private static readonly EntProtoId SiliconBrainRole = "MindRoleSiliconBrain";
+    private static readonly ProtoId<TagPrototype> DionaNymph = "DionaNymph";
 
     public void InitializeMMI()
     {
@@ -113,6 +116,16 @@ public abstract partial class SharedBorgSystem
         var brain = args.Item;
         if (!TryComp<UnborgableComponent>(brain, out var unborgable))
             return;
+
+        // IMP EDIT: different behavior if brain is a diona nymph
+        if (_tag.HasTag(brain, DionaNymph))
+        {
+            args.Cancelled = true; // to ensure ejection happens within method
+            _popup.PopupPredicted(Loc.GetString(unborgable.NymphFailPopup), ent, ent, PopupType.MediumCaution); // display different failure popup
+            _itemSlots.TryEjectToHands(brain, args.Slot, args.User); // eject nymph back out of OSI
+            return; // exit OnMMIAttemptInsert WITHOUT dissolving & killing the nymph
+        }
+        // END IMP EDIT
 
         _popup.PopupPredicted(Loc.GetString(unborgable.FailPopup), ent, ent, PopupType.MediumCaution);
         _audio.PlayPredicted(unborgable.FailSound, ent, ent);

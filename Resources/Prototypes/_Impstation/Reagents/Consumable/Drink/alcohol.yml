@@ -1060,3 +1060,140 @@
         showInChat: true
         force: true
         probability: 0.35
+
+- type: reagent
+  id: RamosGinFizz
+  name: reagent-name-ramos-gin-fizz
+  parent: BaseAlcohol
+  desc: reagent-desc-ramos-gin-fizz
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: ramosginfizz
+  color: "#F8F2D2"
+  metamorphicSprite:
+      sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/ramosginfizz.rsi
+      state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  fizziness: 0.3
+
+- type: reagent
+  id: AtmosGinFizz
+  name: reagent-name-atmos-gin-fizz
+  parent: BaseAlcohol
+  desc: reagent-desc-atmos-gin-fizz
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: atmosginfizz
+  color: "#8fbff3"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/atmosginfizz.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -.5
+  fizziness: 0.3
+
+- type: reagent
+  id: BetweenTheSheets
+  name: reagent-name-between-the-sheets
+  parent: BaseAlcohol
+  desc: reagent-desc-between-the-sheets
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: betweenthesheets
+  color: "#fdda54"
+  metamorphicSprite:
+      sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/betweenthesheets.rsi
+      state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: Sidecar
+  name: reagent-name-sidecar
+  parent: BaseAlcohol
+  desc: reagent-desc-sidecar
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: sidecar
+  color: "#de8639"
+  metamorphicSprite:
+      sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/sidecar.rsi
+      state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: Sazerac
+  name: reagent-name-sazerac
+  parent: BaseAlcohol
+  desc: reagent-desc-sazerac
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: sazerac
+  color: "#d5711e"
+  metamorphicSprite:
+      sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/sazerac.rsi
+      state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+
+- type: reagent
+  id: OldFashioned
+  name: reagent-name-old-fashioned
+  parent: BaseAlcohol
+  desc: reagent-desc-old-fashioned
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: oldfashioned
+  color: "#943600"
+  metamorphicSprite:
+      sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/oldfashioned.rsi
+      state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2

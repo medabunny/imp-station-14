@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/shuttle_window.rsi
+    sprite: _Impstation/Structures/Windows/shuttle_window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/shuttle_window.rsi
+    sprite: _Impstation/Structures/Windows/shuttle_window.rsi # Impstation
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
@@ -65,7 +65,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/shuttle_window_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/shuttle_window_diagonal.rsi # Impstation
     state: state0
   - type: Tag
     tags:
@@ -73,10 +73,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # Impstation
     base: state
   - type: Icon
-    sprite: Structures/Windows/shuttle_window_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/shuttle_window_diagonal.rsi # Impstation
     state: state0
   - type: Fixtures
     fixtures:

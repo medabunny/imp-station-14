@@ -361,7 +361,7 @@
 # commented out kodepiia stuff is for when i can be fucked to figure out how to make randomsprite work on inhands -mq
 - type: entity
   name: young kodepiia
-  parent: [ MobCombat, SimpleMobBase ]
+  parent: [ BaseMobKodeDescendant, MobCombat, SimpleMobBase ]
   id: MobYoungKodepiia
   description: Not quite a not-quite-person.
   components:
@@ -485,9 +485,6 @@
     baseResistTime: 2
   - type: TypingIndicator
     proto: kodepiia
-  - type: Body
-    prototype: Kodepiia
-    requiredLegs: 2 #if you change this number i will put you in a fucking saw trap -mq
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
@@ -772,3 +769,30 @@
   - type: NpcFactionMember
     factions:
       - Dog
+
+- type: entity
+  parent: MobWeirdShrimp
+  suffix: Antag
+  id: MobWeirdShrimpKillEveryon
+  components:
+    - type: GhostRole
+      makeSentient: true
+      name: ghost-role-information-weirdshrimp-name
+      description: ghost-role-information-weirdshrimp-description
+      rules: ghost-role-information-familiar-weirdshrimp-rules
+      raffle:
+        settings: short
+      mindRoles:
+      - MindRoleKillEveryon
+    - type: GhostTakeoverEntityObjectives
+      objectives:
+        - KillEveryonObjective
+    - type: Hands
+      hands:
+        hand_right:
+          location: Right
+      sortedHands:
+      - hand_right
+    - type: ComplexInteraction
+    - type: CombatMode
+      canDisarm: true

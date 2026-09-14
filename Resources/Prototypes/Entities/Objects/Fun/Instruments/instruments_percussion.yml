@@ -57,6 +57,7 @@
       "Kweh": {4: 100} # Defined in space-station-14.sf2
       "Waa": {5: 100} # Defined in space-station-14.sf2
       "Wah": {6: 100} # Defined in space-station-14.sf2
+      "Talkbox": {5: 110} # Defined in Impstation.sf2
   - type: Sprite
     sprite: Objects/Fun/Instruments/microphone.rsi
   - type: ActivatableUI #imp

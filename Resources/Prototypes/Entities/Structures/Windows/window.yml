@@ -24,9 +24,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window.rsi
+    sprite: _Impstation/Structures/Windows/window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/window.rsi
+    sprite: _Impstation/Structures/Windows/window.rsi # Impstation
     state: full
   - type: Physics
     bodyType: Static
@@ -76,7 +76,7 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: windows
+    key: walls # Impstation
     base: window
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
@@ -108,9 +108,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _Impstation/Structures/Windows/tinted_window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: _Impstation/Structures/Windows/tinted_window.rsi # Impstation
   - type: IconSmooth
     base: twindow
   - type: Construction
@@ -264,7 +264,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/window_diagonal.rsi # Impstation
     state: state0
   - type: Tag
     tags:
@@ -272,10 +272,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # Impstation
     base: state
   - type: Icon
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/window_diagonal.rsi # Impstation
     state: state0
   - type: Fixtures
     fixtures:

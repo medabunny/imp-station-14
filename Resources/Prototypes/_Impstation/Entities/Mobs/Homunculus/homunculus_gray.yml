@@ -1,0 +1,109 @@
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceHomunculusGray
+  categories: [ HideSpawnMenu ]
+  name: gray homunculus appearance
+  components:
+  - type: Inventory
+    speciesId: gray
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gray/displacement.rsi
+            state: eyes
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Gray/displacement.rsi/
+            state: suitstorage
+  - type: EntityTableContainerFill #VISUAL NUBODY TODO: REWORK THESE
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganGrayBrain
+        - id: OrganGrayEyes
+        - id: OrganGrayTongue
+        - id: OrganGrayAppendix
+        - id: OrganGrayEars
+        - id: OrganGrayLungs
+        - id: OrganGrayHeart
+        - id: OrganGrayStomach
+        - id: OrganGrayLiver
+        - id: OrganGrayKidneys
+  - type: HumanoidAppearance
+    species: HomunculusGray
+
+- type: entity
+  id: HomunculusGray
+  suffix: Gray
+  parent: [ BaseHomunculus, AppearanceHomunculusGray]
+  description: How... How is it floating..?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Homunculi/Gray/body.rsi/
+    state: base
+  - type: Vocal
+    sounds:
+      Male: UnisexGray
+      Female: UnisexGray
+      Unsexed: UnisexGray
+  - type: GrayAccent
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 150
+  - type: Speech
+    speechSounds: PVC
+  - type: TypingIndicator
+    proto: gray
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: MovementAlwaysTouching
+  - type: SyncSprite
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+    weightlessFriction: 0.05
+    weightlessFrictionNoInput: 0 # Get lost in space little gray.
+    weightlessAcceleration: 1
+  - type: NoSlip
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 40
+        restitution: 0.0
+        mask:
+        - CrateMask
+        layer:
+        - MobLayer
+  - type: ProtectedFromStepTriggers

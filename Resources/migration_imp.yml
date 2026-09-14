@@ -165,3 +165,18 @@ PlushieBug: PlushieImp
 # changed spelling in entities
 MobFeindfish: MobFiendfish
 SpawnMobFeindfish: SpawnMobFiendfish
+
+# 2026-09-02
+# nubody organ id changes
+OrganKodepiiaSkin: OrganKodepiiaTongue
+
+# 2026-09-03
+# more nubody organ id changes
+LeftFootHuman: OrganHumanFootLeft
+RightFootHuman: OrganHumanFootRight
+LeftHandHuman: OrganHumanHandLeft
+RightHandHuman: OrganHumanHandRight
+LeftFootSkeleton: OrganSkeletonPersonFootLeft
+RightFootSkeleton: OrganSkeletonPersonFootRight
+RightLegSkeleton: OrganSkeletonPersonLegRight
+RightLegArachnid: OrganArachnidLegRight

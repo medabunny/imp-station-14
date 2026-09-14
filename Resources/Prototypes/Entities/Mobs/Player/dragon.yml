@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ BaseMobCarpBody, SimpleSpaceMobBase, FlyingMobBase ]
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -172,8 +172,6 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: Body #imp
-    prototype: AnimalCarp
   - type: NightVision # EE
     isActive: true
     toggleAction: null

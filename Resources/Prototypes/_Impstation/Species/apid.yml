@@ -2,11 +2,13 @@
   id: Apid
   name: species-name-apid
   roundStart: false
-  prototype: BaseMobApid
+  randomViable: true
+  randomChance: 0.5
+  prototype: MobApid
   sprites: MobApidSprites
   defaultSkinTone: "#385878"
   markingLimits: MobApidMarkingLimits
-  dollPrototype: MobApidDummy
+  dollPrototype: AppearanceApid
   skinColoration: TintedHues # this prevents RandomHumanoidAppearance from fucking with their colorscheme too much
   maleFirstNames: ApidWorker
   femaleFirstNames: ApidWorker

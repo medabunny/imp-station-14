@@ -1,6 +1,4 @@
-using Content.Server.Body.Systems;
 using Content.Server.Stack;
-using Content.Shared.Body.Components;
 using Content.Shared.Gibbing;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
@@ -54,9 +52,6 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 _artifact.FinishUnlockingState((contained, unlocking, artifact));
             }
 
-            if (!TryComp<BodyComponent>(contained, out var body))
-                Del(contained);
-
             if (!HasComp<GoobChangelingComponent>(contained)) //#IMP if statement to make changelings immune to gibbing
             {
                 var gibs = _gibbing.Gib(contained);
@@ -65,9 +60,9 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                     ContainerSystem.Insert((gib, null, null, null), crusher.OutputContainer);
                 }
             }
-            else
+            else //#IMP deals an extra burst of damage to changelings at the end
             {
-                _damageable.TryChangeDamage(contained, crusher.CrushingDamage * crusher.NonGibbedDamageMult); //#IMP deals an extra burst of damage to changelings at the end
+                _damageable.TryChangeDamage(contained, crusher.CrushingDamage * crusher.NonGibbedDamageMult);
             }
         }
     }

@@ -7,7 +7,7 @@
   sprites: MobGraySprites
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobGrayMarkingLimits
-  dollPrototype: MobGrayDummy
+  dollPrototype: AppearanceGray
   skinColoration: GrayToned
   maleFirstNames: NamesGrayFirst
   femaleFirstNames: NamesGrayFirst

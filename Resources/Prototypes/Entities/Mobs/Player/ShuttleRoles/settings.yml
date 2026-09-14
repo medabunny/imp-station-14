@@ -447,6 +447,7 @@
     - type: Loadout
       prototypes: [ VisitorJanitor, VisitorJanitorAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+    - type: PerfectThrower # imp
 
 - type: randomHumanoidSettings
   id: VisitorLawyer

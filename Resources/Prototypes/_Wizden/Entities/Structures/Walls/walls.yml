@@ -34,9 +34,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    sprite: _Wizden/Structures/Walls/shuttleinterior.rsi
+    sprite: _Impstation/Structures/Walls/shuttleinterior.rsi # Impstation
   - type: Icon
-    sprite: _Wizden/Structures/Walls/shuttleinterior.rsi
+    sprite: _Impstation/Structures/Walls/shuttleinterior.rsi # Impstation
   - type: Construction
     graph: Girder
     node: shuttleInteriorWall

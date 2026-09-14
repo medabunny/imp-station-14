@@ -7,7 +7,7 @@
   sprites: MobSlimeSprites
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobSlimeMarkingLimits
-  dollPrototype: MobSlimePersonDummy
+  dollPrototype: AppearanceSlimePerson
   skinColoration: Hues
   sexes:
   - Male
@@ -80,23 +80,25 @@
   markingsMatchSkin: true
   layerAlpha: 0.75 # Impstation Special
 
+# IMP 4 NUBODY: removed gender specific head sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobSlimeHead
   baseSprite:
     sprite: _Impstation/Mobs/Species/Slime/parts.rsi # imp
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobSlimeHeadMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Slime/parts.rsi # imp
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobSlimeHeadFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Slime/parts.rsi # imp
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobSlimeTorso

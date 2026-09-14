@@ -257,7 +257,7 @@
 
 #Wizard Helmet
 - type: entity
-  parent: ClothingHeadHelmetBase
+  parent: [ClothingHeadHelmetBase, ClothingHeadHatWizardBase] # imp, add ClothingHeadHatWizardBase
   id: ClothingHeadHelmetWizardHelm
   name: wizard helm
   description: Strange-looking helmet that most certainly belongs to a real magic user.

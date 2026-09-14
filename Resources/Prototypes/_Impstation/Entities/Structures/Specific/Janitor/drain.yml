@@ -1,0 +1,19 @@
+- type: entity
+  id: FloorDrainSmallCapacity
+  parent: FloorDrain
+  suffix: Small capacity
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drainBuffer:
+          maxVol: 250 # imp edit
+
+- type: entity
+  id: FloorDrainLargeCapacity
+  parent: FloorDrain
+  suffix: Large capacity
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drainBuffer:
+          maxVol: 1000 # imp edit

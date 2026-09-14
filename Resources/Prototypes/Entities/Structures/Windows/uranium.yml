@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: _Impstation/Structures/Windows/uranium_window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/uranium_window.rsi
+    sprite: _Impstation/Structures/Windows/uranium_window.rsi # Impstation
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -123,7 +123,7 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls # Impstation
     base: state
   - type: Icon
     sprite: Structures/Windows/uranium_window_diagonal.rsi

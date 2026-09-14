@@ -7,7 +7,7 @@
   sprites: MobDionaSprites
   defaultSkinTone: "#cdb369"
   markingLimits: MobDionaMarkingLimits
-  dollPrototype: MobDionaDummy
+  dollPrototype: AppearanceDiona
   skinColoration: Hues
   maleFirstNames: NamesDionaFirst
   femaleFirstNames: NamesDionaFirst
@@ -75,6 +75,8 @@
       required: true
       defaultMarkings: [ DionaVineOverlay ]
 
+# IMP 4 NUBODY: removed gender specific sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobDionaEyes
   baseSprite:
@@ -85,37 +87,37 @@
   id: MobDionaHead
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobDionaHeadMale
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobDionaHeadFemale
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobDionaTorso
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobDionaTorsoMale
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobDionaTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
-    state: torso_f
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobDionaLLeg

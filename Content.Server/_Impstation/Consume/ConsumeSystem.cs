@@ -1,5 +1,4 @@
 using Content.Server.Atmos.Rotting;
-using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
@@ -22,6 +21,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Content.Shared._Impstation.Consume.Components;
 using Content.Shared._Impstation.Consume;
+using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Impstation.Consume;
@@ -118,7 +118,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         if (args.Target == null || args.Cancelled || !TryComp<PhysicsComponent>(args.Target, out var targetPhysics))
             return;
 
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>(ent.Owner, out var stomachs))
+        if (!_body.TryGetOrgansWithComponent<StomachComponent>(ent.Owner, out var stomachs))
             return;
 
         var highestAvailable = FixedPoint2.Zero;
@@ -126,7 +126,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         foreach (var stomach in stomachs)
         {
             var owner = stomach.Owner;
-            if (!_solutionContainer.ResolveSolution(owner, "stomach", ref stomach.Comp1.Solution, out var stomachSol))
+            if (!_solutionContainer.ResolveSolution(owner, "stomach", ref stomach.Comp.Solution, out var stomachSol))
                 continue;
 
             if (stomachSol.AvailableVolume <= highestAvailable)

@@ -44,166 +44,197 @@
 - type: quickPhrase
   id: AtmosPhraseImp
   parent: BaseJobsImpEngie
-  text: imp-phrase-job-atmos
+  text: imp-phrase-atmos
 
 - type: quickPhrase
   id: EngiePhraseImp
   parent: BaseJobsImpEngie
-  text: imp-phrase-job-engie
+  text: imp-phrase-engie
 
 - type: quickPhrase
   id: CEPhraseImp
   parent: BaseJobsImpEngie
-  text: imp-phrase-job-ce
+  text: imp-phrase-ce
 
 # sci
 
 - type: quickPhrase
   id: SciJobPhraseImp
   parent: BaseJobsImpSci
-  text: imp-phrase-job-sci
+  text: imp-phrase-scijob
 
 - type: quickPhrase
   id: RDPhraseImp
   parent: BaseJobsImpSci
-  text: imp-phrase-job-rd
+  text: imp-phrase-rd
 
 # service
 
 - type: quickPhrase
   id: ChefPhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-chef
+  text: imp-phrase-chef
 
 - type: quickPhrase
   id: BartenderPhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-bartender
+  text: imp-phrase-bartender
 
 - type: quickPhrase
   id: JaniPhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-jani
+  text: imp-phrase-jani
 
 - type: quickPhrase
   id: ClownPhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-clown
+  text: imp-phrase-clown
 
 - type: quickPhrase
   id: MimePhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-mime
+  text: imp-phrase-mime
 
 - type: quickPhrase
   id: HDPhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-hd
+  text: imp-phrase-hd
 
 - type: quickPhrase
   id: BotanistPhraseImp
   parent: BaseJobsImpService
-  text: imp-phrase-job-botanist
+  text: imp-phrase-botanist
+
+- type: quickPhrase
+  id: ZookeeperPhraseImp
+  parent: BaseJobsImpService
+  text: imp-phrase-zookeeper
+
+- type: quickPhrase
+  id: BoxerPhraseImp
+  parent: BaseJobsImpService
+  text: imp-phrase-boxer
+
+- type: quickPhrase
+  id: ReporterPhraseImp
+  parent: BaseJobsImpService
+  text: imp-phrase-reporter
+
+- type: quickPhrase
+  id: LibrarianPhraseImp
+  parent: BaseJobsImpService
+  text: imp-phrase-librarian
+
+- type: quickPhrase
+  id: ChaplainPhraseImp
+  parent: BaseJobsImpService
+  text: imp-phrase-chaplain
+
 
 # med
 
 - type: quickPhrase
-  id: MedicPhraseImp
+  id: DoctorPhraseImp
   parent: BaseJobsImpMed
-  text: imp-phrase-job-medic
+  text: imp-phrase-doctor
 
 - type: quickPhrase
   id: ChemistPhraseImp
   parent: BaseJobsImpMed
-  text: imp-phrase-job-chemist
+  text: imp-phrase-chemist
 
 - type: quickPhrase
   id: CMOPhraseImp
   parent: BaseJobsImpMed
-  text: imp-phrase-job-cmo
+  text: imp-phrase-cmo
 
 - type: quickPhrase
   id: ParamedPhraseImp
   parent: BaseJobsImpMed
-  text: imp-phrase-job-paramed
+  text: imp-phrase-paramed
 
 # cargo
 
 - type: quickPhrase
   id: QMPhraseImp
   parent: BaseJobsImpCargo
-  text: imp-phrase-job-qm
+  text: imp-phrase-qm
 
 - type: quickPhrase
   id: CourierPhraseImp
   parent: BaseJobsImpCargo
-  text: imp-phrase-job-courier
+  text: imp-phrase-courier
 
 - type: quickPhrase
   id: CargoTechPhraseImp
   parent: BaseJobsImpCargo
-  text: imp-phrase-job-ct
+  text: imp-phrase-ct
 
 - type: quickPhrase
   id: SalvageSpecialistPhraseImp
   parent: BaseJobsImpCargo
-  text: imp-phrase-job-salv
+  text: imp-phrase-salv
 
 # sec
 
 - type: quickPhrase
   id: HOSPhraseImp
   parent: BaseJobsImpSec
-  text: imp-phrase-job-hos
+  text: imp-phrase-hos
 
 - type: quickPhrase
   id: WardenPhraseImp
   parent: BaseJobsImpSec
-  text: imp-phrase-job-warden
+  text: imp-phrase-warden
 
 - type: quickPhrase
   id: SecOfPhraseImp
   parent: BaseJobsImpSec
-  text: imp-phrase-job-secof
+  text: imp-phrase-secof
 
 - type: quickPhrase
   id: DetPhraseImp
   parent: BaseJobsImpSec
-  text: imp-phrase-job-det
+  text: imp-phrase-det
+
+- type: quickPhrase
+  id: BrigMedPhraseImp
+  parent: BaseJobsImpSec
+  text: imp-phrase-brigmed
 
 # other
 
 - type: quickPhrase
-  id: HOPPhraseImp
+  id: InternPhraseImp
   parent: BaseJobsImp
-  text: imp-phrase-job-hop
-
-- type: quickPhrase
-  id: CapPhraseImp
-  parent: BaseJobsImp
-  text: imp-phrase-job-cap
+  text: imp-phrase-intern
 
 - type: quickPhrase
   id: PassengerPhraseImp
   parent: BaseJobsImp
-  text: imp-phrase-job-passenger
-
-- type: quickPhrase
-  id: ReporterPhraseImp
-  parent: BaseJobsImp
-  text: imp-phrase-job-reporter
+  text: imp-phrase-passenger
 
 - type: quickPhrase
   id: LawyerPhraseImp
   parent: BaseJobsImp
-  text: imp-phrase-job-lawyer
+  text: imp-phrase-lawyer
 
 - type: quickPhrase
-  id: ZookeeperPhraseImp
+  id: CyborgPhraseImp
   parent: BaseJobsImp
-  text: imp-phrase-job-zookeeper
+  text: imp-phrase-cyborg
 
 - type: quickPhrase
-  id: BoxerPhraseImp
+  id: AIPhraseImp
   parent: BaseJobsImp
-  text: imp-phrase-job-boxer
+  text: imp-phrase-ai
+
+- type: quickPhrase
+  id: HOPPhraseImp
+  parent: BaseJobsImp
+  text: imp-phrase-hop
+
+- type: quickPhrase
+  id: CapPhraseImp
+  parent: BaseJobsImp
+  text: imp-phrase-cap

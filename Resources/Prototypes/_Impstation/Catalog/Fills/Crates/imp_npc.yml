@@ -105,13 +105,13 @@
         - id: MobReptilian
         - id: MobSkeletonPerson
         - id: MobSlimePerson
-        - id: BaseMobVoxInternals
+        - id: MobVoxInternals
         - id: MobVulpkanin
         - id: MobAllulalo #IMP
         - id: MobAnt
         - id: MobAnomalocarid
         - id: MobApidBaseGhostrole
-        - id: BaseMobDecapoidInternals
+        - id: MobDecapoidInternals
         - id: MobGastropoid
         - id: MobGray
         - id: MobKodepiia

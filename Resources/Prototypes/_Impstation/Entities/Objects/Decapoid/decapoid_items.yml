@@ -22,7 +22,6 @@
         Structural: 10
     soundHit:
       collection: AlienClaw
-  - type: Unremoveable
   - type: Blocking
     passiveBlockModifier:
       coefficients:
@@ -59,6 +58,9 @@
           state: icon
         useSound: /Audio/_Impstation/Items/Decapoid/claw_cutting.ogg
         changeSound: /Audio/_Impstation/Items/Decapoid/switch.ogg
+  - type: OrganAttached
+    slot: left
+    handEquipment: true
   - type: Tag
     tags:
       - DecapoidClaw

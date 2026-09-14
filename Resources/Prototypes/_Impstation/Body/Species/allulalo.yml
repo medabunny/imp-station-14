@@ -1,0 +1,355 @@
+# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAllulalo
+  categories: [ HideSpawnMenu ] #imp
+  name: allulalo appearance
+  components:
+  - type: Inventory
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: suitstorage
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: hand_l
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Allulalo/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          state: hand_l
+  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganAllulaloTorso
+        - id: OrganAllulaloHead # Hand is here!!!
+        - id: OrganAllulaloArmLeft
+        - id: OrganAllulaloArmRight
+        - id: OrganAllulaloHandLeft # For visuals only! They can't grip SHIT!
+        - id: OrganAllulaloHandRight # For visuals only!
+        - id: OrganAllulaloLegLeft
+        - id: OrganAllulaloLegRight
+        - id: OrganAllulaloFootLeft
+        - id: OrganAllulaloFootRight
+        - id: OrganAllulaloBrain
+        - id: OrganAllulaloEyes
+        - id: OrganAllulaloTongue
+        - id: OrganAllulaloAppendix
+        - id: OrganAllulaloEars
+        - id: OrganAllulaloLungs
+        - id: OrganAllulaloHeart
+        - id: OrganAllulaloStomach
+        - id: OrganAllulaloLiver
+        - id: OrganAllulaloKidneys
+  - type: HumanoidAppearance
+  # IMP EDIT END
+    species: Allulalo
+
+- type: entity
+  parent:
+  - AppearanceAllulalo
+  - BaseSpeciesMobOrganic
+  id: MobAllulalo
+  name: Uristia Mc-Hands
+  components:
+  - type: AllulaloAccent
+  - type: TypingIndicator
+    proto: allulalo
+  - type: Vocal
+    sounds:
+      Male: UnisexAllulalo
+      Female: UnisexAllulalo
+      Unsexed: UnisexAllulalo
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Allulalo #stops them from being oppressive hopefully
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodAllulalo
+        Quantity: 250 #should be 50 less than the default of 300. theyre small
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/allulalo_brute_damage.rsi
+        color: "#e5efff"
+  - type: CanEscapeInventory
+    baseResistTime: 1.0 #they break out of grabs FAST
+  - type: TooShortForUI #short fucks
+    blacklist:
+      components:
+      - TooShortForUIBlacklist
+    whitelist:
+      components:
+      - TooShortForUIWhitelist
+  - type: MeleeWeapon #bites you
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcAllulaloBite
+    damage:
+      types:
+        Piercing: 4
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Ethanotoxin
+          Quantity: 4 #you can bite someone four times. upped from two based on feedback
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Ethanotoxin
+        Quantity: 0.05 #20 second cooldown between bites working full power
+  - type: StaminaResistance
+    damageCoefficient: 1.25 #takes the disabler/batong hits needed to stun from 4 > 3
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatChicken #this was yesters idea, not mine
+      amount: 5
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: Tag
+    tags:
+    - VimPilot #fuck it, theyre small enough
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+    - FootstepSound
+  - type: Speech
+    speechSounds: Allulalo
+    speechVerb: Allulalo
+    allowedEmotes: ['Chitter', 'Hiss']
+  - type: MovementSpeedModifier # They're so fast they go nyoom
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+  - type: UnableToWield
+  # imp edit start
+  - type: Fixtures #density change missing from macro version, to be upstreamed
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.32
+        density: 75 #this is half the normal and makes them very light
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: HeavyweightDrunk
+  # imp edit end
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganAllulalo
+  abstract: true
+  suffix: Allulalo
+
+- type: entity
+  id: OrganAllulaloMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Allulalo ]
+    updateIntervalMultiplier: 1.5 # This should make them metabolize things twice as fast. I think. This new system is scary.
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganAllulaloVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Allulalo
+# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganAllulalo ] #imp edit, OrganAllulaloVisual parent removed until visual nubody
+  id: OrganAllulaloExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+
+- type: entity
+  parent: OrganAllulalo
+  id: OrganAllulaloInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganAllulaloExternal ]
+  id: OrganAllulaloTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganAllulaloExternal ]
+  id: OrganAllulaloHead
+  components:
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganAllulaloExternal ]
+  id: OrganAllulaloArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeftInactive, OrganAllulaloExternal ]
+  id: OrganAllulaloHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRightInactive, OrganAllulaloExternal ]
+  id: OrganAllulaloHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganAllulaloExternal ]
+  id: OrganAllulaloLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganAllulaloExternal ]
+  id: OrganAllulaloFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganAllulaloExternal ]
+  id: OrganAllulaloFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganAllulaloInternal ]
+  id: OrganAllulaloBrain
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganAllulaloInternal ]  #imp edit, OrganAllulaloExternal parent removed until visual nubody (which SHOULD be OrganAllulaloVisual actually)
+  id: OrganAllulaloEyes
+  components:
+  - type: Sprite #this shouldn't need to be here..?
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  layer: enum.HumanoidVisualLayers.Eyes
+  #  data:
+  #    sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
+  #    state: eyes
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganAllulaloInternal ]
+  id: OrganAllulaloTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganAllulaloInternal ]
+  id: OrganAllulaloAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganAllulaloInternal ]
+  id: OrganAllulaloEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganAllulaloInternal, OrganHumanMetabolizer ]
+  id: OrganAllulaloLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganAllulaloInternal, OrganAllulaloMetabolizer ]
+  id: OrganAllulaloHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganAllulaloInternal, OrganHumanMetabolizer ]
+  id: OrganAllulaloStomach
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganAllulaloInternal, OrganHumanMetabolizer ]
+  id: OrganAllulaloLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganAllulaloInternal, OrganHumanMetabolizer ]
+  id: OrganAllulaloKidneys

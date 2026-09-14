@@ -1,8 +1,8 @@
 - type: entity
   save: false
   name: Uristititi McVox
-  id: BaseMobVoxInternals
-  parent: BaseMobVox
+  id: MobVoxInternals
+  parent: MobVox
   suffix: SpawnsWithInternals
   components:
   - type: Loadout

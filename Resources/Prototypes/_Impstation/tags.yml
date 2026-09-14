@@ -151,6 +151,9 @@
   id: Dinnerware
 
 - type: Tag
+  id: DionaNymph # for distinguishing diona organs that are the nymphs themselves rather than the inert organs they turn into
+
+- type: Tag
   id: DrinkCup
 
 - type: Tag
@@ -296,6 +299,9 @@
 
 - type: Tag
   id: LightYellow
+
+- type: Tag
+  id: Log # ConstructionGraph: chairBigLog
 
 - type: Tag
   id: MagazineBR

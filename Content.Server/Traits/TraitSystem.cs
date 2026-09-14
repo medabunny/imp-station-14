@@ -5,7 +5,7 @@ using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Content.Server.Body.Systems; // imp
+using Content.Shared.Body; // imp
 using Content.Shared.Tag; // imp
 
 namespace Content.Server.Traits;
@@ -15,7 +15,6 @@ public sealed class TraitSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!; // imp
     [Dependency] private readonly TagSystem _tagSystem = default!; // imp
 
     public override void Initialize()
@@ -50,13 +49,13 @@ public sealed class TraitSystem : EntitySystem
 
             // Add all components required by the prototype IMP: to the body or specified organ
             // imp start
-            if (traitPrototype.Organ != null)
+            if (traitPrototype.Organ != null&& TryComp<BodyComponent>(args.Mob, out var body))
             {
-                foreach (var organ in _bodySystem.GetBodyOrgans(args.Mob))
+                foreach (var organ in body.Organs?.ContainedEntities ?? [])
                 {
-                    if (traitPrototype.Organ is { } organTag && _tagSystem.HasTag(organ.Id, organTag))
+                    if (traitPrototype.Organ is { } organTag && _tagSystem.HasTag(organ, organTag))
                     {
-                        EntityManager.AddComponents(organ.Id, traitPrototype.Components);
+                        EntityManager.AddComponents(organ, traitPrototype.Components);
                     }
                 }
             }

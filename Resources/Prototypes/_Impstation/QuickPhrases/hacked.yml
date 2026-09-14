@@ -104,3 +104,18 @@
   id: TiltPhraseImp
   parent: BaseHackedImp
   text: imp-phrase-hacked-tilt
+
+- type: quickPhrase
+  id: PiskPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-pisk
+
+- type: quickPhrase
+  id: BombPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-bomb
+
+- type: quickPhrase
+  id: OmegaPhraseImp
+  parent: BaseHackedImp
+  text: imp-phrase-hacked-omega

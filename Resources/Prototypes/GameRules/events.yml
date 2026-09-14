@@ -30,6 +30,7 @@
     - id: GoblinKnightEvent # imp
     - id: HereticBooksSpawnSmall #imp
     - id: BiomagneticPolarization # imp
+    - id: ExplosiveMineResurgence # imp
     - id: SynthStorm # CD: Unique event for synths
 
 - type: entityTable

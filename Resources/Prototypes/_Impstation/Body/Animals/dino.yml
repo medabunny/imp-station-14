@@ -1,0 +1,23 @@
+- type: entity
+  id: OrganDinosaurLungs
+  parent: OrganAnimalLungs
+  name: dinosaur lungs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Dinosaur ]
+
+- type: entity
+  id: BaseMobDinosaurBody
+  abstract: true
+  components:
+  - type: Body
+  - type: EntityTableContainerFill #TO BE REWORKED BY VISUAL NUBODY
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganDinosaurLungs
+        - id: OrganAnimalHeart
+        - id: OrganAnimalStomach
+        - id: OrganAnimalLiver
+        - id: OrganAnimalKidneys

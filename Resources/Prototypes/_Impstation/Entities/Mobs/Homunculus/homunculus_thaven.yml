@@ -1,0 +1,118 @@
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceHomunculusThaven
+  categories: [ HideSpawnMenu ]
+  name: thaven homunculus appearance
+  components:
+  - type: Inventory
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: head
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: mask
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: glasses
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: suitstorage
+  - type: EntityTableContainerFill #VISUAL NUBODY TODO: REWORK THESE
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganThavenBrain
+        - id: OrganThavenEyes
+        - id: OrganThavenLungs
+        - id: OrganThavenHeart
+        - id: OrganThavenStomach
+        - id: OrganThavenLiver
+        - id: OrganThavenKidneys
+  - type: HumanoidAppearance
+    species: HomunculusThaven
+    markingsDisplacement:
+      Head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: headmarking
+      Eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: headmarking
+      Snout:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: headmarking
+      HeadSide:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: headmarking
+      HeadTop:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Homunculi/Thaven/displacement.rsi/
+            state: headmarking
+
+- type: entity
+  id: HomunculusThaven
+  suffix: Thaven
+  parent: [ BaseHomunculus, AppearanceHomunculusThaven ]
+  description: You'll witness before you a phenomenon like no other; a thaven of the sea...
+  components:
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodThavenMeat
+      amount: 5
+  - type: ThavenMoods
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood
+        Quantity: 150
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 18
+  - type: Vocal
+    sounds:
+      Male: MaleThaven
+      Female: FemaleThaven
+      Unsexed: UnisexThaven
+  - type: TypingIndicator
+    proto: thaven # DeltaV unique typing indicator
+  - type: NoContractionsAccent
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: -6
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0.8
+    baseSprintSpeed : 1
+    friction: 0.9
+  - type: Tag
+    tags:
+    - FootstepSound
+    - VimPilot
+    - DoorBumpOpener

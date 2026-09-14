@@ -168,6 +168,27 @@
     - Maintenance
   - type: DroneVision
   - type: ZombieImmune
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Middle
+      hand2:
+        location: Middle
+      hand3:
+        location: Middle
+      hand4:
+        location: Middle
+      hand5:
+        location: Middle
+    sortedHands:
+    - hand1
+    - hand2
+    - hand3
+    - hand4
+    - hand5
 
 # Drone actions
 
@@ -201,9 +222,9 @@
   id: StartingGearDroneTools
   equipment:
     pocket1: trayScannerUnremoveable
-    pocket2: GasAnalyzerUnremoveable
-    pocket3: PinpointerStationUnremoveable
+    pocket2: PinpointerStationUnremoveable
   inhand:
   - OmnitoolUnremoveable
   - WelderExperimentalUnremoveable
   - RCDRechargingCardboardUnremoveable
+  - GasAnalyzerUnremoveable

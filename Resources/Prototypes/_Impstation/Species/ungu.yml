@@ -6,7 +6,7 @@
   prototype: MobUngu
   sprites: MobUnguSprites
   markingLimits: MobUnguMarkingLimits
-  dollPrototype: MobUnguDummy
+  dollPrototype: AppearanceUngu
   skinColoration: Hues
   defaultSkinTone: "#FFFFFF"
   maleFirstNames: NamesUnguFirst

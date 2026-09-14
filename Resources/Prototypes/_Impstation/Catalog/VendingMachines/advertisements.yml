@@ -9,3 +9,9 @@
   values:
     prefix: advertisement-deadly-
     count: 9
+
+- type: localizedDataset
+  id: BeachDrobeAds
+  values:
+    prefix: advertisement-beachdrobe-
+    count: 3

@@ -1,6 +1,7 @@
 - type: entity
   name: THE ULTIMATE BOXER
   parent:
+  - BaseMobAnimal
   - BaseSimpleMob
   - MobCombat
   - MobBloodstream
@@ -19,8 +20,6 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
-  - type: Body
-    prototype: Animal
   - type: Damageable
     damageContainer: Biological
   - type: MovementSpeedModifier

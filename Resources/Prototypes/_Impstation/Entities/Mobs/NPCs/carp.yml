@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: nice space carp
   id: NiceMobCarp
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ BaseMobCarpBody, SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
   description: It's a nice space carp.
   abstract: true
   components:
@@ -84,8 +84,6 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-  - type: Body
-    prototype: AnimalCarp
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

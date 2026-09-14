@@ -5,9 +5,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _Impstation/Structures/Windows/plasma_window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _Impstation/Structures/Windows/plasma_window.rsi # Impstation
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Glass
@@ -120,7 +120,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/plasma_diagonal.rsi # Impstation
     state: state0
   - type: Tag
     tags:
@@ -131,7 +131,7 @@
     key: windows
     base: state
   - type: Icon
-    sprite: Structures/Windows/plasma_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/plasma_diagonal.rsi # Impstation
     state: state0
   - type: Fixtures
     fixtures:

@@ -24,6 +24,14 @@ flavor-complex-apple-martini-crystal-lite = tastes like imitation appletini
 flavor-complex-horsepussy = tastes like death and a subsequent memorial
 flavor-complex-grease = tastes thick, slimy, and a bit bitter
 
+flavor-complex-ramosginfizz = like it was worth all the shaking
+flavor-complex-atmosginfizz = like an air conditioner, but in a good way
+flavor-complex-betweenthesheets = like a wonderful evening
+flavor-complex-sidecar = tart and dry
+flavor-complex-sazerac = sweet, herbal, and strong
+flavor-complex-oldfashioned = like the good ol' days
+
+
 flavor-complex-cigarettes = like cigarettes
 flavor-complex-finfin = like your best friend
 flavor-complex-radiation = like radiation

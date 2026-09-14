@@ -9,7 +9,7 @@
   sprites: MobGoblinSprites
   defaultSkinTone: "#82d074"
   markingLimits: MobGoblinMarkingLimits
-  dollPrototype: MobGoblinDummy
+  dollPrototype: AppearanceGoblin
   skinColoration: Hues #Possible values: TintedHues, Hues, HumanToned
   maleFirstNames: NamesGoblinMale # imp
   femaleFirstNames: NamesGoblinFemale # imp

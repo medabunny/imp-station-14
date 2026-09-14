@@ -1,4 +1,3 @@
-using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Mind;
@@ -31,6 +30,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Body;
 using Content.Shared.Chat;
 
 // yes, all of these are really necessary. Christ almighty.
@@ -51,7 +51,6 @@ public sealed class MindlessCloneSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     // everything else
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
@@ -384,13 +383,13 @@ public sealed class MindlessCloneSystem : EntitySystem
                     continue;
 
                 // Add all components required by the prototype to the body or specified organ
-                if (traitPrototype.Organ != null)
+                if (traitPrototype.Organ != null && TryComp<BodyComponent>(clone, out var body))
                 {
-                    foreach (var organ in _bodySystem.GetBodyOrgans(clone))
+                    foreach (var organ in body.Organs?.ContainedEntities ?? [])
                     {
-                        if (traitPrototype.Organ is { } organTag && _tagSystem.HasTag(organ.Id, organTag))
+                        if (traitPrototype.Organ is { } organTag && _tagSystem.HasTag(organ, organTag))
                         {
-                            EntityManager.AddComponents(organ.Id, traitPrototype.Components);
+                            EntityManager.AddComponents(organ, traitPrototype.Components);
                         }
                     }
                 }

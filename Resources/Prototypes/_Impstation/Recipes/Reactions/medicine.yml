@@ -9,6 +9,16 @@
     AquamDivinos: 1
 
 - type: reaction
+  id: Batozine
+  reactants:
+    Irwizine:
+      amount: 1
+    Vestine:
+      amount: 1
+  products:
+    Batozine: 2
+
+- type: reaction
   id: Brutoxidone
   minTemp: 400
   reactants:

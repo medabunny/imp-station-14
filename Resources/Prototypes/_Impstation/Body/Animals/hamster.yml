@@ -1,0 +1,57 @@
+- type: entity
+  id: MobHamsterSecretStash
+  abstract: true
+  components:
+  - type: SecretStash
+    secretStashName: secret-stash-hamster
+    blacklist:
+      tags:
+      - QuantumSpinInverter # grinder problems
+    tryInsertItemSound: /Audio/Effects/Fluids/blood2.ogg
+    tryRemoveItemSound: /Audio/Effects/Fluids/blood1.ogg
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Welding
+    name: secret-stash-hamster
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
+
+#since both organs and hamlet use EntityTableContainerFill, one will override the other if not put on the same prototype
+- type: entity
+  id: FillMobHamsterSecretStash
+  abstract: true
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector #same contents as BaseMobAnimal
+        children:
+        - id: OrganAnimalLungs
+        - id: OrganAnimalHeart
+        - id: OrganAnimalStomach
+        - id: OrganAnimalLiver
+        - id: OrganAnimalKidneys
+      stash: !type:GroupSelector
+        children:
+        - id: CapacitorStockPart
+        - id: MicroManipulatorStockPart
+        - id: Crowbar
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Welder
+        - id: Multitool
+        - id: CableApcStack1
+        - id: CableMVStack1
+        - id: CableHVStack1
+        - id: Pen
+        - id: PenCap
+        - id: Paper
+        - id: Flash
+          weight: 0.5
+        - id: BasePhoneInstrument
+          weight: 0.5
+        - id: Handcuffs
+          weight: 0.5
+        - id: AdminAssistantIDCard
+          weight: 0.01

@@ -1,8 +1,7 @@
-using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Shared._Impstation.Pleebnar;
 using Content.Shared._Impstation.Pleebnar.Components;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.Gibbing;
 using Content.Shared.Popups;
@@ -13,7 +12,6 @@ namespace Content.Server._Impstation.Pleebnar;
 /// </summary>
 public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;

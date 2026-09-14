@@ -403,6 +403,7 @@
     damage:
       types:
         Piercing: 5
+    altDisarm: false # imp
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -429,8 +430,39 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
-  - type: GoobAbsorbable # imp edit
+  # imp start
+  - type: GoobAbsorbable
     biomassRestored: 0.2
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-space-snake-adder-name
+    description: ghost-role-information-space-snake-description
+    rules: ghost-role-information-space-snake-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: GhostOnMove
+    mustBeDead: true
+  - type: VentCrawler
+    enterDelay: 2
+  - type: Carriable
+  - type: ReplacementAccent
+    accent: xeno
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: [ 'Hiss' ]
+  - type: Vocal
+    sounds:
+      Male: UnisexReptilian
+      Female: UnisexReptilian
+      Unsexed: UnisexReptilian
+  - type: TypingIndicator
+    proto: lizard
+  - type: LizardAccent
+  # imp end
 
 - type: entity
   name: space adder
@@ -459,6 +491,8 @@
       amount: 2
   - type: SolutionTransfer
     maxTransferAmount: 1
+  - type: GhostRole # imp
+    name: ghost-role-information-space-snake-adder-small-name
 
 # Mob mapped to Xeno Station that can not be ghostrole / pry
 

@@ -13,7 +13,7 @@
   id: BaseCommonPhraseImpPronouns
   parent: BaseCommonPhraseImp
   group: Pronouns
-  abstract: true
+  abstract: true 
 
 - type: quickPhrase
   id: BaseCommonPhraseImpIdentity
@@ -27,52 +27,13 @@
   group: Question words
   abstract: true
 
- # common sle
-
 - type: quickPhrase
-  id: IPhraseImp
+  id: BaseCommonPhraseImpQuantity
   parent: BaseCommonPhraseImp
-  text: imp-phrase-i
+  group: Quantity
+  abstract: true
 
-- type: quickPhrase
-  id: YouPhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-you
-
-- type: quickPhrase
-  id: MePhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-me
-
-- type: quickPhrase
-  id: WePhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-we
-
-- type: quickPhrase
-  id: AndPhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-and
-
-- type: quickPhrase
-  id: OrPhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-or
-
-- type: quickPhrase
-  id: DoPhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-do
-
-- type: quickPhrase
-  id: NotPhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-not
-
-- type: quickPhrase
-  id: IfPhraseImp
-  parent: BaseCommonPhraseImp
-  text: imp-phrase-if
+# Common
 
 - type: quickPhrase
   id: HelloPhraseImp
@@ -100,6 +61,31 @@
   text: imp-phrase-maybe
 
 - type: quickPhrase
+  id: AndPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-and
+
+- type: quickPhrase
+  id: OrPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-or
+
+- type: quickPhrase
+  id: DoPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-do
+
+- type: quickPhrase
+  id: NotPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-not
+
+- type: quickPhrase
+  id: IfPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-if
+
+- type: quickPhrase
   id: SomewhatPhraseImp
   parent: BaseCommonPhraseImp
   text: imp-phrase-somewhat
@@ -110,7 +96,7 @@
   text: imp-phrase-please
 
 - type: quickPhrase
-  id: ThanksPhraseImp
+  id: ThankYouPhraseImp
   parent: BaseCommonPhraseImp
   text: imp-phrase-ty
 
@@ -124,7 +110,32 @@
   parent: BaseCommonPhraseImp
   text: imp-phrase-help
 
-  # common group
+- type: quickPhrase
+  id: TooMuchPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-toomuch
+
+- type: quickPhrase
+  id: NotEnoughPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-notenough
+
+- type: quickPhrase
+  id: QuestionPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-question
+
+- type: quickPhrase
+  id: ExplainPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-explain
+
+- type: quickPhrase
+  id: StatementPhraseImp
+  parent: BaseCommonPhraseImp
+  text: imp-phrase-statement
+
+# common phrases
 
 - type: quickPhrase
   id: HowAreYouPhraseImp
@@ -142,9 +153,34 @@
   text: imp-phrase-iwant
 
 - type: quickPhrase
+  id: INeedPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-ineed
+
+- type: quickPhrase
+  id: ICantPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-icant
+
+- type: quickPhrase
+  id: CanIPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-cani
+
+- type: quickPhrase
+  id: DoYouPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-doyou
+
+- type: quickPhrase
   id: HereToHelpPhraseImp
   parent: BaseCommonPhraseImpGroup
   text: imp-phrase-heretohelp
+
+- type: quickPhrase
+  id: HowToHelpPhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-howtohelp
 
 - type: quickPhrase
   id: IDontUnderstandPhraseImp
@@ -162,7 +198,7 @@
   text: imp-phrase-waitforme
 
 - type: quickPhrase
-  id: SignPhraseImp
+  id: CanYouSignPhraseImp
   parent: BaseCommonPhraseImpGroup
   text: imp-phrase-sign
 
@@ -197,6 +233,11 @@
   text: imp-phrase-np
 
 - type: quickPhrase
+  id: YourePhraseImp
+  parent: BaseCommonPhraseImpGroup
+  text: imp-phrase-ur
+
+- type: quickPhrase
   id: YoureWelcomePhraseImp
   parent: BaseCommonPhraseImpGroup
   text: imp-phrase-yw
@@ -217,11 +258,36 @@
   text: imp-phrase-becareful
 
 - type: quickPhrase
-  id: ConcernPhraseImp
+  id: ConcerningPhraseImp
   parent: BaseCommonPhraseImpGroup
   text: imp-phrase-concern
 
-  # pronouns
+# pronouns 
+
+- type: quickPhrase
+  id: IPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-i
+
+- type: quickPhrase
+  id: YouPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-you
+
+- type: quickPhrase
+  id: MePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-me
+
+- type: quickPhrase
+  id: WePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-we
+
+- type: quickPhrase
+  id: UsPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-us
 
 - type: quickPhrase
   id: HePhraseImp
@@ -242,6 +308,41 @@
   id: TheyPhraseImp
   parent: BaseCommonPhraseImpPronouns
   text: imp-phrase-they
+
+- type: quickPhrase
+  id: MyPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-my
+
+- type: quickPhrase
+  id: MinePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-mine
+
+- type: quickPhrase
+  id: OursPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-ours
+
+- type: quickPhrase
+  id: YoursPhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-yours
+
+- type: quickPhrase
+  id: EveryonePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-everyone
+
+- type: quickPhrase
+  id: NoOnePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-noone
+
+- type: quickPhrase
+  id: AnyonePhraseImp
+  parent: BaseCommonPhraseImpPronouns
+  text: imp-phrase-anyone
 
   # identity
 
@@ -337,12 +438,109 @@
   parent: BaseCommonPhraseImpQ
   text: imp-phrase-how
 
-- type: quickPhrase
-  id: QuestionPhraseImp
-  parent: BaseCommonPhraseImpQ
-  text: imp-phrase-question
+# quantity
 
 - type: quickPhrase
-  id: ExplainPhraseImp
-  parent: BaseCommonPhraseImpQ
-  text: imp-phrase-explain
+  id: 1PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-1
+
+- type: quickPhrase
+  id: 2PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-2
+
+- type: quickPhrase
+  id: 3PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-3
+
+- type: quickPhrase
+  id: 4PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-4
+
+- type: quickPhrase
+  id: 5PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-5
+
+- type: quickPhrase
+  id: 6PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-6
+
+- type: quickPhrase
+  id: 7PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-7
+
+- type: quickPhrase
+  id: 8PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-8
+
+- type: quickPhrase
+  id: 9PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-9
+
+- type: quickPhrase
+  id: 10PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-10
+
+- type: quickPhrase
+  id: 100PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-100
+
+- type: quickPhrase
+  id: 1000PhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-1000
+
+- type: quickPhrase
+  id: MilPhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-mil
+
+- type: quickPhrase
+  id: BilPhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-bil
+
+- type: quickPhrase
+  id: SinglePhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-single
+
+- type: quickPhrase
+  id: MultiplePhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-multi
+
+- type: quickPhrase
+  id: AllPhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-all
+
+- type: quickPhrase
+  id: NothingPhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-nothing
+
+- type: quickPhrase
+  id: SomethingPhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-something
+
+- type: quickPhrase
+  id: MorePhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-more
+
+- type: quickPhrase
+  id: LessPhraseImp
+  parent: BaseCommonPhraseImpQuantity
+  text: imp-phrase-less

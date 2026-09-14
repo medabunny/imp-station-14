@@ -108,3 +108,21 @@ reagent-desc-romance-deadnot = A reminder of how perpetual love can be.
 
 reagent-name-rose-milk = rose milk
 reagent-desc-rose-milk = Pink and refreshing!
+
+reagent-name-ramos-gin-fizz = ramos gin fizz
+reagent-desc-ramos-gin-fizz = Good things come to those who shake.
+
+reagent-name-atmos-gin-fizz = atmos gin fizz
+reagent-desc-atmos-gin-fizz = Preferred by breathing enthusiasts everywhere!
+
+reagent-name-between-the-sheets = between the sheets
+reagent-desc-between-the-sheets = A little something to get you in the mood.
+
+reagent-name-sidecar = sidecar
+reagent-desc-sidecar = Citrus never goes out of style.
+
+reagent-name-sazerac = sazerac
+reagent-desc-sazerac = An strong and sweet favorite.
+
+reagent-name-old-fashioned = old fashioned
+reagent-desc-old-fashioned = The classic of classics.

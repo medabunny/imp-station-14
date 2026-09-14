@@ -18,6 +18,9 @@
     beginCombatMessage: "cargorilla-begin-combat-popup"
   - type: CombatModeVisuals
     hideBaseLayer: true
+    sprite:
+      sprite: _Impstation/Mobs/Animals/cargorilla.rsi
+      state: standing
   - type: Sprite
     sprite: _Impstation/Mobs/Animals/cargorilla.rsi
     granularLayersRendering: true
@@ -25,10 +28,6 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crawling
-    - map: ["enum.CombatModeVisualsVisuals.Combat"]
-      state: standing
-      visible: false
-      offset: 0, 0.51 # gotta be weirdly specific here
   - type: InventorySlots
   - type: Strippable
   - type: UserInterface

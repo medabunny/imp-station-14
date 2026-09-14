@@ -25,8 +25,8 @@
     graph: Girder
     node: girder
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
-    state: wall_girder
+    sprite: _Impstation/Structures/Walls/girder.rsi # Impstation
+#    state: wall_girder Impstation
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
@@ -54,6 +54,11 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 30
+    # Impstation Edit Start
+  - type: IconSmooth
+    key: walls
+    base: girder
+    # Impstation Edit End
 
 - type: entity
   id: ReinforcedGirder
@@ -62,8 +67,7 @@
   description: A large structural assembly made out of metal and plasteel; It requires a layer of plasteel before it can be considered a reinforced wall.
   components:
     - type: Sprite
-      sprite: Structures/Walls/solid.rsi
-      state: reinforced_wall_girder
+      sprite: _Impstation/Structures/Walls/girder_reinforced.rsi # Impstation
     - type: Construction
       graph: Girder
       node: reinforcedGirder
@@ -100,12 +104,12 @@
 
 - type: entity
   id: ClockworkGirder
-  parent: ReinforcedGirder
+  # parent: ReinforcedGirder Impstation removal. It gained nothing from having a parent except breaking
   name: wall gear
   description: A large gear with mounting brackets for additional plating; This could be made into a wall with more brass plating.
   components:
     - type: Sprite
-      sprite: Structures/Walls/clock.rsi
+      sprite: _Impstation/Structures/Walls/clock.rsi # Impstation
       state: wall_gear
     - type: Construction
       graph: ClockworkGirder

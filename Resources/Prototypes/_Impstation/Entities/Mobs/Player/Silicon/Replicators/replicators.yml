@@ -253,14 +253,21 @@
       state: combat_level1
       shader: unshaded
       visible: false
-  - type: Body
-    prototype: Replicator1
   - type: Loadout
     prototypes:
     - StartingGearReplicatorT1Weapon
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Middle
+    sortedHands:
+    - hand1
 
 # Tier 2: Deconstructors. These guys are a little bit tougher, and have tools to take things apart, but they don't have the ability to enter combat mode.
 - type: entity
@@ -303,14 +310,24 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Replicator2
-  - type: Body
-    prototype: Replicator2
   - type: Loadout
     prototypes:
       - StartingGearReplicatorTools
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Right
+      hand2:
+        location: Left
+    sortedHands:
+    - hand1
+    - hand2
 
 # Tier 2 ALT: Defender. These guys are our mid-level combatants. They have a slightly better stun laser, and a decent melee attack, but no utility functions.
 - type: entity
@@ -354,14 +371,24 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Replicator2
-  - type: Body
-    prototype: Replicator2
   - type: Loadout
     prototypes:
       - StartingGearReplicatorT2Alt
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Right
+      hand2:
+        location: Left
+    sortedHands:
+    - hand1
+    - hand2
 
 # Tier 3: These guys are tanks. Their job is to tear shit apart and kill things. They're slow, tanky, and have a weapon that does 25 blunt 30 struct.
 - type: entity
@@ -399,8 +426,6 @@
         Base: alive_level3
       Dead:
         Base: dead_level3
-  - type: Body
-    prototype: Replicator2
   - type: Loadout
     prototypes:
       - StartingGearReplicatorT3Weapon
@@ -422,3 +447,15 @@
   - type: NpcFactionMember
     factions:
     - Replicator
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Right
+      hand2:
+        location: Left
+    sortedHands:
+    - hand1
+    - hand2

@@ -1,4 +1,17 @@
 - type: reaction
+  id: Barbadine
+  impact: Medium
+  reactants:
+    ChloralHydrate:
+      amount: 5
+    CoconutWater:
+      amount: 1
+    Iodine:
+      amount: 1
+  products:
+      Barbadine: 5
+
+- type: reaction
   id: Estradiol
   impact: Medium
   reactants:

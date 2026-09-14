@@ -7,27 +7,25 @@
 - type: species
   id: Vox
   name: species-name-vox
-  roundStart: true # imp
-  randomViable: true
+  roundStart: true
+  randomViable: true #imp
   prototype: MobVox
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
-  dollPrototype: MobVoxDummy
+  dollPrototype: AppearanceVox
   skinColoration: Hues #imp
   defaultSkinTone: "#6c741d"
   maleFirstNames: NamesVox
   femaleFirstNames: NamesVox
   naming: First
   sexes:
-  - Male #imp
-  - Female #imp
+  - Male #imp, used for placeholder sounds for emotes that are missing sounds
+  - Female #imp, used for placeholder sounds for emotes that are missing sounds
   - Unsexed
 
 - type: speciesBaseSprites
   id: MobVoxSprites
   sprites:
-    TailBehind: MobHumanoidAnyMarking # floof
-    TailOversuit: MobHumanoidAnyMarking # floof
     Head: MobVoxHead
     Snout: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking #imp

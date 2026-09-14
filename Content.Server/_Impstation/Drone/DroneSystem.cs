@@ -1,11 +1,10 @@
 using Content.Server._Impstation.Drone.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Server.Tools.Innate;
 using Content.Shared._Impstation.Drone;
 using Content.Shared.Alert;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;

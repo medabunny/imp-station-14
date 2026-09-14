@@ -1,0 +1,52 @@
+- type: entity
+  parent: MobGorilla
+  id: MobEvilGorilla
+  suffix: AI, Hostile
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/evilgorilla.rsi
+    granularLayersRendering: true
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crawling
+    - map: ["enum.CombatModeVisualLayers.Combat"]
+      state: standing
+      visible: false
+      offset: 0, 0.51 # gotta be weirdly specific here
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
+  - type: CombatModeSprint
+    doImpactDamage: true
+    beginCombatMessage: "evilgorilla-begin-combat-popup"
+  - type: CombatModeVisuals
+    hideBaseLayer: true
+    sprite:
+      sprite: _Impstation/Mobs/Animals/evilgorilla.rsi
+      state: standing
+
+- type: entity
+  parent: MobEvilGorilla
+  id: MobEvilGorillaGhostRole
+  suffix: AI, Hostile, Ghost role
+  components:
+  - type: GhostRole
+    makeSentient: false
+    name: ghost-role-information-evilgorilla-name
+    description: ghost-role-information-evilgorilla-description
+    rules: ghost-role-information-evilgorilla-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: EvilGorillaCube
+  name: evil gorilla cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobEvilGorilla

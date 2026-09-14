@@ -1,0 +1,442 @@
+﻿# imp edit, many differences from NF due to adapting to Nubody and cleaning up redundant components inherited from parents
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGoblin
+  categories: [ HideSpawnMenu ]
+  name: goblin appearance
+  components:
+  - type: Inventory
+    speciesId: goblin
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: suitstorage
+    femaleDisplacements: # piskun HumanoidAppearance
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: glasses
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
+            state: suitstorage
+  # IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganGoblinTorso
+        - id: OrganGoblinHead
+        - id: OrganGoblinArmLeft
+        - id: OrganGoblinArmRight
+        - id: OrganGoblinHandRight
+        - id: OrganGoblinHandLeft
+        - id: OrganGoblinLegLeft
+        - id: OrganGoblinLegRight
+        - id: OrganGoblinFootLeft
+        - id: OrganGoblinFootRight
+        - id: OrganGoblinBrain
+        - id: OrganGoblinEyes
+        - id: OrganGoblinTongue
+        - id: OrganGoblinAppendix
+        - id: OrganGoblinEars
+        - id: OrganGoblinLungs
+        - id: OrganGoblinHeart
+        - id: OrganGoblinStomach
+        - id: OrganGoblinLiver
+        - id: OrganGoblinKidneys
+  - type: HumanoidAppearance
+  # IMP EDIT END
+    species: Goblin
+
+- type: entity
+  parent:
+  - AppearanceGoblin
+  - BaseSpeciesMobOrganic
+  id: MobGoblin
+  name: Urist McGoblin
+  components:
+  - type: VentCrawler
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 135
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Damageable
+    damageModifierSet: Goblin
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 3
+  #        Poison: 1 # Too Stinky
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Goblin
+    allowedEmotes: ['GoblinMutter','GoblinThroatSinging','Hiss'] # imp
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 1
+  - type: Item
+    size: Normal
+  - type: Vocal
+    wilhelm: "/Audio/_NF/Voice/Goblin/goblin_cackle_5.ogg"
+    sounds:
+      Male: MaleGoblin
+      Female: FemaleGoblin
+      Unsexed: MaleGoblin
+  - type: Goblin
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/goblin_brute_damage.rsi #imp. these sprites are just chest & are sooo lazy but who care
+        color: "#5c7500"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GoblinBlood
+        Quantity: 250
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatGoblin
+      amount: 3
+  - type: GoblinAccent
+  - type: TypingIndicator
+    proto: goblin
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.85  # 0.7 is base speed.
+      80: 0.75  # 0.5 is base speed.
+  - type: Tag #needed to redefine from parent to add VimPilot
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
+    - AnomalyHost
+  - type: Reactive
+    reactions:
+    - reagents: [ Water, SpaceCleaner, SoapReagent ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ Water, SpaceCleaner, SoapReagent ]
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Scream
+        probability: 0.2
+  - type: Rummager
+    rummageLoot: !type:NestedSelector
+      tableId: BaseGoblinLoot
+  - type: GoobAbsorbable
+    biomassRestored: 0.5
+
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganGoblin
+  abstract: true
+  suffix: Goblin
+
+- type: entity
+  id: OrganGoblinMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Goblin ]
+
+- type: entity
+  parent: OrganGoblin
+  id: OrganGoblinInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _NF/Mobs/Species/Goblin/organs.rsi
+
+- type: entity
+  parent: OrganGoblin
+  id: OrganGoblinExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi #imp edit, goblins resprited
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  data:
+  #    sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
+  #- type: VisualOrganMarkings
+  #  markingData:
+  #    group: Goblin
+  # IMP EDIT END
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganGoblinVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Goblin/parts.rsi
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Goblin
+# IMP EDIT END
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGoblinExternal ]
+  id: OrganGoblinTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGoblinExternal ]
+  id: OrganGoblinHead
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGoblinExternal ]
+  id: OrganGoblinArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGoblinExternal ]
+  id: OrganGoblinArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGoblinExternal ]
+  id: OrganGoblinHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGoblinExternal ]
+  id: OrganGoblinHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganGoblinExternal ]
+  id: OrganGoblinLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganGoblinExternal ]
+  id: OrganGoblinLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGoblinExternal ]
+  id: OrganGoblinFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganGoblinExternal ]
+  id: OrganGoblinFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGoblinInternal ]
+  id: OrganGoblinBrain
+  description: "The source of your woes."
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganGoblinInternal ] #imp edit, OrganGoblinVisual parent removed until visual nubody
+  id: OrganGoblinEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganGoblinInternal ]
+  id: OrganGoblinTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganGoblinInternal ]
+  id: OrganGoblinAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganGoblinInternal ]
+  id: OrganGoblinEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganGoblinInternal, OrganGoblinMetabolizer ]
+  id: OrganGoblinLungs
+  description: "They breathe business."
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganGoblinInternal, OrganGoblinMetabolizer ]
+  id: OrganGoblinHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGoblinInternal, OrganGoblinMetabolizer ]
+  id: OrganGoblinStomach
+  description: "Shrooms go in here."
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganGoblinInternal, OrganGoblinMetabolizer ]
+  id: OrganGoblinLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganGoblinInternal, OrganGoblinMetabolizer ]
+  id: OrganGoblinKidneys
+
+- type: entityTable
+  id: BaseGoblinLoot
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector # GARBAGE WEIGHT
+      weight: 66
+      children:
+      - id: RandomSpawner100 # this spawns literal trash
+        weight: 2
+      - !type:GroupSelector # general materials
+        weight: 2
+        children:
+        - id: MaterialCloth # 30 cloth
+          weight: 0.5
+        - id: SheetSteel10 # 10 steel
+          weight: 1.5
+        - id: SheetGlass10 # 10 glass
+      - !type:NestedSelector
+        tableId: SalvageScrapLarge # this spawns large scrap, e.g. broken airlocks & mop buckets
+        weight: 0.5 # ... at half weight
+      - !type:NestedSelector
+        tableId: SalvageScrapLowValue # this spawns broken cameras, shards of glass, etc
+      - !type:NestedSelector
+        tableId: MaintFluffTable # spawns maints fluff - clothing, skub, cigarettes, etc
+        weight: 0.3
+    - !type:GroupSelector # CONSTRUCTION MATERIALS WEIGHT
+      weight: 28
+      children:
+      - id: GobtoolsSpawner # spawns a random Gobtool
+      - !type:NestedSelector
+        tableId: SalvageScrapHighValue # this spawns useful trash - slag, small quantities of materials, and very rarely an artifact fragment
+        weight: 2
+      - id: MaintenanceInsulsSpawner # this spawns true insuls ~10% of the time, and budget/fingerless ~90% of the time
+        weight: 0.5
+    - !type:GroupSelector # REAL TOOLS WEIGHT
+      weight: 15
+      children:
+      - id: ClothingBeltUtilityBlackFilled # a full toolbelt. no multitool
+        weight: 0.2
+      - id: MaintenanceToolSpawner # this is the "tools" pool from maints lockers. rare chance to get anything particularly useful out of it.
+      - id: PlushieSpawner50 # touys
+    - !type:GroupSelector # RARE WEIGHT
+      weight: 5
+      children:
+      - id: IngotGold1
+      - id: MaintenanceWeaponSpawner # machetes, baseball bats, spears, etc

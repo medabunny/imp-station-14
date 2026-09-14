@@ -15,223 +15,268 @@
   group: Specific locations
   abstract: true
 
-# locations from something
+# directional
 
 - type: quickPhrase
   id: UpPhraseImp
   parent: BaseLocations
-  text: imp-phrase-locations-up
+  text: imp-phrase-up
 
 - type: quickPhrase
   id: DownPhraseImp
   parent: BaseLocations
-  text: imp-phrase-locations-down
+  text: imp-phrase-down
 
 - type: quickPhrase
   id: LeftPhraseImp
   parent: BaseLocations
-  text: imp-phrase-locations-left
+  text: imp-phrase-left
 
 - type: quickPhrase
   id: RightPhraseImp
   parent: BaseLocations
-  text: imp-phrase-locations-right
+  text: imp-phrase-right
+
+- type: quickPhrase
+  id: MiddlePhraseImp
+  parent: BaseLocations
+  text: imp-phrase-middle
 
 - type: quickPhrase
   id: InsidePhraseImp
   parent: BaseLocations
-  text: imp-phrase-locations-inside
+  text: imp-phrase-inside
 
 - type: quickPhrase
   id: OutsidePhraseImp
   parent: BaseLocations
-  text: imp-phrase-locations-outside
+  text: imp-phrase-outside
+
+- type: quickPhrase
+  id: FarPhraseImp
+  parent: BaseLocations
+  text: imp-phrase-far
+
+- type: quickPhrase
+  id: NearPhraseImp
+  parent: BaseLocations
+  text: imp-phrase-near
 
 # cardinal
 
 - type: quickPhrase
   id: NorthPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-n
+  text: imp-phrase-n
 
 - type: quickPhrase
   id: SouthPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-s
+  text: imp-phrase-s
 
 - type: quickPhrase
   id: EastPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-e
+  text: imp-phrase-e
 
 - type: quickPhrase
   id: WestPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-w
+  text: imp-phrase-w
 
 - type: quickPhrase
   id: NorthEastPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-ne
+  text: imp-phrase-ne
 
 - type: quickPhrase
   id: SouthEastPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-se
+  text: imp-phrase-se
 
 - type: quickPhrase
   id: SouthWestPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-sw
+  text: imp-phrase-sw
 
 - type: quickPhrase
   id: NorthWestPhraseImp
   parent: BaseLocationsCardinal
-  text: imp-phrase-locations-nw
+  text: imp-phrase-nw
 
 # station
 
 - type: quickPhrase
   id: ArrivalsPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-arrivals
+  text: imp-phrase-arrivals
 
 - type: quickPhrase
   id: EvacPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-evac
+  text: imp-phrase-evac
 
 - type: quickPhrase
   id: StationPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-station
+  text: imp-phrase-station
 
 - type: quickPhrase
   id: SpacePhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-space
+  text: imp-phrase-space
 
 - type: quickPhrase
   id: PlanetPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-planet
+  text: imp-phrase-planet
 
 - type: quickPhrase
   id: FTLPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-ftl
+  text: imp-phrase-ftl
 
 - type: quickPhrase
   id: MaintsPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-maints
+  text: imp-phrase-maints
 
 - type: quickPhrase
   id: ATSPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-ats
+  text: imp-phrase-ats
 
 - type: quickPhrase
   id: EngiPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-engi
+  text: imp-phrase-engi
 
 - type: quickPhrase
   id: MedPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-med
+  text: imp-phrase-med
 
 - type: quickPhrase
-  id: SecPhraseImp
+  id: MorguePhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-sec
-
-- type: quickPhrase
-  id: ServicePhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-service
-
-- type: quickPhrase
-  id: SciPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-sci
-
-- type: quickPhrase
-  id: CargoPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-cargo
-
-- type: quickPhrase
-  id: LibraryPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-library
-
-- type: quickPhrase
-  id: KitchenPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-kitchen
-
-- type: quickPhrase
-  id: BarPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-bar
-
-- type: quickPhrase
-  id: CryoPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-cryo
-
-- type: quickPhrase
-  id: BrigPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-brig
-
-- type: quickPhrase
-  id: DisposalsPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-disposals
-
-- type: quickPhrase
-  id: BridgePhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-bridge
-
-- type: quickPhrase
-  id: VaultPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-vault
-
-- type: quickPhrase
-  id: TelecomsPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-telecoms
-
-- type: quickPhrase
-  id: CentcommPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-ct
-
-- type: quickPhrase
-  id: NanotrasenPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-nt
-
-- type: quickPhrase
-  id: BotanyPhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-botany
-
-- type: quickPhrase
-  id: StagePhraseImp
-  parent: BaseLocationsSpace
-  text: imp-phrase-locations-stage
+  text: imp-phrase-morgue
 
 - type: quickPhrase
   id: ChemPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-chem
+  text: imp-phrase-chem
+
+- type: quickPhrase
+  id: SecPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-sec
+
+- type: quickPhrase
+  id: ServicePhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-service
+
+- type: quickPhrase
+  id: SciPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-sci
+
+- type: quickPhrase
+  id: CargoPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-cargo
+
+- type: quickPhrase
+  id: LibraryPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-library
+
+- type: quickPhrase
+  id: ChapelPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-chapel
+
+- type: quickPhrase
+  id: CourtPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-court
+
+- type: quickPhrase
+  id: KitchenPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-kitchen
+
+- type: quickPhrase
+  id: BarPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-bar
+
+- type: quickPhrase
+  id: CryoPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-cryo
+
+- type: quickPhrase
+  id: BrigPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-brig
+
+- type: quickPhrase
+  id: DisposalsPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-disposals
+
+- type: quickPhrase
+  id: BridgePhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-bridge
+
+- type: quickPhrase
+  id: VaultPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-vault
+
+- type: quickPhrase
+  id: TelecomsPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-telecoms
+
+- type: quickPhrase
+  id: OutpostPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-outpost
+
+- type: quickPhrase
+  id: CentcommPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-cc
+
+- type: quickPhrase
+  id: NanotrasenPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-nt
+
+- type: quickPhrase
+  id: BotanyPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-botany
+
+- type: quickPhrase
+  id: StagePhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-stage
 
 - type: quickPhrase
   id: ArmouryPhraseImp
   parent: BaseLocationsSpace
-  text: imp-phrase-locations-armoury
+  text: imp-phrase-armoury
+
+- type: quickPhrase
+  id: RoboticsPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-robotics
+
+- type: quickPhrase
+  id: ZooPhraseImp
+  parent: BaseLocationsSpace
+  text: imp-phrase-zoo

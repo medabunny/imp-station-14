@@ -1,4 +1,46 @@
 - type: reagent
+  id: Barbadine
+  name: reagent-name-barbadine
+  group: Narcotics
+  desc: reagent-desc-barbadine
+  physicalDesc: reagent-physical-desc-tropical
+  flavor: bitter
+  color: "#00267F"
+  allowedJobs:
+  - Zookeeper
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:Emote
+        emote: Yawn
+        showInChat: true
+        probability: 0.1
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Barbadine
+          min: 15
+        damage:
+          types:
+            Poison: 1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 3
+        type: Update
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Barbadine
+          min: 2
+        effectProto: StatusEffectForcedSleeping
+        time: 5
+        delay: 2
+
+- type: reagent
   id: ForeverWeed
   name: reagent-name-forever-weed
   group: Narcotics

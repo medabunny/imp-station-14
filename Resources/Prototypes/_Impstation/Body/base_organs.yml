@@ -1,0 +1,39 @@
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHandLeftInactive # Allows you to define a left hand that works visually only
+  name: left hand
+  abstract: true
+  components:
+  - type: Organ
+    category: HandLeft
+  - type: Sprite
+    state: l_hand
+  # IMP EDIT, TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  layer: enum.HumanoidVisualLayers.LHand
+  #  data:
+  #    state: l_hand
+  #- type: VisualOrganMarkings
+  #  markingData:
+  #    layers:
+  #    - LHand
+
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHandRightInactive # Allows you to define a left hand that works visually only
+  name: right hand
+  abstract: true
+  components:
+  - type: Organ
+    category: HandRight
+  - type: Sprite
+    state: r_hand
+  # IMP EDIT, TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  layer: enum.HumanoidVisualLayers.RHand
+  #  data:
+  #    state: r_hand
+  #- type: VisualOrganMarkings
+  #  markingData:
+  #    layers:
+  #    - RHand

@@ -6,7 +6,7 @@
   prototype: MobKodepiia
   sprites: MobKodepiiaSprites
   markingLimits: MobKodepiiaMarkingLimits
-  dollPrototype: MobKodepiiaDummy
+  dollPrototype: AppearanceKodepiia
   skinColoration: Hues
   maleFirstNames: KodepiiaFirst
   femaleFirstNames: KodepiiaFirst
@@ -76,41 +76,43 @@
       weight: 1
       defaultMarkings: [ KodeWingsBlade ]
 
+# IMP 4 NUBODY: removed gender specific sprites pending visual nubody demolition
+
 - type: humanoidBaseSprite
   id: MobKodepiiaHead
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobKodepiiaHeadMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobKodepiiaHeadFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobKodepiiaTorso
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: torso_f
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobKodepiiaTorsoMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: torso_f
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobKodepiiaTorsoFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Kodepiia/parts.rsi
-    state: torso_f
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobKodepiiaLLeg

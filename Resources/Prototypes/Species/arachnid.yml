@@ -7,7 +7,7 @@
   sprites: MobArachnidSprites
   defaultSkinTone: "#385878"
   markingLimits: MobArachnidMarkingLimits
-  dollPrototype: MobArachnidDummy
+  dollPrototype: AppearanceArachnid
   skinColoration: Hues
   maleFirstNames: NamesArachnidFirst
   femaleFirstNames: NamesArachnidFirst
@@ -89,42 +89,43 @@
       required: false
 
 # imp change: all sprites redirect to lighter versions of the base sprite
+# IMP 4 NUBODY: removed gender specific sprites pending visual nubody demolition
 
 - type: humanoidBaseSprite
   id: MobArachnidHead
   baseSprite:
     sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobArachnidHeadMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi
-    state: head_m
+    state: head
 
 - type: humanoidBaseSprite
   id: MobArachnidHeadFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi
-    state: head_f
+    state: head
 
 - type: humanoidBaseSprite
   id: MobArachnidTorso
   baseSprite:
     sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobArachnidTorsoMale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi
-    state: torso_m
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobArachnidTorsoFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Arachnid/parts.rsi
-    state: torso_f
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobArachnidLLeg

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleMobBase ]
+  parent: [ BaseMobAnimal, SimpleMobBase ]
   id: BaseMobVRex
   name: v-rex
   description: A brown and bear like predator, it eats wild boars. It lumbers around, even FinFin are eaten. It lives in the Tsubu-woods and in the valley. #taken directly from the finfin fanpage, i kinda love it too much to change it. feel free to convince me otherwise.
@@ -152,8 +152,6 @@
     - StunImmune
   - type: Puller
     needsHands: false
-  - type: Body
-    prototype: Animal
 #  - type: Nightvision  #implement if nightvision gets good, the v-rex DOES spawn in vents and might end up in a maints, but i dislike nightvison toggle and the tint
 #    isActive: true
 #    toggleAction: null

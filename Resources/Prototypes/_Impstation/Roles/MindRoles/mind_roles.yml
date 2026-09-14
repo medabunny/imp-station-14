@@ -71,3 +71,14 @@
   - type: MindRole
     roleType: SoloAntagonist
     antagPrototype: SyndicateInstigator #imp
+
+# Kill Everyon
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleKillEveryon
+  name: Kill Everyon Role
+  components:
+  - type: MindRole
+    antag: true
+    roleType: SoloAntagonist
+    antagPrototype: KillEveryon

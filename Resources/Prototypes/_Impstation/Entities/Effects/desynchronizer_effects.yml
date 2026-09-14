@@ -1,0 +1,21 @@
+- type: entity
+  parent: EffectDesynchronizer
+  id: EffectDesynchronizerEnter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/ethereal_enter.ogg
+
+- type: entity
+  parent: EffectDesynchronizer
+  id: EffectDesynchronizerExit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Magic/ethereal_exit.ogg

@@ -62,6 +62,11 @@
   license: "Custom"
   copyright: "TIER TIME *2*: RTVS Community Curated Tier Lists (WAYNERADIOTV)"
   source: "https://www.youtube.com/watch?v=vphU1U1WqtE"
+  
+- files: ["tradegy.ogg"]
+  license: "Custom"
+  copyright: "Rocco Botte, Mega64 Podcast Episode 230"
+  source: "https://www.youtube.com/watch?v=jzeD1ch5Oeg"
 
 - files: ["weed.ogg"]
   license: "Custom"

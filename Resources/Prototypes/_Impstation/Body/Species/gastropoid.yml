@@ -1,0 +1,314 @@
+# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGastropoid
+  categories: [ HideSpawnMenu ] #imp
+  name: gastropoid appearance
+  components:
+  - type: Inventory
+    speciesId: gastropoid
+    templateId: gastropoid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: outerClothing
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: feet
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: eyes
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: back
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Gastropoid/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            state: mask
+  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganGastropoidTorso
+        - id: OrganGastropoidHead
+        - id: OrganGastropoidArmLeft
+        - id: OrganGastropoidArmRight
+        - id: OrganGastropoidHandRight
+        - id: OrganGastropoidHandLeft
+        - id: OrganGastropoidFootLeft
+        - id: OrganGastropoidBrain
+        - id: OrganGastropoidEyes
+        - id: OrganGastropoidTongue
+        - id: OrganGastropoidAppendix
+        - id: OrganGastropoidEars
+        - id: OrganGastropoidLungs
+        - id: OrganGastropoidHeart
+        - id: OrganGastropoidStomach
+        - id: OrganGastropoidLiver
+        - id: OrganGastropoidKidneys
+  - type: HumanoidAppearance
+    # IMP EDIT END
+    species: Gastropoid
+    hideLayersOnEquip: #imp edit, was missing from macro implementation, but also visual nubody reworks this? do gastros even have snouts to really hide? idfk
+    - Hair
+    - Snout
+
+- type: entity
+  parent:
+  - AppearanceGastropoid
+  - BaseSpeciesMobOrganic
+  id: MobGastropoid
+  name: Uristsiru McShell
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSnail
+      amount: 5
+    - id: SeashellInstrument #imp edit
+      amount: 1
+  - type: TemperatureDamage
+    heatDamageThreshold: 380
+    coldDamageThreshold: 285
+    coldDamage:
+      types:
+        Cold : 0.5 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310
+    specificHeat: 42
+  - type: TemperatureSpeed
+    thresholds: # removes their temp speed restrictions. this is hacky and sucks.
+      293: 1.0
+      280: 1.0
+      260: 1.0
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 300
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - CanPilot
+      - FootstepSound
+      - AnomalyHost
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 # this matches diona
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Impstation/Effects/Footsteps/snailstep.ogg #imp edit, waiting on proper macro merge to migrate files
+  - type: Vocal
+    sounds:
+      Male: UnisexSnail
+      Female: UnisexSnail
+      Unsexed: UnisexSnail
+  - type: Speech
+    speechSounds: Gastropoid
+  - type: BodyEmotes
+    soundsId: GastropoidBodyEmotes
+  - type: GastropoidAccent
+  - type: Reactive
+    reactions:
+    - reagents: [ Diphenhydramine, Lipozine, Oculine, Saline, Fresium, Hotsauce, TableSalt, Bleach, SodiumCarbonate, PestKiller, Posca ] # theres got to be a better way of doing this.
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaling: true
+        damage:
+          types:
+            Heat: 0.4
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "snail-hurt-by-chem-popup" ]
+        probability: 1
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2.25
+    baseWalkSpeed: 1.25
+  - type: SnailSprint
+    action: ActionSlime
+    thirstCost: 100
+    sprintLength: 2
+    speedBoost: 1.5
+    reagentProduced: Mucin
+  - type: NoSlip
+  - type: Magboots
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Gastropoid
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/snail_brute_damage.rsi
+        color: "#162581"
+  - type: TypingIndicator
+    proto: Gastropoid
+
+- type: entity
+  parent: OrganBaseOrganic
+  id: OrganGastropoid
+  abstract: true
+  suffix: gastropoid
+
+- type: entity
+  id: OrganGastropoidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Snail ] #imp edit, this will become Gastropoid with macro merge
+
+- type: entity
+  parent: OrganGastropoid
+  id: OrganGastropoidInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+#- type: entity
+#  id: OrganGastropoidVisual
+#  abstract: true
+#  components:
+#  - type: VisualOrgan
+#    data:
+#      sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+#  - type: VisualOrganMarkings
+#    markingData:
+#      group: Gastropoid
+# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: OrganGastropoid
+  id: OrganGastropoidExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #- type: VisualOrgan
+  #  data:
+  #    sprite: _Impstation/Mobs/Species/Gastropoid/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+  #- type: VisualOrganMarkings
+  #  markingData:
+  #    group: Gastropoid
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGastropoidExternal ]
+  id: OrganGastropoidTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGastropoidExternal ]
+  id: OrganGastropoidHead
+  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
+  #components:
+  #- type: VisualOrganMarkings
+  #  hideableLayers:
+  #  - enum.HumanoidVisualLayers.Hair
+  #  - enum.HumanoidVisualLayers.Snout
+  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGastropoidExternal ]
+  id: OrganGastropoidArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGastropoidExternal ]
+  id: OrganGastropoidArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGastropoidExternal ]
+  id: OrganGastropoidHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGastropoidExternal ]
+  id: OrganGastropoidHandRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGastropoidExternal ]
+  id: OrganGastropoidFootLeft
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGastropoidInternal ]
+  id: OrganGastropoidBrain
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganGastropoidInternal ] #imp edit, OrganGastropoidVisual parent removed until visual nubody
+  id: OrganGastropoidEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganGastropoidInternal ]
+  id: OrganGastropoidTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganGastropoidInternal ]
+  id: OrganGastropoidAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganGastropoidInternal ]
+  id: OrganGastropoidEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganGastropoidInternal, OrganHumanMetabolizer ]
+  id: OrganGastropoidLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidStomach
+  components:
+  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
+    solutions:
+      stomach:
+          maxVol: 50
+      food:
+        maxVol: 15
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidKidneys

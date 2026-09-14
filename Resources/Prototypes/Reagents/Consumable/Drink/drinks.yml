@@ -358,6 +358,12 @@
         damage:
           types:
             Poison: 1
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity, also it's kinda weird this drink does normal poison when it's made of uranium
+          inverted: true
+        # imp edit start
   fizziness: 0.5
 
 - type: reagent

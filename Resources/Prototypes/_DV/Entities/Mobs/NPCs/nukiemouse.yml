@@ -1,6 +1,6 @@
 - type: entity
   name: nuclear operative mouse
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, BaseMobRat ]
   id: MobNukieMouse
   description: A Nuclear Operative... MOUSE?!
   suffix: syndicate
@@ -147,9 +147,6 @@
         Slash: 5
         Piercing: 3
         Structural: 1.5
-  - type: Body
-    prototype: Rat
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice

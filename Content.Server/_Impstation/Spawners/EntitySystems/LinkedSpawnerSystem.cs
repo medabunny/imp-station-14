@@ -51,12 +51,6 @@ public sealed class LinkedSpawnerSystem : EntitySystem
             // spawn the entity at the chosen spawner
             SpawnAtPosition(randomSpawner.Comp.Prototype, randomSpawner.Owner.ToCoordinates());
 
-            // delete every spawner for this prototype in the cache
-            foreach (var spawner in _cache[prototype])
-            {
-                QueueDel(spawner);
-            }
-
             // remove the prototype key from the cache
             _cache.Remove(prototype);
         }

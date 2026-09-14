@@ -55,10 +55,10 @@
         ]
         },
         {
-            "name": "kidney_l"
+            "name": "kidney-l"
         },
         {
-            "name": "kidney_r"
+            "name": "kidney-r"
         },
         {
             "name": "kidneys-inhand-left",
@@ -80,10 +80,10 @@
             "directions": 4
         },
         {
-            "name": "lung_l"
+            "name": "lung-l"
         },
         {
-            "name": "lung_r"
+            "name": "lung-r"
         },
         {
             "name": "lungs-inhand-left",

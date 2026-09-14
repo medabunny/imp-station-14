@@ -543,6 +543,8 @@
     - FoodSnack
     - ReptilianFood
     - UnguFood
+    - KodeEdible
+    - ClothMade
     - TreatChunk
   - type: SolutionContainerManager
     solutions:
@@ -679,12 +681,14 @@
         reagents:
         - ReagentId: HeartbreakerToxin # swallowed it too fast and choked on it. nice going IDIOT.
           Quantity: 0.5
+        - ReagentId: Blackpepper #cough. from choking. idiot.
+          Quantity: 1
         - ReagentId: Nutriment
           Quantity: 1
         - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
-          Quantity: 3.0
+          Quantity: 2.0
   - type: FlavorProfile
     flavors:
       - treatchunk
@@ -693,6 +697,7 @@
       - HeartbreakerToxin
       - Nutriment
       - Sugar
+      - Blackpepper
 
 - type: entity
   parent: FoodTreatChunkOpen

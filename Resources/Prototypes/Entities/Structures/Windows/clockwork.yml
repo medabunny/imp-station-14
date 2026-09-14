@@ -6,9 +6,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/clockwork_window.rsi
+    sprite: _Impstation/Structures/Windows/clockwork_window.rsi # Impstation
   - type: Icon
-    sprite: Structures/Windows/clockwork_window.rsi
+    sprite: _Impstation/Structures/Windows/clockwork_window.rsi # Impstation
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
@@ -120,7 +120,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/clockwork_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/clockwork_diagonal.rsi # Impstation
     state: state0
   - type: Tag
     tags:
@@ -128,10 +128,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls
     base: state
   - type: Icon
-    sprite: Structures/Windows/clockwork_diagonal.rsi
+    sprite: _Impstation/Structures/Windows/clockwork_diagonal.rsi # Impstation
     state: state0
   - type: Fixtures
     fixtures:
