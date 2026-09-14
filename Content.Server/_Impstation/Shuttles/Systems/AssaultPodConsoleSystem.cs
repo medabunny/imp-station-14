@@ -175,9 +175,10 @@ namespace Content.Server._Impstation.Shuttles.Systems
             ent.Comp.TravelCoordinates = _transform.WithEntityId(gridEntityCoords, _mapSystem.GetMap(args.Coordinates.MapId));
             ent.Comp.LaunchTime = _timing.CurTime + ent.Comp.TimeTillLaunch;
 
+            var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(ent.Comp.TravelCoordinates), true);
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
-                Loc.GetString(ent.Comp.BeginDepartureTimerAnnouncement),
+                Loc.GetString(ent.Comp.BeginDepartureTimerAnnouncement, ("beacon", beacon)),
                 sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
                 announcementSound: ent.Comp.BeginDepartureTimerAnnouncementSound,
                 colorOverride: Color.DarkRed

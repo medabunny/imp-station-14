@@ -496,11 +496,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         if (!nukieRule.CanEnableWarOps)
             return WarConditionStatus.NoWarUnknown;
 
+        if (EntityQuery<NukeopsRoleComponent>().Count() < nukieRule.WarDeclarationMinOps)
+            return WarConditionStatus.NoWarSmallCrew;
+
         if (nukieRule.LeftOutpost)
             return WarConditionStatus.NoWarShuttleDeparted;
-
-        if (EntityQuery<NukeopsRoleComponent>().Count() < 0) // testing value DO NOT CHANGE IF YOU SEE THIS THEN TELL ME
-            return WarConditionStatus.NoWarSmallCrew;
 
         if (oldStatus == WarConditionStatus.YesWar)
             return WarConditionStatus.WarReady;
