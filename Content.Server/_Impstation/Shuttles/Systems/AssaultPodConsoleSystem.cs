@@ -179,8 +179,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
             ent.Comp.TravelCoordinates = _transform.WithEntityId(gridEntityCoords, _mapSystem.GetMap(args.Coordinates.MapId));
             ent.Comp.LaunchTime = _timing.CurTime + ent.Comp.TimeTillLaunch;
 
-            // intentionally obfuscate the actual landing area for nukies
-            var beacon = _navMap.GetNearestBeaconString(args.Coordinates, true);
+            var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(ent.Comp.TravelCoordinates), true);
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
                 Loc.GetString(ent.Comp.BeginDepartureAnnouncement, ("beacon", beacon)),
