@@ -29,13 +29,13 @@ public sealed partial class AssaultPodConsoleComponent : Component
     public int Cost = 40;
 
     [DataField]
-    public int LandingVariationRange = 15;
+    public int LandingVariationRange = 20;
 
     [DataField]
     public float TravelTime = 11f;
 
     [DataField]
-    public float ArrivalKnockRadius = 15;
+    public float ArrivalKnockRadius = 15f;
 
     [DataField]
     public TimeSpan TimeTillLaunch = TimeSpan.FromSeconds(30);

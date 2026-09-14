@@ -1,7 +1,5 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.AlertLevel;
-using Content.Server.Announcements.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -22,32 +20,30 @@ using Content.Shared.Stacks;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.Shuttles.Systems
 {
     public sealed class AssaultPodConsoleSystem : EntitySystem
     {
         [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-        [Dependency] private readonly AnnouncerSystem _announcer = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly LockSystem _lockSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IMapManager _mapMan = default!;
         [Dependency] private readonly MapSystem _mapSystem = default!;
         [Dependency] private readonly NavMapSystem _navMap = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly StationSystem _station = default!;
+        [Dependency] private readonly TransformSystem _transform = default!;
         private static readonly ProtoId<StackPrototype> TelecrystalStackPrototype = "Telecrystal";
-        private static readonly string CommandAnnouncementId = "commandReport";
 
         public override void Initialize()
         {
@@ -96,23 +92,20 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     || nukeopsRule?.TargetStation is not { } targetStation)
                     continue;
 
-                var stationGrid = _station.GetLargestGrid((targetStation, null));
+                var stationGrid = _station.GetLargestGrid(targetStation);
                 if (stationGrid == null)
                     continue;
 
                 var audio = _audio.PlayPvs(comp.TravelSound, stationGrid.Value);
                 _audio.SetMapAudio(audio);
 
-                var mapID = Transform(stationGrid.Value).MapID;
-                var beacon = _navMap.GetNearestBeaconString(new MapCoordinates(comp.TravelCoordinates.Position, mapID));
+                var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(comp.TravelCoordinates), true);
                 _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, true, true, true);
-                _announcer.SendAnnouncement(
-                    _announcer.GetAnnouncementId(CommandAnnouncementId),
-                    Filter.BroadcastMap(mapID),
+                _chat.DispatchGlobalAnnouncement(
                     Loc.GetString(comp.DepartureStationAnnouncement, ("beacon", beacon)),
                     Loc.GetString(comp.StationAnnouncementSender),
-                    Color.Cyan,
-                    targetStation
+                    announcementSound: comp.DepartureAnnouncementSound,
+                    colorOverride: Color.Cyan
                 );
             }
         }
@@ -141,6 +134,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     var shuttleUid = Transform(ent).GridUid;
                     if (shuttleUid is { } shuttle)
                     {
+                        // prevent triggering warops
                         var ev = new ConsoleFTLAttemptEvent(shuttle, false, string.Empty);
                         RaiseLocalEvent(shuttle, ref ev, true);
                     }
@@ -161,26 +155,31 @@ namespace Content.Server._Impstation.Shuttles.Systems
             if (ent.Comp.Launched || ent.Comp.LaunchTime != null)
                 return;
 
-            var mapUid = _mapSystem.GetMapOrInvalid(args.Coordinates.MapId);
-            var gridCoords = _mapSystem.MapToGrid(mapUid, args.Coordinates);
-            if (!TryComp<MapGridComponent>(gridCoords.EntityId, out var grid))
+            if (!_mapMan.TryFindGridAt(args.Coordinates.MapId, args.Coordinates.Position, out var grid, out var gridComp))
                 return;
 
-            var localCoords = gridCoords.Position;
-            var tileRefs = _mapSystem.GetLocalTilesIntersecting(
-                gridCoords.EntityId,
+            // prevent accidently sending coords of a debris or shuttle
+            if (!TryFindNukeOpsRule(out var nukeopsRule)
+                || nukeopsRule?.TargetStation is not { } targetStation
+                || _station.GetLargestGrid(targetStation) != grid)
+                return;
+
+            var tileRefs = _mapSystem.GetTilesIntersecting(
                 grid,
-                new Box2(localCoords + new Vector2(-ent.Comp.LandingVariationRange, -ent.Comp.LandingVariationRange),
-                    localCoords + new Vector2(ent.Comp.LandingVariationRange, ent.Comp.LandingVariationRange))
+                gridComp,
+                new Circle(args.Coordinates.Position, ent.Comp.LandingVariationRange)
                 ).ToList();
 
             if (tileRefs.Count == 0)
                 return;
 
             var chosenTile = _random.Pick(tileRefs);
-            ent.Comp.TravelCoordinates = _mapSystem.ToCoordinates(chosenTile, grid);
+            var gridEntityCoords = _mapSystem.ToCoordinates(chosenTile, gridComp);
+            // conversion to prevent dock ftl from triggering
+            ent.Comp.TravelCoordinates = _transform.WithEntityId(gridEntityCoords, _mapSystem.GetMap(args.Coordinates.MapId));
             ent.Comp.LaunchTime = _timing.CurTime + ent.Comp.TimeTillLaunch;
 
+            // intentionally obfuscate the actual landing area for nukies
             var beacon = _navMap.GetNearestBeaconString(args.Coordinates, true);
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
