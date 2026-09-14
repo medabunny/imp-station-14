@@ -14,7 +14,7 @@ public sealed partial class AssaultPodConsoleComponent : Component
     public TimeSpan? LaunchTime;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public MapCoordinates TravelCoordinates;
+    public EntityCoordinates TravelCoordinates;
 
     [ViewVariables]
     public bool CostPayed;
@@ -27,6 +27,9 @@ public sealed partial class AssaultPodConsoleComponent : Component
 
     [DataField]
     public int Cost = 40;
+
+    [DataField]
+    public int LandingVariationRange = 5;
 
     [DataField]
     public float TravelTime = 11f;

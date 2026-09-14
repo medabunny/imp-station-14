@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Numerics;
 using Content.Server.AlertLevel;
 using Content.Server.Announcements.Systems;
 using Content.Server.Chat.Systems;
@@ -18,8 +20,10 @@ using Content.Shared.Pinpointer;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Shuttles.Systems
@@ -33,6 +37,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
         [Dependency] private readonly LockSystem _lockSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly MapSystem _mapSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly StationSystem _station = default!;
@@ -71,13 +76,10 @@ namespace Content.Server._Impstation.Shuttles.Systems
                 if (!TryComp(shuttleUid, out ShuttleComponent? shuttleComp))
                     continue;
 
-                var mapUid = _mapSystem.GetMap(comp.TravelCoordinates.MapId);
-                var targetCoordinates = new EntityCoordinates(mapUid, comp.TravelCoordinates.Position);
-
                 _shuttle.FTLToCoordinates(
                     shuttleUid.Value,
                     shuttleComp,
-                    targetCoordinates,
+                    comp.TravelCoordinates,
                     Angle.Zero,
                     hyperspaceTime: comp.TravelTime,
                     travelSound: comp.TravelSound,
@@ -148,8 +150,25 @@ namespace Content.Server._Impstation.Shuttles.Systems
             if (ent.Comp.Launched || ent.Comp.LaunchTime != null)
                 return;
 
+            var mapUid = _mapSystem.GetMapOrInvalid(args.Coordinates.MapId);
+            var gridCoords = _mapSystem.MapToGrid(mapUid, args.Coordinates);
+            if (!TryComp<MapGridComponent>(gridCoords.EntityId, out var grid))
+                return;
+
+            var localCoords = gridCoords.Position;
+            var tileRefs = _mapSystem.GetLocalTilesIntersecting(
+                gridCoords.EntityId,
+                grid,
+                new Box2(localCoords + new Vector2(-ent.Comp.LandingVariationRange, -ent.Comp.LandingVariationRange),
+                    localCoords + new Vector2(ent.Comp.LandingVariationRange, ent.Comp.LandingVariationRange))
+                ).ToList();
+
+            if (tileRefs.Count == 0)
+                return;
+
+            var chosenTile = _random.Pick(tileRefs);
+            ent.Comp.TravelCoordinates = _mapSystem.ToCoordinates(chosenTile, grid);
             ent.Comp.LaunchTime = _timing.CurTime + ent.Comp.TimeTillLaunch;
-            ent.Comp.TravelCoordinates = args.Coordinates;
 
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
