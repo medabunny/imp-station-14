@@ -360,6 +360,7 @@
         types:
           Piercing: 6
           Poison: 4
+      altDisarm: false # imp
     - type: SolutionContainerManager
       solutions:
         melee:
@@ -385,6 +386,35 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.25
       movementVisibilityRate: 0.25
+    # imp start
+    - type: GhostRole
+      makeSentient: true
+      name: ghost-role-information-space-snake-cobra-name
+      description: ghost-role-information-space-snake-description
+      rules: ghost-role-information-space-snake-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
+    - type: GhostOnMove
+      mustBeDead: true
+    - type: VentCrawler
+      enterDelay: 2
+    - type: Carriable
+    - type: Speech
+      speechSounds: Lizard
+      speechVerb: Reptilian
+      allowedEmotes: [ 'Hiss' ]
+    - type: Vocal
+      sounds:
+        Male: UnisexReptilian
+        Female: UnisexReptilian
+        Unsexed: UnisexReptilian
+    - type: TypingIndicator
+      proto: lizard
+    - type: LizardAccent
+    # imp end
 
 - type: entity
   id: MobCobraSpaceSalvage
@@ -392,6 +422,8 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    - type: GhostRole # imp
+      prob: 0
 
 - type: entity
   parent:

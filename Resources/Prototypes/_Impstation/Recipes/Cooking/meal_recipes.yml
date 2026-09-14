@@ -749,3 +749,16 @@
   solids:
     FoodCakeBatterCotton: 1
   recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeSteakTartare
+  name: steak tartare recipe
+  result: FoodMealSteakTartare
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatPatty: 1
+  reagents:
+    Egg: 3
+    Everyspice: 5
+  recipeType: Assembler

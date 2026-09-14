@@ -222,6 +222,7 @@
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalMilitaryDouble ]
+    - type: PerfectThrower # imp
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA

@@ -18,6 +18,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Content.Shared.Pinpointer;
 using Content.Shared.Stacks;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -32,6 +33,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
     {
         [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
         [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly LockSystem _lockSystem = default!;
@@ -82,9 +84,10 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     comp.TravelCoordinates,
                     Angle.Zero,
                     hyperspaceTime: comp.TravelTime,
+                    destroyFloor: true,
+                    arrivalKnockRadius: comp.ArrivalKnockRadius,
                     travelSound: comp.TravelSound,
-                    arrivalSound: comp.ArrivalSound,
-                    destroyFloor: true);
+                    globalArrivalSound: comp.ArrivalSound);
 
                 if (!TryFindNukeOpsRule(out var nukeopsRule)
                     || nukeopsRule?.TargetStation is not { } targetStation)
@@ -94,14 +97,16 @@ namespace Content.Server._Impstation.Shuttles.Systems
                 if (stationGrid == null)
                     continue;
 
+                var audio = _audio.PlayPvs(comp.TravelSound, stationGrid.Value);
+                _audio.SetMapAudio(audio);
                 _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, true, true, true);
                 _announcer.SendAnnouncement(
                     _announcer.GetAnnouncementId(CommandAnnouncementId),
                     Filter.BroadcastMap(Transform(stationGrid.Value).MapID),
-                    Loc.GetString(comp.DepartureStationAnouncement),
-                    Loc.GetString(comp.StationAnouncementSender),
-                    station: targetStation,
-                    colorOverride: Color.Cyan
+                    Loc.GetString(comp.DepartureStationAnnouncement),
+                    Loc.GetString(comp.StationAnnouncementSender),
+                    Color.Cyan,
+                    targetStation
                 );
             }
         }
@@ -172,9 +177,9 @@ namespace Content.Server._Impstation.Shuttles.Systems
 
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
-                Loc.GetString(ent.Comp.BeginDepartureAnouncement),
+                Loc.GetString(ent.Comp.BeginDepartureAnnouncement),
                 sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
-                announcementSound: ent.Comp.NukieAnnouncementSound,
+                announcementSound: ent.Comp.DepartureAnnouncementSound,
                 colorOverride: Color.DarkRed
             );
         }
@@ -186,7 +191,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
             if (ent.Comp.InsertedTelecrystals != 0)
                 _chat.DispatchFilteredAnnouncement(
                     Filter.BroadcastMap(Transform(ent).MapID),
-                    Loc.GetString(ent.Comp.WarDeclaredFailedDepartureAnouncement),
+                    Loc.GetString(ent.Comp.WarDeclaredFailedDepartureAnnouncement),
                     sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
                     colorOverride: Color.DarkRed
                 );

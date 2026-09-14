@@ -30,7 +30,7 @@
     tempChange: 420
   - type: ProjectileAnomaly
     projectilePrototype: ProjectileAnomalyFireball
-    projectileSpeed: 0.5
+    projectileSpeed: 2 #imp
     minProjectiles: 1
     maxProjectiles: 3
 

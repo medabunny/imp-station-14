@@ -63,3 +63,48 @@
   - type: DeleteOnTrigger
   - type: StaticPrice
     price: 0
+
+- type: entity
+  name: big log
+  id: ChairBigLog
+  parent: SeatBase
+  description: A big log. You could sit on it, or gnaw on it if you're a beaver or some kind of termite person.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Impstation/Structures/Furniture/Chairs/log_big.rsi
+    state: full
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 35
+  - type: Construction
+    graph: chairBigLog
+    node: chairbiglog

@@ -64,23 +64,25 @@ public sealed partial class FTLComponent : Component
 
     /// <summary>
     /// Imp.
-    /// Arrival sound that plays when you arrive.
-    /// Implement in the other public FTL methods if you want to modify FTL sounds from a non-position FTL.
+    /// If a specific global arrival sound should play when you arrive instead of normal FTL arrival sound.
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
     /// </summary>
     [ViewVariables]
-    public SoundSpecifier? ArrivalSound;
+    public SoundSpecifier? GlobalArrivalSound;
 
     /// <summary>
     /// Imp.
     /// If to destroy the floor area the FTL transports to
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables]
     public bool DestroyFloor;
 
     /// <summary>
     /// Imp.
-    /// Entities on the FTL shuttle when arriving, only populated when DestroyFloor is true but if needed in the future could easily be moved out of the conditional
+    /// Radius of entities to knockdown on arrival, if null knockdown only on the shuttle
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public HashSet<EntityUid> FTLTravellingEntities = new();
+    [ViewVariables]
+    public float ArrivalKnockdownRadius;
 }

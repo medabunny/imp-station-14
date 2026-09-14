@@ -589,5 +589,5 @@
       orGroup: monospaceDecals
     # Imp start
     - id: GhostMediumVariationPass
-      prob: 0.10
+      prob: 0.05
     # Imp end
