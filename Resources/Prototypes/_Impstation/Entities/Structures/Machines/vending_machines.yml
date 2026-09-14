@@ -358,3 +358,324 @@
     radius: 1.5
     energy: 1.6
     color: "#6cfffa"
+
+# broken vending machine protos
+
+- type: entity
+  id: BaseBrokenVendingMachine
+  suffix: Broken
+  abstract: true
+  components:
+  - type: BreakageOnSpawn
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCondiments ]
+  id: VendingMachineCondimentsBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineAmmo ]
+  id: VendingMachineAmmoBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineBooze ]
+  id: VendingMachineBoozeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineBoozeSyndicate ]
+  id: VendingMachineBoozeSyndicateBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCart ]
+  id: VendingMachineCartBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChefvend ]
+  id: VendingMachineChefvendBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCigs ]
+  id: VendingMachineCigsBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineClothing ]
+  id: VendingMachineClothingBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCoffee ]
+  id: VendingMachineCoffeeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCola ]
+  id: VendingMachineColaBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineColaBlack ]
+  id: VendingMachineColaBlackBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineColaRed ]
+  id: VendingMachineColaRedBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSpaceUp ]
+  id: VendingMachineSpaceUpBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSoda ]
+  id: VendingMachineSodaBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineStarkist ]
+  id: VendingMachineStarkistBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineShamblersJuice ]
+  id: VendingMachineShamblersJuiceBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachinePwrGame ]
+  id: VendingMachinePwrGameBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDrGibb ]
+  id: VendingMachineDrGibbBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSmite ]
+  id: VendingMachineSmiteBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDinnerware ]
+  id: VendingMachineDinnerwareBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineMagivend ]
+  id: VendingMachineMagivendBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDiscount ]
+  id: VendingMachineDiscountBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineEngivend ]
+  id: VendingMachineEngivendBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineMedicalBase ]
+  id: VendingMachineMedicalBaseBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineMedical ]
+  id: VendingMachineMedicalBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineNutri ]
+  id: VendingMachineNutriBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSec ]
+  id: VendingMachineSecBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSeedsUnlocked ]
+  id: VendingMachineSeedsUnlockedBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSnack ]
+  id: VendingMachineSnackBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSustenance ]
+  id: VendingMachineSustenanceBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSnackBlue ]
+  id: VendingMachineSnackBlueBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSnackOrange ]
+  id: VendingMachineSnackOrangeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSnackGreen ]
+  id: VendingMachineSnackGreenBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSnackTeal ]
+  id: VendingMachineSnackTealBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSovietSoda ]
+  id: VendingMachineSovietSodaBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineTheater ]
+  id: VendingMachineTheaterBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineVendomat ]
+  id: VendingMachineVendomatBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineRobotics ]
+  id: VendingMachineRoboticsBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineYouTool ]
+  id: VendingMachineYouToolBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineGames ]
+  id: VendingMachineGamesBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChang ]
+  id: VendingMachineChangBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSalvage ]
+  id: VendingMachineSalvageBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDonut ]
+  id: VendingMachineDonutBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineHydrobe ]
+  id: VendingMachineHydrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineLawDrobe ]
+  id: VendingMachineLawDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSecDrobe ]
+  id: VendingMachineSecDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingBarDrobe ]
+  id: VendingBarDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChapel ]
+  id: VendingMachineChapelBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCargoDrobe ]
+  id: VendingMachineCargoDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineMediDrobe ]
+  id: VendingMachineMediDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChemDrobe ]
+  id: VendingMachineChemDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCuraDrobe ]
+  id: VendingMachineCuraDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineAtmosDrobe ]
+  id: VendingMachineAtmosDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineEngiDrobe ]
+  id: VendingMachineEngiDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChefDrobe ]
+  id: VendingMachineChefDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDetDrobe ]
+  id: VendingMachineDetDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineJaniDrobe ]
+  id: VendingMachineJaniDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSciDrobe ]
+  id: VendingMachineSciDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSyndieDrobe ]
+  id: VendingMachineSyndieDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineRoboDrobe ]
+  id: VendingMachineRoboDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineGeneDrobe ]
+  id: VendingMachineGeneDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineViroDrobe ]
+  id: VendingMachineViroDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCentDrobe ]
+  id: VendingMachineCentDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineHappyHonk ]
+  id: VendingMachineHappyHonkBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachinePride ]
+  id: VendingMachinePrideBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChemicalsSyndicate ]
+  id: VendingMachineChemicalsSyndicateBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineWallMedicalCivilian ]
+  id: VendingMachineWallMedicalCivilianBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineWallMedical ]
+  id: VendingMachineWallMedicalBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineBoozeUnlocked ]
+  id: VendingMachineBoozeUnlockedBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineCourierDrobe ]
+  id: VendingMachineCourierDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineChemicalsInterdyne ]
+  id: VendingMachineChemicalsInterdyneBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineSalvDrobe ]
+  id: VendingMachineSalvDrobeBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineJuice ]
+  id: VendingMachineJuiceBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineArticSeltz ]
+  id: VendingMachineArticSeltzBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDeadlyDan ]
+  id: VendingMachineDeadlyDanBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineDanShrimp ]
+  id: VendingMachineDanShrimpBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, LawVend ]
+  id: LawVendBroken
+
+- type: entity
+  parent: [ BaseBrokenVendingMachine, VendingMachineBeachDrobe ]
+  id: VendingMachineBeachDrobeBroken
