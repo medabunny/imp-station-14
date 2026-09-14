@@ -178,9 +178,9 @@ namespace Content.Server._Impstation.Shuttles.Systems
             var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(ent.Comp.TravelCoordinates), true);
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
-                Loc.GetString(ent.Comp.BeginDepartureAnnouncement, ("beacon", beacon)),
+                Loc.GetString(ent.Comp.BeginDepartureTimerAnnouncement, ("beacon", beacon)),
                 sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
-                announcementSound: ent.Comp.BeginDepartureAnnouncementSound,
+                announcementSound: ent.Comp.BeginDepartureTimerAnnouncementSound,
                 colorOverride: Color.DarkRed
             );
         }

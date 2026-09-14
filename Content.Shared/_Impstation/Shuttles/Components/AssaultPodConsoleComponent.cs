@@ -46,7 +46,7 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public LocId LockExamineText = "assault-pod-lock-examine";
     [DataField]
-    public LocId BeginDepartureAnnouncement = "assault-pod-announcement-begin-departure";
+    public LocId BeginDepartureTimerAnnouncement = "assault-pod-announcement-begin-departure";
     [DataField]
     public LocId WarDeclaredFailedDepartureAnnouncement = "assault-pod-announcement-war-declared-failed-departure";
     [DataField]
@@ -56,9 +56,9 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public LocId StationAnnouncementSender = "station-announcement-sender";
     [DataField]
-    public SoundSpecifier BeginDepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
+    public SoundSpecifier BeginDepartureTimerAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
     [DataField]
-    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Marine/notice2.ogg");
+    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/ARES/dropship_emergency.ogg");
     [DataField]
     public SoundSpecifier TravelSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_orbital_travel.ogg");
     [DataField]
