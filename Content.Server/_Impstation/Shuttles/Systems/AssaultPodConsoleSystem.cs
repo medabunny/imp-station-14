@@ -6,6 +6,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.NukeOps;
+using Content.Server.Pinpointer;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
@@ -26,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.Shuttles.Systems
 {
@@ -39,6 +41,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
         [Dependency] private readonly LockSystem _lockSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly MapSystem _mapSystem = default!;
+        [Dependency] private readonly NavMapSystem _navMap = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
@@ -99,11 +102,14 @@ namespace Content.Server._Impstation.Shuttles.Systems
 
                 var audio = _audio.PlayPvs(comp.TravelSound, stationGrid.Value);
                 _audio.SetMapAudio(audio);
+
+                var mapID = Transform(stationGrid.Value).MapID;
+                var beacon = _navMap.GetNearestBeaconString(new MapCoordinates(comp.TravelCoordinates.Position, mapID));
                 _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, true, true, true);
                 _announcer.SendAnnouncement(
                     _announcer.GetAnnouncementId(CommandAnnouncementId),
-                    Filter.BroadcastMap(Transform(stationGrid.Value).MapID),
-                    Loc.GetString(comp.DepartureStationAnnouncement),
+                    Filter.BroadcastMap(mapID),
+                    Loc.GetString(comp.DepartureStationAnnouncement, ("beacon", beacon)),
                     Loc.GetString(comp.StationAnnouncementSender),
                     Color.Cyan,
                     targetStation
@@ -175,9 +181,10 @@ namespace Content.Server._Impstation.Shuttles.Systems
             ent.Comp.TravelCoordinates = _mapSystem.ToCoordinates(chosenTile, grid);
             ent.Comp.LaunchTime = _timing.CurTime + ent.Comp.TimeTillLaunch;
 
+            var beacon = _navMap.GetNearestBeaconString(args.Coordinates, true);
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
-                Loc.GetString(ent.Comp.BeginDepartureAnnouncement),
+                Loc.GetString(ent.Comp.BeginDepartureAnnouncement, ("beacon", beacon)),
                 sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
                 announcementSound: ent.Comp.DepartureAnnouncementSound,
                 colorOverride: Color.DarkRed
