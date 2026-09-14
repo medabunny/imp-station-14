@@ -46,7 +46,7 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public LocId LockExamineText = "assault-pod-lock-examine";
     [DataField]
-    public LocId BeginDepartureTimerAnnouncement = "assault-pod-announcement-begin-departure";
+    public LocId BeginDepartureTimerAnnouncement = "assault-pod-announcement-begin-departure-timer";
     [DataField]
     public LocId WarDeclaredFailedDepartureAnnouncement = "assault-pod-announcement-war-declared-failed-departure";
     [DataField]

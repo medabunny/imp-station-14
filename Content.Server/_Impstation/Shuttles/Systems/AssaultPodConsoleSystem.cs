@@ -48,8 +48,8 @@ namespace Content.Server._Impstation.Shuttles.Systems
             base.Initialize();
 
             SubscribeLocalEvent<AssaultPodConsoleComponent, InteractUsingEvent>(OnInteractUsing);
-            SubscribeLocalEvent<AssaultPodConsoleComponent, WarDeclaredEvent>(OnWarDeclared);
             SubscribeLocalEvent<AssaultPodConsoleComponent, DestructionEventArgs>(OnDestruction);
+            SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
             Subs.BuiEvents<AssaultPodConsoleComponent>(StationMapUiKey.Key, subs =>
             {
                 subs.Event<ClickCoordMessage>(OnClickCoord);
@@ -96,7 +96,7 @@ namespace Content.Server._Impstation.Shuttles.Systems
                     continue;
 
                 var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(comp.TravelCoordinates), true);
-                _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, true, true, true);
+                _alertLevelSystem.SetLevel(targetStation, comp.AlertLevel, false, true, true);
                 _chat.DispatchGlobalAnnouncement(
                     Loc.GetString(comp.DepartureStationAnnouncement, ("beacon", beacon)),
                     Loc.GetString(comp.StationAnnouncementSender),
@@ -175,32 +175,13 @@ namespace Content.Server._Impstation.Shuttles.Systems
             ent.Comp.TravelCoordinates = _transform.WithEntityId(gridEntityCoords, _mapSystem.GetMap(args.Coordinates.MapId));
             ent.Comp.LaunchTime = _timing.CurTime + ent.Comp.TimeTillLaunch;
 
-            var beacon = _navMap.GetNearestBeaconString(_transform.ToMapCoordinates(ent.Comp.TravelCoordinates), true);
             _chat.DispatchFilteredAnnouncement(
                 Filter.BroadcastMap(Transform(ent).MapID),
-                Loc.GetString(ent.Comp.BeginDepartureTimerAnnouncement, ("beacon", beacon)),
+                Loc.GetString(ent.Comp.BeginDepartureTimerAnnouncement),
                 sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
                 announcementSound: ent.Comp.BeginDepartureTimerAnnouncementSound,
                 colorOverride: Color.DarkRed
             );
-        }
-
-        private void OnWarDeclared(Entity<AssaultPodConsoleComponent> ent, ref WarDeclaredEvent args)
-        {
-            ent.Comp.WarDeclared = true;
-
-            if (ent.Comp.InsertedTelecrystals != 0)
-                _chat.DispatchFilteredAnnouncement(
-                    Filter.BroadcastMap(Transform(ent).MapID),
-                    Loc.GetString(ent.Comp.WarDeclaredFailedDepartureAnnouncement),
-                    sender: Loc.GetString(ent.Comp.NukieAnnouncementSender),
-                    colorOverride: Color.DarkRed
-                );
-            else
-                return;
-
-            _stackSystem.SpawnNextToOrDrop(ent.Comp.InsertedTelecrystals, TelecrystalStackPrototype, ent);
-            ent.Comp.InsertedTelecrystals = 0;
         }
 
         private void OnDestruction(Entity<AssaultPodConsoleComponent> ent, ref DestructionEventArgs args)
@@ -209,6 +190,31 @@ namespace Content.Server._Impstation.Shuttles.Systems
                 return;
 
             _stackSystem.SpawnNextToOrDrop(ent.Comp.InsertedTelecrystals, TelecrystalStackPrototype, ent);
+        }
+
+        private void OnWarDeclared(ref WarDeclaredEvent args)
+        {
+            var query = EntityQueryEnumerator<AssaultPodConsoleComponent>();
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                if (comp.CostPayed)
+                    continue;
+
+                comp.WarDeclared = true;
+
+                if (comp.InsertedTelecrystals != 0)
+                    _chat.DispatchFilteredAnnouncement(
+                        Filter.BroadcastMap(Transform(uid).MapID),
+                        Loc.GetString(comp.WarDeclaredFailedDepartureAnnouncement),
+                        sender: Loc.GetString(comp.NukieAnnouncementSender),
+                        colorOverride: Color.DarkRed
+                    );
+                else
+                    return;
+
+                _stackSystem.SpawnNextToOrDrop(comp.InsertedTelecrystals, TelecrystalStackPrototype, uid);
+                comp.InsertedTelecrystals = 0;
+            }
         }
 
         private bool TryFindNukeOpsRule(out NukeopsRuleComponent? nukeopsRule)
