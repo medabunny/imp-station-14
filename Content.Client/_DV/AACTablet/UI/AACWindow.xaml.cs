@@ -24,9 +24,9 @@ public sealed partial class AACWindow : FancyWindow
     public event Action? Typing;
     public event Action? SubmitPressed;
 
-    private const float SpaceWidth = 3f;
-    private const float ParentWidth = 470f;
-    private const int ColumnCount = 3;
+    private const float SpaceWidth = 10f;
+    private const float ParentWidth = 540f;
+    private const int ColumnCount = 4;
 
     private const int ButtonWidth =
         (int)((ParentWidth - SpaceWidth * 2) / ColumnCount - SpaceWidth * ((ColumnCount - 1f) / ColumnCount));
@@ -95,7 +95,7 @@ public sealed partial class AACWindow : FancyWindow
 
     private void FilterSearch(LineEdit.LineEditEventArgs? obj)
     {
-        SearchResults.DisposeAllChildren();
+        SearchResults.RemoveAllChildren();
         _filteredPhrases.Clear();
 
         var emptySearch = string.IsNullOrEmpty(SearchBar.Text);
@@ -153,7 +153,15 @@ public sealed partial class AACWindow : FancyWindow
         {
             var tabName = Loc.GetString(tab.Key);
             var boxContainer = CreateBoxContainerForTab(tab.Value);
-            var scroll = new ScrollContainer();
+            var scroll = new ScrollContainer
+            // imp. define new margin stuff for proper padding
+            {
+                HorizontalExpand = true,
+                VerticalExpand = true,
+                HScrollEnabled = false,
+                Margin = new Thickness(0, 5, 0, 5),
+            };
+
             scroll.HScrollEnabled = false;
             scroll.AddChild(boxContainer);
             WindowBody.AddChild(scroll);
@@ -225,7 +233,7 @@ public sealed partial class AACWindow : FancyWindow
             MinSize = new Vector2(ButtonWidth, ButtonHeight),
             ClipText = false,
             HorizontalExpand = true,
-            StyleClasses = { styleClass }
+            StyleClasses = { ContainerButton.StyleClassButton, styleClass }
         };
 
         var buttonLabel = new RichTextLabel

@@ -1,10 +1,12 @@
+using Content.Server.Administration.Logs;
+using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
-using Content.Shared._DV.AACTablet;
-using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._DV.AACTablet;
 using Content.Server.Popups; // imp
 using Content.Shared.Abilities.Mime; // imp
 using Content.Shared.Mind; // imp
@@ -14,6 +16,7 @@ namespace Content.Server._DV.AACTablet;
 public sealed class AACTabletSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!; // imp
@@ -50,7 +53,7 @@ public sealed class AACTabletSystem : EntitySystem
         _localisedPhrases.Clear();
         foreach (var phraseProto in message.PhraseIds)
         {
-            if (_prototype.TryIndex(phraseProto, out var phrase))
+            if (_prototype.Resolve(phraseProto, out var phrase))
             {
                 // Ensures each phrase is capitalised to maintain common AAC styling
                 _localisedPhrases.Add(_chat.SanitizeMessageCapital(Loc.GetString(phrase.Text)));
@@ -62,11 +65,17 @@ public sealed class AACTabletSystem : EntitySystem
 
         EnsureComp<VoiceOverrideComponent>(ent).NameOverride = speakerName;
 
+        // L5 — save the message for logging
+        var messageToSend = string.Join(" ", _localisedPhrases);
+
         _chat.TrySendInGameICMessage(ent,
-            string.Join(" ", _localisedPhrases),
+            messageToSend,
             InGameICChatType.Speak,
             hideChat: false,
             nameOverride: speakerName);
+
+        // L5 — log AAC chat message
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"AAC tablet message from {ToPrettyString(message.Actor):user}: {messageToSend}");
 
         var curTime = _timing.CurTime;
         ent.Comp.NextPhrase = curTime + ent.Comp.Cooldown;
