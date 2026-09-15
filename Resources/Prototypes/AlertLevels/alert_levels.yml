@@ -42,7 +42,7 @@
         path: /Audio/Misc/gamma.ogg
         params:
           volume: -2
-      # disableSelection: true imp removal
+      disableSelection: true
       color: PaleVioletRed
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
