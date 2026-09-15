@@ -19,3 +19,8 @@
   materials:
     Glass: 200
     Plastic: 100
+
+- type: latheRecipe
+  parent: HotplateMachineCircuitboard
+  id: ColdplateMachineCircuitboard
+  result: ColdplateMachineCircuitboard

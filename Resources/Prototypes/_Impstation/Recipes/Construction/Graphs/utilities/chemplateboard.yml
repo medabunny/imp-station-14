@@ -1,0 +1,18 @@
+﻿- type: constructionGraph
+  id: ChemPlateBoard
+  start: hotplate
+  graph:
+  - node: hotplate # hotplate board deconstructs into a coldplate board
+    entity: HotplateMachineCircuitboard
+    edges:
+    - to: coldplate
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: coldplate # coldplate board deconstructs into a hotplate board
+    entity: ColdplateMachineCircuitboard
+    edges:
+    - to: hotplate
+      steps:
+      - tool: Screwing
+        doAfter: 2

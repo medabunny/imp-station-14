@@ -950,7 +950,7 @@
   id: HotplateMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: hotplate machine board
-  description: A machine printed circuit board for a hotplate.
+  description: A machine printed circuit board for a hotplate. It looks like you can use a screwdriver on it! # imp, originally just "A machine printed circuit board for a hotplate."
   components:
   - type: Sprite
     state: medical
@@ -959,6 +959,12 @@
     stackRequirements:
       Capacitor: 2 # imp Manipulator>Capacitor
       Glass: 1
+  # imp edit start- can be deconstructed into a coldplate board
+  - type: Construction
+    deconstructionTarget: null
+    graph: ChemPlateBoard
+    node: hotplate
+  # imp edit end
 
 - type: entity
   parent: BaseMachineCircuitboard

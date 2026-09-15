@@ -8,4 +8,12 @@ public sealed partial class SolutionHeaterComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float HeatPerSecond;
+
+    // imp edit start
+    /// <summary>
+    /// The minimum temperature a coldplate will cool the solution to. Defaults to null.
+    /// </summary>
+    [DataField]
+    public float? MinTemperature;
+    // imp edit end
 }

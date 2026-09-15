@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "copyright": "Sprited for Impstation by Squamatic (GitHub), modified from hotplate sprites by EmoGarbage for WizDen",
+  "license": "CC-BY-NC-SA-4.0",
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "on"
+    }
+  ]
+}

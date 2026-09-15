@@ -1,4 +1,15 @@
 - type: entity
+  id: ColdplateMachineCircuitboard
+  parent: HotplateMachineCircuitboard
+  name: coldplate machine board
+  description: A machine printed circuit board for a coldplate. It looks like you can use a screwdriver on it!
+  components:
+  - type: MachineBoard
+    prototype: ChemistryColdplate
+  - type: Construction # can be deconstructed into a hotplate board
+    node: coldplate
+
+- type: entity
   id: MiniGyroscopeMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: mini gyroscope machine board

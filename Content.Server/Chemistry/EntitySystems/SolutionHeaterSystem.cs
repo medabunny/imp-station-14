@@ -89,6 +89,10 @@ public sealed class SolutionHeaterSystem : EntitySystem
                 var energy = heater.HeatPerSecond * frameTime;
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
                 {
+                    // imp edit start- sets a minimum temperature (for coldplates!) controlled by MinTemperature
+                    if (heater.MinTemperature != null && soln.Comp.Solution.Temperature <= heater.MinTemperature.Value)
+                        continue;
+                    // imp edit end
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }
             }

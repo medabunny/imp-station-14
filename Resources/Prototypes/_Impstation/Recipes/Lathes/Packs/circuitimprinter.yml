@@ -9,6 +9,7 @@
   - ImpCoffeeMachineCircuitboard
   - PrizeCounterMachineCircuitboard
   - PrinterDocMachineCircuitboard  # Corvax-Printer
+  - ColdplateMachineCircuitboard
 
 # Dynamic
 

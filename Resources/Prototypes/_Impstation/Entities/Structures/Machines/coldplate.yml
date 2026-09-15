@@ -1,0 +1,14 @@
+# cools an entity or solution placed on it
+- type: entity
+  parent: ChemistryHotplate
+  id: ChemistryColdplate
+  name: coldplate
+  description: "The descendent of the icebox, our newest invention in beaker cooling technology: the coldplate!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/coldplate.rsi
+  - type: SolutionHeater
+    heatPerSecond: -80 # make things cold by adding a negative heat value, obviously. half the value of a hotplate
+    minTemperature: 273.15 # freezing point of water. nanotrasen doesn't want you to know that the coldplate is just a box with an ice cube in it
+  - type: Machine
+    board: ColdplateMachineCircuitboard
