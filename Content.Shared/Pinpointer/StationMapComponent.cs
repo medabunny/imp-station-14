@@ -24,4 +24,11 @@ public sealed partial class StationMapComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? TargetGrid;
+
+    /// <summary>
+    /// Imp.
+    /// Whether or not to send the coords through a event when the map is clicked.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool SendClickCoords;
 }

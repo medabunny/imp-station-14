@@ -34,12 +34,14 @@ public partial class NavMapControl : MapGridControl
 
     public EntityUid? Owner;
     public EntityUid? MapUid;
+    public bool ClickCoordMode; // imp
 
     protected override bool Draggable => true;
 
     // Actions
     public event Action<NetEntity?>? TrackedEntitySelectedAction;
     public event Action<DrawingHandleScreen>? PostWallDrawingAction;
+    public event Action<MapCoordinates>? RequestClickCoord; // imp
 
     // Tracked data
     public Dictionary<EntityCoordinates, (bool Visible, Color Color)> TrackedCoordinates = new();
@@ -199,10 +201,10 @@ public partial class NavMapControl : MapGridControl
 
         if (args.Function == EngineKeyFunctions.UIClick)
         {
-            if (TrackedEntitySelectedAction == null)
+            if (TrackedEntitySelectedAction == null && !ClickCoordMode) // imp, add && !ClickCoordMode
                 return;
 
-            if (_xform == null || _physics == null || TrackedEntities.Count == 0)
+            if (_xform == null || _physics == null || TrackedEntities.Count == 0 && !ClickCoordMode) // imp, added && !ClickCoordMode
                 return;
 
             // If the cursor has moved a significant distance, exit
@@ -216,6 +218,17 @@ public partial class NavMapControl : MapGridControl
             // Convert to a world position
             var unscaledPosition = (localPosition - MidPointVector) / MinimapScale;
             var worldPosition = Vector2.Transform(new Vector2(unscaledPosition.X, -unscaledPosition.Y) + offset, _transformSystem.GetWorldMatrix(_xform));
+
+            // imp start
+            if (ClickCoordMode)
+            {
+                var mapCoords = new MapCoordinates(worldPosition, _xform.MapID);
+                RequestClickCoord?.Invoke(mapCoords);
+            }
+
+            if (TrackedEntitySelectedAction == null || TrackedEntities.Count == 0)
+                return;
+            // imp end
 
             // Find closest tracked entity in range
             var closestEntity = NetEntity.Invalid;

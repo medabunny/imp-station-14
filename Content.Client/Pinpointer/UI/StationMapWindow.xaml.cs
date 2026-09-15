@@ -13,6 +13,7 @@ public sealed partial class StationMapWindow : FancyWindow
     [Dependency] private readonly IEntityManager _entMan = default!;
 
     private readonly List<StationMapBeaconControl> _buttons = new();
+    public event Action<MapCoordinates>? RequestClickCoord; // imp
 
     public StationMapWindow()
     {
@@ -20,6 +21,13 @@ public sealed partial class StationMapWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         FilterBar.OnTextChanged += (bar) => OnFilterChanged(bar.Text);
+
+        // imp start
+        NavMapScreen.RequestClickCoord += (coords) =>
+        {
+            RequestClickCoord?.Invoke(coords);
+        };
+        // imp
     }
 
     public void Set(string stationName, EntityUid? mapUid, EntityUid? trackedEntity)
@@ -74,4 +82,11 @@ public sealed partial class StationMapWindow : FancyWindow
         foreach (var button in _buttons)
             BeaconButtons.AddChild(button);
     }
+
+    // imp start
+    public void ToggleClickCoords(bool toggle)
+    {
+        NavMapScreen.ClickCoordMode = toggle;
+    }
+    // imp end
 }

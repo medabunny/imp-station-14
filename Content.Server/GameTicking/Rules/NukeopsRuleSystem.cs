@@ -28,6 +28,7 @@ using System.Linq;
 using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using Content.Server._Impstation.GameTicking.Rules.Components; // imp
 using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Mind; //imp addition
 
@@ -420,7 +421,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var nukeops, out _))
         {
-            if (ev.Uid != GetShuttle((uid, nukeops)))
+            if (ev.Uid != GetShuttle((uid, nukeops)) && !HasComp<NukeOpsDropPodComponent>(ev.Uid)) // imp add && !HasComp<NukeOpsDropPodComponent>(ev.Uid)
                 continue;
 
             if (nukeops.WarDeclaredTime != null)

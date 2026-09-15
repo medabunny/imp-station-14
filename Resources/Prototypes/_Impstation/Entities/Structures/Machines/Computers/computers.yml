@@ -97,3 +97,57 @@
   id: ComputerFundingAllocationBroken
   name: broken funding allocation computer
   description: Terminal for controlling the distribution of funds and pay to departments. What happened to it?
+
+- type: entity
+  parent: [ BaseComputer, Tier3Contraband ]
+  id: ComputerAssaultPodSyndie
+  name: syndicate assault pod console
+  description: Used to designate a approximate location for the assault pod to land at. Unused telecrystals are released if broken or if an attempt to declare war is made.
+  components:
+  - type: AssaultPodConsole
+  - type: NukeopsStationMap
+  - type: StationMap
+    showLocation: false
+    initializeWithStation: true
+    sendClickCoords: true
+  - type: ActivatableUI
+    key: enum.StationMapUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.StationMapUiKey.Key:
+          type: StationMapBoundUserInterface
+  - type: Lock
+    showLockVerbs: false
+    lockOnClick: false
+    unlockOnClick: false
+    useAccess: false
+    breakOnAccessBreaker: false
+    customLockText: console has images of 40 telecrystals covering the screen and
+    toggleExamineTextOnUnlock: true
+  - type: UIRequiresLock
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerScreen"]
+      state: syndishuttle
+    - map: ["computerLayerKeys"]
+      state: syndie_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+  - type: Tag
+    tags:
+      - Syndicate
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#c94242"
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: Anchorable
+    flags: None

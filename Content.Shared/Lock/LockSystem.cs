@@ -230,6 +230,9 @@ public sealed class LockSystem : EntitySystem
 
         _audio.PlayPredicted(lockComp.UnlockSound, uid, user);
 
+        if (lockComp.ToggleExamineTextOnUnlock) // imp
+            lockComp.ShowExamine = !lockComp.ShowExamine; // imp
+
         lockComp.Locked = false;
         _appearanceSystem.SetData(uid, LockVisuals.Locked, false);
         Dirty(uid, lockComp);
@@ -565,6 +568,17 @@ public sealed class LockSystem : EntitySystem
                 args.User);
         }
     }
+
+    // imp start
+    public void SetCustomLockText(EntityUid uid, string customLockText, LockComponent? lockComp = null)
+    {
+        if (!Resolve(uid, ref lockComp))
+            return;
+
+        lockComp.CustomLockText = customLockText;
+        Dirty(uid, lockComp);
+    }
+    // imp end
 }
 
 /// <summary>

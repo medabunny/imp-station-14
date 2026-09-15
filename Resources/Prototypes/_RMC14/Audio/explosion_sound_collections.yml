@@ -1,0 +1,7 @@
+﻿- type: soundCollection
+  id: RMCExplosionBig
+  files:
+  - /Audio/_RMC14/Explosion/bigboom1.ogg
+  - /Audio/_RMC14/Explosion/bigboom2.ogg
+  - /Audio/_RMC14/Explosion/bigboom3.ogg
+  - /Audio/_RMC14/Explosion/bigboom4.ogg

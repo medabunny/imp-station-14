@@ -61,4 +61,36 @@ public sealed partial class FTLComponent : Component
 
     [DataField]
     public EntityUid? TravelStream;
+
+    /// <summary>
+    /// Imp.
+    /// If a specific global arrival sound should play when you arrive instead of normal FTL arrival sound.
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
+    /// </summary>
+    [ViewVariables]
+    public SoundSpecifier? GlobalArrivalSound;
+
+    /// <summary>
+    /// Imp.
+    /// If to play the travel sound globally instead of only on the grid.
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool GlobalTravelSound;
+
+    /// <summary>
+    /// Imp.
+    /// If to destroy the floor area the FTL transports to
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
+    /// </summary>
+    [ViewVariables]
+    public bool DestroyFloor;
+
+    /// <summary>
+    /// Imp.
+    /// Radius of entities to knockdown on arrival, if null knockdown only on the shuttle
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
+    /// </summary>
+    [ViewVariables]
+    public float ArrivalKnockdownRadius;
 }
