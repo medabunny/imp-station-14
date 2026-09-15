@@ -211,3 +211,11 @@ ghost-role-information-evilgorilla-rules = You are a [color=red][bold]Team Antag
                                           You are free to do what you want, provided it is sufficiently hostile. If there are any members of your team, [bold]work with them to wreak havoc.[/bold]
 
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-space-snake-cobra-name = Space Cobra
+ghost-role-information-space-snake-adder-name = Space Adder
+ghost-role-information-space-snake-adder-small-name = Small Space Adder
+ghost-role-information-space-snake-description = You are a snake who just woke up in this station. All other non-slithering creatures threaten your home, and must die.
+ghost-role-information-space-snake-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with all other space snakes.
+
+                                            You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

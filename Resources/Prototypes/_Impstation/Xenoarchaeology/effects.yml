@@ -111,7 +111,7 @@
     components:
     - type: PointLight
       radius: 8
-      energy: 10
+      energy: 1.2
       color: "#daa3fd"
     - type: FlashOnTrigger
       range: 8
@@ -405,15 +405,25 @@
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
         children:
-        - id: WizardsGrimoire
-        - id: SpawnSpellbook
         - id: ForceWallSpellbook
         - id: BlinkBook
-        - id: SmiteBook
         - id: KnockSpellbook
-        - id: FireballSpellbook
         - id: SpawnSpaceGreaseSpellbook
         - id: ScrollRunes
+        - id: SpellbookSafeLibrarianFireball
+        - id: SpellbookSafeLibrarianFlashlight
+        - id: SpellbookSafeLibrarianCutting
+        - id: SpellbookSafeLibrarianPrying
+        - id: SpellbookSafeLibrarianAnchoring
+        - id: SpellbookSafeLibrarianScrewing
+        - id: FireballSpellbook
+          weight: 0.6
+        - id: SmiteBook
+          weight: 0.6
+        - id: WizardsGrimoire
+          weight: 0.3
+        - id: SpawnSpellbook
+          weight: 0.6
 
 - type: entity
   id: XenoArtifactCashSpawnMajor

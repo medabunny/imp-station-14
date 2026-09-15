@@ -124,9 +124,6 @@
       DamageVariable:
         types:
           Piercing: 0
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:

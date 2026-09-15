@@ -15,3 +15,4 @@ station-event-unknown-shuttle-microshuttle-announcement = Attention! An unidenti
 station-event-unknown-shuttle-spacebus-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-man-o-war-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
 station-event-unknown-shuttle-party-u-f-o-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
+station-event-unknown-shuttle-food4you-announcement = Attention! An unidentified space shuttle has been spotted approaching your sector.
