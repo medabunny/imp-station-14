@@ -747,6 +747,16 @@
   parent: BaseNouns
   text: imp-phrase-ammonia
 
+- type: quickPhrase
+  id: LimbsPhrase
+  parent: BaseNouns
+  text: imp-phrase-limbs
+
+- type: quickPhrase
+  id: ParolePhrase
+  parent: BaseNouns
+  text: imp-phrase-parole
+
 # damage types
 
 - type: quickPhrase
