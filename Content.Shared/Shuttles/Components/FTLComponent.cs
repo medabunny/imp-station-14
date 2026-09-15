@@ -72,6 +72,14 @@ public sealed partial class FTLComponent : Component
 
     /// <summary>
     /// Imp.
+    /// If to play the travel sound globally instead of only on the grid.
+    /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool GlobalTravelSound;
+
+    /// <summary>
+    /// Imp.
     /// If to destroy the floor area the FTL transports to
     /// Implement in the other public FTL methods if you want to modify from a non-position method FTL.
     /// </summary>

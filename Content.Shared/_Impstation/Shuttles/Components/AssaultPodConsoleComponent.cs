@@ -29,13 +29,13 @@ public sealed partial class AssaultPodConsoleComponent : Component
     public int Cost = 40;
 
     [DataField]
-    public int LandingVariationRange = 15;
+    public int LandingVariationRange = 20;
 
     [DataField]
     public float TravelTime = 11f;
 
     [DataField]
-    public float ArrivalKnockRadius = 15;
+    public float ArrivalKnockRadius = 15f;
 
     [DataField]
     public TimeSpan TimeTillLaunch = TimeSpan.FromSeconds(30);
@@ -46,7 +46,7 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public LocId LockExamineText = "assault-pod-lock-examine";
     [DataField]
-    public LocId BeginDepartureAnnouncement = "assault-pod-announcement-begin-departure";
+    public LocId BeginDepartureTimerAnnouncement = "assault-pod-announcement-begin-departure-timer";
     [DataField]
     public LocId WarDeclaredFailedDepartureAnnouncement = "assault-pod-announcement-war-declared-failed-departure";
     [DataField]
@@ -56,7 +56,9 @@ public sealed partial class AssaultPodConsoleComponent : Component
     [DataField]
     public LocId StationAnnouncementSender = "station-announcement-sender";
     [DataField]
-    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
+    public SoundSpecifier BeginDepartureTimerAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Effects/ob_alert.ogg");
+    [DataField]
+    public SoundSpecifier DepartureAnnouncementSound = new SoundPathSpecifier("/Audio/_RMC14/Announcements/ARES/dropship_emergency.ogg");
     [DataField]
     public SoundSpecifier TravelSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_orbital_travel.ogg");
     [DataField]

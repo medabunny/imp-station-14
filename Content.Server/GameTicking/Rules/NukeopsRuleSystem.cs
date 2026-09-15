@@ -421,7 +421,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var nukeops, out _))
         {
-            if (ev.Uid != GetShuttle((uid, nukeops)) || HasComp<NukeOpsDropPodComponent>(ev.Uid)) // imp add || HasComp<NukeOpsDropPodComponent>(ev.Uid)
+            if (ev.Uid != GetShuttle((uid, nukeops)) && !HasComp<NukeOpsDropPodComponent>(ev.Uid)) // imp add && !HasComp<NukeOpsDropPodComponent>(ev.Uid)
                 continue;
 
             if (nukeops.WarDeclaredTime != null)
