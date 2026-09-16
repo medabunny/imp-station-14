@@ -364,8 +364,3 @@
   id: BlastPhraseImp
   parent: BaseVerbs
   text: imp-phrase-blast
-
-- type: quickPhrase
-  id: ReleasePhrase
-  parent: BaseVerbs
-  text: imp-phrase-release
