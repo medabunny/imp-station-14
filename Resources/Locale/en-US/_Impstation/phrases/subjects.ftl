@@ -247,3 +247,7 @@ imp-phrase-cyborg = Cyborg
 imp-phrase-ai = AI
 imp-phrase-hop = Head Of Personel
 imp-phrase-cap = Captain
+
+imp-phrase-limbs = Limbs
+imp-phrase-release = Release
+imp-phrase-parole = Parole
